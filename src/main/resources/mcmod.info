@@ -1,0 +1,21 @@
+{
+	"modListVersion": 2,
+	"modList": [{
+		"modid": "${modId}",
+		"name": "${modName}",
+		"description": "A 1.7.10 port of More Creeps, with permission from freakstritch",
+		"version": "${modVersion}",
+		"mcversion": "${minecraftVersion}",
+		"url": "ADD URL HERE JERIOS!",
+		"updateUrl": "",
+		"authorList": ["Jerios"],
+		"credits": "freakstritch for the original mod and giving me permission.",
+		"logoFile": "",
+		"screenshots": [],
+		"parent": "",
+		"requiredMods": [],
+		"dependencies": [],
+		"dependants": [],
+		"useDependencyInformation": false
+	}]
+}
