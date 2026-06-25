@@ -15,7 +15,7 @@ public class RenderGMob extends CreepsBaseLivingRender {
     }
 
     protected ResourceLocation getEntityTexture(GEntity entity) {
-        return ResourceLocationUtils.makeResourceLocationEntityPeaceful("G_entity");
+        return ResourceLocationUtils.makeResourceLocationEntityHostile("G_entity");
     }
 
     @Override
