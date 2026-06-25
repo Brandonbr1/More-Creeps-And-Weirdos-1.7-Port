@@ -17,7 +17,7 @@ public class RegisterMobUtil {
             entityClass,
             entityName,
             id++,
-            MoreCreeps.INSTACE,
+            MoreCreeps.INSTANCE,
             trackingRange,
             updateFrequency,
             sendsVelocityUpdates);
@@ -37,7 +37,7 @@ public class RegisterMobUtil {
             entityClass,
             entityName,
             id++,
-            MoreCreeps.INSTACE,
+            MoreCreeps.INSTANCE,
             trackingRange,
             updateFrequency,
             sendsVelocityUpdates);

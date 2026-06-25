@@ -9,18 +9,6 @@ import jerios.morecreeps.registry.CreepMobs;
 
 public class CommonProxy {
 
-    public void preInit(FMLPreInitializationEvent event) {
-        Config.synchronizeConfiguration(event.getSuggestedConfigurationFile());
-        CreepItems.registerItems();
-        CreepMobs.registerMobs();
-    }
+    public void clientProxy() { }
 
-    // load "Do your mod setup. Build whatever data structures you care about. Register recipes." (Remove if not needed)
-    public void init(FMLInitializationEvent event) {}
-
-    // postInit "Handle interaction with other mods, complete your setup based on this." (Remove if not needed)
-    public void postInit(FMLPostInitializationEvent event) {}
-
-    // register server commands in this event handler (Remove if not needed)
-    public void serverStarting(FMLServerStartingEvent event) {}
 }

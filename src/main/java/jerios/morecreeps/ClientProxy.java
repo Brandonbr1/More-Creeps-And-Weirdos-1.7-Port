@@ -12,7 +12,7 @@ import net.minecraft.item.Item;
 public class ClientProxy extends CommonProxy {
 
     @Override
-    public void preInit(FMLPreInitializationEvent event) {
+    public void clientProxy() {
         registerMobs();
         registerThrowable();
     }

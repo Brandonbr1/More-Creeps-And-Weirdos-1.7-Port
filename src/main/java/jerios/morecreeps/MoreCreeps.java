@@ -1,5 +1,7 @@
 package jerios.morecreeps;
 
+import jerios.morecreeps.registry.CreepItems;
+import jerios.morecreeps.registry.CreepMobs;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -15,8 +17,8 @@ public class MoreCreeps {
 
     public static final String MODID = "morecreeps";
 
-    @Mod.Instance
-    public static MoreCreeps INSTACE;
+    @Mod.Instance("morecreeps")
+    public static MoreCreeps INSTANCE;
 
 
     public static final Logger LOG = LogManager.getLogger(MODID);
@@ -26,21 +28,21 @@ public class MoreCreeps {
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-        proxy.preInit(event);
+        Config.synchronizeConfiguration(event.getSuggestedConfigurationFile());
+        CreepItems.registerItems();
+        CreepMobs.registerMobs();
+        proxy.clientProxy();
     }
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
-        proxy.init(event);
     }
 
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event) {
-        proxy.postInit(event);
     }
 
     @Mod.EventHandler
     public void serverStarting(FMLServerStartingEvent event) {
-        proxy.serverStarting(event);
     }
 }
