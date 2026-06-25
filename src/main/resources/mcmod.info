@@ -6,7 +6,7 @@
 		"description": "A 1.7.10 port of More Creeps, with permission from freakstritch",
 		"version": "${modVersion}",
 		"mcversion": "${minecraftVersion}",
-		"url": "ADD URL HERE JERIOS!",
+		"url": "https://github.com/Brandonbr1/More-Creeps-And-Weirdos-1.7-Port/tree/main",
 		"updateUrl": "",
 		"authorList": ["Jerios"],
 		"credits": "freakstritch for the original mod and giving me permission.",
