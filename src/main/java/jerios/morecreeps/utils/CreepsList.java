@@ -15,17 +15,17 @@ public class CreepsList {
 
     private static final Logger logger = LogManager.getLogger();
     /** Provides a mapping between entity classes and a string */
-    public static Map<String, Class<? extends Entity>> stringToClassMapping = new HashMap<>();
+    public static Map<String, Class<? extends net.minecraft.entity.Entity>> stringToClassMapping = new HashMap();
     /** Provides a mapping between a string and an entity classes */
-    public static Map<Class<? extends net.minecraft.entity.Entity>, String> classToStringMapping = new HashMap<>();
+    public static Map<Class<? extends net.minecraft.entity.Entity>, String> classToStringMapping = new HashMap();
     /** provides a mapping between an entityID and an Entity Class */
-    public static Map<Integer, Class<? extends net.minecraft.entity.Entity>> IDtoClassMapping = new HashMap<>();
+    public static Map<Integer, Class<? extends net.minecraft.entity.Entity>> IDtoClassMapping = new HashMap();
     /** provides a mapping between an Entity Class and an entity ID */
-    private static Map<Class, Integer> classToIDMapping = new HashMap<>();
+    private static Map classToIDMapping = new HashMap();
     /** Maps entity names to their numeric identifiers */
-    private static final Map<String, Integer> stringToIDMapping = new HashMap<>();
+    private static Map stringToIDMapping = new HashMap();
     /** This is a HashMap of the Creative Entity Eggs/Spawners. */
-    public static HashMap<Integer, CreepsList.EntityEggInfo> entityEggs = new LinkedHashMap<>();
+    public static HashMap<Integer, CreepsList.EntityEggInfo> entityEggs = new LinkedHashMap();
 
     /**
      * adds a mapping between Entity classes and both a string representation and an ID

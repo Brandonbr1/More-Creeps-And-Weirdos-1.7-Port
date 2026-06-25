@@ -165,6 +165,7 @@ public class CreepSpawnEggItem extends ItemMonsterPlacer {
 
             for (int j = 0; j < 1; ++j)
             {
+                System.out.println("I REACHED HERE, SO WHY JO WORK???");
                 entity = CreepsList.createEntityByID(p_77840_1_, p_77840_0_);
 
                 if (entity instanceof EntityLivingBase)
