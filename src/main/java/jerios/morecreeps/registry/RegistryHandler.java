@@ -2,6 +2,7 @@ package jerios.morecreeps.registry;
 
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
+import jerios.morecreeps.CREEPSConstants;
 import jerios.morecreeps.MoreCreeps;
 import jerios.morecreeps.entity.agressive.GEntity;
 import jerios.morecreeps.item.CreepSpawnEggItem;
@@ -49,7 +50,7 @@ public class RegistryHandler {
             sendsVelocityUpdates);
         if (withEgg)
         {
-            CreepsList.addMapping(entityClass, entityName, id, spot1, spot2);
+            CreepsList.addMapping(entityClass, CREEPSConstants.MOD_ID_DOT + entityName, id++, spot1, spot2);
         }
     }
 
@@ -70,7 +71,7 @@ public class RegistryHandler {
         addBiomes(entityClass, weightProb, min, max, typeOfCreature, biomes);
         if (withEgg)
         {
-            CreepsList.addMapping(entityClass, entityName, id, spot1, spot2);
+            CreepsList.addMapping(entityClass, CREEPSConstants.MOD_ID_DOT + entityName, id++, spot1, spot2);
         }
 
     }

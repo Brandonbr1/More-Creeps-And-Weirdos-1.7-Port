@@ -2,6 +2,7 @@ package jerios.morecreeps.item;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import jerios.morecreeps.CREEPSConstants;
 import jerios.morecreeps.utils.CreepsList;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLiquid;
@@ -36,7 +37,7 @@ public class CreepSpawnEggItem extends ItemMonsterPlacer {
 
         if (s1 != null)
         {
-            s = s + " " + StatCollector.translateToLocal("entity." + "morecreeps." + s1 + ".name");
+            s = s + " " + StatCollector.translateToLocal("entity." + s1 + ".name");
         }
 
         return s;

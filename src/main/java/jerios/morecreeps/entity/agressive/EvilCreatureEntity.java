@@ -1,6 +1,7 @@
 package jerios.morecreeps.entity.agressive;
 
 import jerios.morecreeps.entity.base.BaseAgressiveCreep;
+import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
 public class EvilCreatureEntity extends BaseAgressiveCreep {
@@ -11,8 +12,31 @@ public class EvilCreatureEntity extends BaseAgressiveCreep {
         this.experienceValue = 15;
     }
 
+
+    protected String getLivingSound() {
+        return "morecreeps:evilcreature";
+    }
+
+    protected String getHurtSound() {
+        return "morecreeps:evilcreaturehurt";
+    }
+
+    protected String getDeathSound() {
+        return "morecreeps:evilcreaturedeath";
+    }
+
     @Override
     public float getShadowSize() {
         return 2.9F;
+    }
+
+    @Override
+    protected void dropFewItems(boolean recentHit, int lootLevel) {
+        super.dropFewItems(recentHit, lootLevel);
+    }
+
+    @Override
+    protected void fall(float distance) {
+
     }
 }

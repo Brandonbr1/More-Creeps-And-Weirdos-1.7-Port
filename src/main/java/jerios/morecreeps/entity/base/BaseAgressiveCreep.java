@@ -5,6 +5,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
 public class BaseAgressiveCreep extends EntityMob {
+    boolean canBeShrunk = false;
+
 
     public float getModelSize() {
         return this.getDataWatcher().getWatchableObjectFloat(SIZE_DW);
@@ -16,6 +18,7 @@ public class BaseAgressiveCreep extends EntityMob {
 
     public BaseAgressiveCreep(World world) {
         super(world);
+        setModelSize(1.0F);
     }
 
     private static final int SIZE_DW = 20;

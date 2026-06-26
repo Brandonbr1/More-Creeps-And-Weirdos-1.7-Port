@@ -4,6 +4,8 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import jerios.morecreeps.registry.RegistryHandler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.entity.living.LivingAttackEvent;
+import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -38,15 +40,16 @@ public class MoreCreeps {
         MinecraftForge.EVENT_BUS.register(this);
     }
 
+    boolean DEBUG_MODE = true;
+
+    // REMOVE THIS FOR RELEASE BUILDS
     @SubscribeEvent
-    public void debugPlayer(LivingEvent livingEvent) {
-        if(livingEvent.entityLiving instanceof EntityPlayer) {
-            EntityPlayer player = (EntityPlayer) livingEvent.entityLiving;
-            if (!player.worldObj.isRemote) {
-             //   if( player.getCommandSenderName() != null .equals("MORE_CREEP_DEV")) {
-                    // debugging, remove for release
-                  // player.addPotionEffect(new PotionEffect(Potion.regeneration.id, 40, 5));
-              //  }
+    public void debugPlayer(LivingAttackEvent livingEvent) {
+        if (livingEvent.entity instanceof EntityPlayer player) {
+
+            if (player.getCommandSenderName().equals("MORE_CREEP_DEV") && DEBUG_MODE) {
+               // livingEvent.setCanceled(true);
+                player.heal(livingEvent.ammount / 2);
             }
 
         }

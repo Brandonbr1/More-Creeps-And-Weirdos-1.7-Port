@@ -5,6 +5,7 @@ import jerios.morecreeps.entity.base.BaseAgressiveCreep;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -20,6 +21,8 @@ public class GEntity extends BaseAgressiveCreep {
         super(world);
         this.experienceValue = 15;
         this.attackDelayMax = 8;
+        this.setModelSize(2.0F);
+        setSize(this.width * this.getModelSize(), this.height * this.getModelSize() + 0.5F);
     }
 
     @Override
@@ -36,27 +39,18 @@ public class GEntity extends BaseAgressiveCreep {
         Entity attacker = source.getEntity();
         if (attacker == null) return false;
 
-      /**  double superX = 0;
-        double superZ = 0;
+        this.entityToAttack = attacker;
 
-        // super bouncy
-        if (rand.nextInt(32) == 0)
-        {
-            double x = Math.sqrt(attacker.posX - this.posX);
-            double z = Math.sqrt(attacker.posZ - this.posZ);
-
-            superX = Math.min(Math.abs(Math.sqrt(x * x)), 2.4D );
-            superZ = Math.min(Math.abs(Math.sqrt(z * z)), 2.4D);
+        if (attacker instanceof EntityPlayer) {
+            this.attackDelay = this.worldObj.rand.nextInt(this.attackDelayMax);
         }
-       **/
 
 
-       // this.attackDelay = this.worldObj.rand.nextInt(this.attackDelayMax);
         double xHeading = -MathHelper.sin(attacker.rotationYaw * 3.141593F / 180.0F);
         double zHeading = MathHelper.cos(attacker.rotationYaw * 3.141593F / 180.0F);
 
-        this.motionX = xHeading * (1.0D);
-        this.motionZ = zHeading * (1.0D);
+        this.motionX = xHeading;
+        this.motionZ = zHeading;
 
         return super.attackEntityFrom(source, amount);
     }
@@ -70,46 +64,28 @@ public class GEntity extends BaseAgressiveCreep {
             if (this.onGround) {
                 double posXDiff = mob.posX - this.posX;
                 double posZDiff = mob.posZ - this.posZ;
-                double srtDiff = Math.sqrt(posXDiff * posXDiff + posZDiff * posZDiff);
+                double srtDiff = MathHelper.sqrt_double(posXDiff * posXDiff + posZDiff * posZDiff);
                 this.motionX = posXDiff / srtDiff * 0.4D * 0.500000001920929D + this.motionX * 0.18000000098023225D;
                 this.motionZ = posZDiff / srtDiff * 0.4D * 0.37000000192092897D + this.motionZ * 0.18000000098023225D;
                 this.motionY = 0.15000000019604645D;
             }
 
             if (dist < 6.0D) {
-                double d = mob.posX - this.posX;
-                double d1 = mob.posZ - this.posZ;
-                double f2 = Math.sqrt(d * d + d1 * d1);
-                this.motionX = d / f2 * 0.4D * 0.40000000192092894D + this.motionX * 0.18000000098023225D;
-                this.motionZ = d1 / f2 * 0.4D * 0.27000000192092893D + this.motionZ * 0.18000000098023225D;
+                double posXDiff = mob.posX - this.posX;
+                double posZDiff = mob.posZ - this.posZ;
+                double srtDiff = MathHelper.sqrt_double(posXDiff * posXDiff + posZDiff * posZDiff);
+                this.motionX = posXDiff / srtDiff * 0.4D * 0.40000000192092894D + this.motionX * 0.18000000098023225D;
+                this.motionZ = posZDiff / srtDiff * 0.4D * 0.27000000192092893D + this.motionZ * 0.18000000098023225D;
                 this.rotationPitch = 90.0F;
             }
 
-             if (this.attackTime <= 0 && dist < 3.0F - (2.5F - getModelSize()) && mob.boundingBox.maxY > this.boundingBox.minY && mob.boundingBox.minY < this.boundingBox.maxY)
+             if (dist < 3.0F - (2.5F - getModelSize()) && mob.boundingBox.maxY > this.boundingBox.minY && mob.boundingBox.minY < this.boundingBox.maxY)
              {
-                 this.attackTime = 10 /**+ 8**/; // +8 is my test version
+                 this.attackTime = 10;
                  this.attackEntityAsMob(mob);
              }
 
-// my test version
-    /**      if (this.attackTime <= 0 && dist < ((3.0F + getModelSize()) * 0.67F) && mob.boundingBox.maxY > this.boundingBox.minY && mob.boundingBox.minY < this.boundingBox.maxY)
-      {
-                this.attackTime = 10 + 8;
-               this.attackEntityAsMob(mob);
-            }
-     **/
-
          }
-
-        // my test version
-      //  if (this.attackTime <= 0 && dist < ((3.0F + getModelSize()) * 0.67F) && mob.boundingBox.maxY > this.boundingBox.minY && mob.boundingBox.minY < this.boundingBox.maxY)
-       // {
-        //    this.attackTime = 10;
-       //     this.attackEntityAsMob(mob);
-       // }
-
-
-        // the og does this super call, above is my test version.
           super.attackEntity(mob, dist);
 
     }
@@ -143,6 +119,13 @@ public class GEntity extends BaseAgressiveCreep {
 
     }
 
+    @Override
+    public void playLivingSound() {
+        String s = this.getLivingSound();
+        if (s != null) {
+            super.worldObj.playSoundAtEntity(this, s, this.getSoundVolume(), (super.rand.nextFloat() - super.rand.nextFloat()) * 0.2F + 1.0F + (2.0F - this.getModelSize()) * 2.0F);
+        }
+    }
 
 
     @Override
@@ -160,11 +143,11 @@ public class GEntity extends BaseAgressiveCreep {
             if (this.worldObj.rand.nextInt(100) > 88) {
                 dropItemAndCount(Item.getItemFromBlock(Blocks.grass), this.worldObj.rand.nextInt(6) + 1);
             } else if(this.worldObj.rand.nextInt(100) > 88) {
-               //TODO: ADD GUM
+               MoreCreeps.LOG.warn("GUM");
             } else if (this.worldObj.rand.nextInt(100) > 80) {
                 dropItemAndCount(Items.wheat, this.worldObj.rand.nextInt(6) + 1);
             } else {
-                switch (this.worldObj.rand.nextInt(24)) {
+                switch (this.worldObj.rand.nextInt(26)) {
                     case 0:
                     case 1:
                         dropItemAndCount(Items.golden_pickaxe, 1);
@@ -213,7 +196,9 @@ public class GEntity extends BaseAgressiveCreep {
                     case 23:
                         MoreCreeps.LOG.warn("GUN");
                         break;
-
+                    case 24:
+                    case 25:
+                        break;
 
                 }
             }
