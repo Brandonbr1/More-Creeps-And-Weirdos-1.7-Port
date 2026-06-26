@@ -1,0 +1,28 @@
+{
+  "gliving":{
+    "category": "master",
+    "sounds":[
+      {"name":"GMob/alive/g1", "stream":false},
+      {"name":"GMob/alive/g2", "stream":false},
+      {"name":"GMob/alive/g3", "stream":false},
+      {"name":"GMob/alive/g4", "stream":false}
+    ]
+  },
+  "ghurt":{
+    "category": "master",
+    "sounds":[
+      {"name":"GMob/hurt/ghurt1", "stream":false},
+      {"name":"GMob/hurt/ghurt2", "stream":false},
+      {"name":"GMob/hurt/ghurt3", "stream":false},
+      {"name":"GMob/hurt/ghurt4", "stream":false},
+      {"name":"GMob/hurt/ghurt5", "stream":false}
+    ]
+  },
+  "gdeath":{
+    "category": "master",
+    "sounds":[
+      {"name":"GMob/death/gdeath1", "stream":false},
+      {"name":"GMob/death/gdeath2", "stream":false}
+    ]
+  }
+}

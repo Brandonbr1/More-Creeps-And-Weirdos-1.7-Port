@@ -31,12 +31,12 @@ public class CreepSpawnEggItem extends ItemMonsterPlacer {
     @Override
     public String getItemStackDisplayName(ItemStack p_77653_1_)
     {
-        String s = ("" + StatCollector.translateToLocal(this.getUnlocalizedName() + ".name")).trim();
+        String s = (StatCollector.translateToLocal(this.getUnlocalizedName() + ".name")).trim();
         String s1 = CreepsList.getStringFromID(p_77653_1_.getItemDamage());
 
         if (s1 != null)
         {
-            s = s + " " + StatCollector.translateToLocal("entity." + s1 + ".name");
+            s = s + " " + StatCollector.translateToLocal("entity." + "morecreeps." + s1 + ".name");
         }
 
         return s;
@@ -53,40 +53,31 @@ public class CreepSpawnEggItem extends ItemMonsterPlacer {
     @Override
     public boolean onItemUse(ItemStack p_77648_1_, EntityPlayer p_77648_2_, World p_77648_3_, int p_77648_4_, int p_77648_5_, int p_77648_6_, int p_77648_7_, float p_77648_8_, float p_77648_9_, float p_77648_10_)
     {
-        if (p_77648_3_.isRemote)
-        {
-            return true;
-        }
-        else
-        {
+        if (!p_77648_3_.isRemote) {
             Block block = p_77648_3_.getBlock(p_77648_4_, p_77648_5_, p_77648_6_);
             p_77648_4_ += Facing.offsetsXForSide[p_77648_7_];
             p_77648_5_ += Facing.offsetsYForSide[p_77648_7_];
             p_77648_6_ += Facing.offsetsZForSide[p_77648_7_];
             double d0 = 0.0D;
 
-            if (p_77648_7_ == 1 && block.getRenderType() == 11)
-            {
+            if (p_77648_7_ == 1 && block.getRenderType() == 11) {
                 d0 = 0.5D;
             }
 
-            Entity entity = spawnCreature(p_77648_3_, p_77648_1_.getItemDamage(), (double)p_77648_4_ + 0.5D, (double)p_77648_5_ + d0, (double)p_77648_6_ + 0.5D);
+            Entity entity = spawnCreature(p_77648_3_, p_77648_1_.getItemDamage(), (double) p_77648_4_ + 0.5D, (double) p_77648_5_ + d0, (double) p_77648_6_ + 0.5D);
 
-            if (entity != null)
-            {
-                if (entity instanceof EntityLivingBase && p_77648_1_.hasDisplayName())
-                {
-                    ((EntityLiving)entity).setCustomNameTag(p_77648_1_.getDisplayName());
+            if (entity != null) {
+                if (entity instanceof EntityLivingBase && p_77648_1_.hasDisplayName()) {
+                    ((EntityLiving) entity).setCustomNameTag(p_77648_1_.getDisplayName());
                 }
 
-                if (!p_77648_2_.capabilities.isCreativeMode)
-                {
+                if (!p_77648_2_.capabilities.isCreativeMode) {
                     --p_77648_1_.stackSize;
                 }
             }
 
-            return true;
         }
+        return true;
     }
 
     /**
@@ -103,49 +94,37 @@ public class CreepSpawnEggItem extends ItemMonsterPlacer {
         {
             MovingObjectPosition movingobjectposition = this.getMovingObjectPositionFromPlayer(worldIn, player, true);
 
-            if (movingobjectposition == null)
-            {
-                return itemStackIn;
-            }
-            else
-            {
-                if (movingobjectposition.typeOfHit == MovingObjectPosition.MovingObjectType.BLOCK)
-                {
+            if (movingobjectposition != null) {
+                if (movingobjectposition.typeOfHit == MovingObjectPosition.MovingObjectType.BLOCK) {
                     int i = movingobjectposition.blockX;
                     int j = movingobjectposition.blockY;
                     int k = movingobjectposition.blockZ;
 
-                    if (!worldIn.canMineBlock(player, i, j, k))
-                    {
+                    if (!worldIn.canMineBlock(player, i, j, k)) {
                         return itemStackIn;
                     }
 
-                    if (!player.canPlayerEdit(i, j, k, movingobjectposition.sideHit, itemStackIn))
-                    {
+                    if (!player.canPlayerEdit(i, j, k, movingobjectposition.sideHit, itemStackIn)) {
                         return itemStackIn;
                     }
 
-                    if (worldIn.getBlock(i, j, k) instanceof BlockLiquid)
-                    {
-                        Entity entity = spawnCreature(worldIn, itemStackIn.getItemDamage(), (double)i, (double)j, (double)k);
+                    if (worldIn.getBlock(i, j, k) instanceof BlockLiquid) {
+                        Entity entity = spawnCreature(worldIn, itemStackIn.getItemDamage(), (double) i, (double) j, (double) k);
 
-                        if (entity != null)
-                        {
-                            if (entity instanceof EntityLivingBase && itemStackIn.hasDisplayName())
-                            {
-                                ((EntityLiving)entity).setCustomNameTag(itemStackIn.getDisplayName());
+                        if (entity != null) {
+                            if (entity instanceof EntityLivingBase && itemStackIn.hasDisplayName()) {
+                                ((EntityLiving) entity).setCustomNameTag(itemStackIn.getDisplayName());
                             }
 
-                            if (!player.capabilities.isCreativeMode)
-                            {
+                            if (!player.capabilities.isCreativeMode) {
                                 --itemStackIn.stackSize;
                             }
                         }
                     }
                 }
 
-                return itemStackIn;
             }
+            return itemStackIn;
         }
     }
 
@@ -165,7 +144,6 @@ public class CreepSpawnEggItem extends ItemMonsterPlacer {
 
             for (int j = 0; j < 1; ++j)
             {
-                System.out.println("I REACHED HERE, SO WHY JO WORK???");
                 entity = CreepsList.createEntityByID(p_77840_1_, p_77840_0_);
 
                 if (entity instanceof EntityLivingBase)

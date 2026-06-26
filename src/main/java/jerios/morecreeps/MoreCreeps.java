@@ -1,6 +1,10 @@
 package jerios.morecreeps;
 
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import jerios.morecreeps.registry.RegistryHandler;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.entity.living.LivingEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -31,6 +35,21 @@ public class MoreCreeps {
         RegistryHandler.registerItems();
         RegistryHandler.registerMobs();
         proxy.clientProxy();
+        MinecraftForge.EVENT_BUS.register(this);
+    }
+
+    @SubscribeEvent
+    public void debugPlayer(LivingEvent livingEvent) {
+        if(livingEvent.entityLiving instanceof EntityPlayer) {
+            EntityPlayer player = (EntityPlayer) livingEvent.entityLiving;
+            if (!player.worldObj.isRemote) {
+             //   if( player.getCommandSenderName() != null .equals("MORE_CREEP_DEV")) {
+                    // debugging, remove for release
+                  // player.addPotionEffect(new PotionEffect(Potion.regeneration.id, 40, 5));
+              //  }
+            }
+
+        }
     }
 
     @Mod.EventHandler
