@@ -1,9 +1,11 @@
 package jerios.morecreeps;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import cpw.mods.fml.common.gameevent.PlayerEvent;
 import jerios.morecreeps.registry.RegistryHandler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 
 import cpw.mods.fml.common.Mod;
@@ -52,6 +54,11 @@ public class MoreCreeps {
 
         }
     }
+
+ //   @SubscribeEvent
+  //  public void onJoinWorld(PlayerEvent.PlayerLoggedInEvent event) {
+
+   // }
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {

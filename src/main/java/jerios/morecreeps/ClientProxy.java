@@ -4,6 +4,7 @@ import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import jerios.morecreeps.client.GMob.RenderGMob;
 import jerios.morecreeps.client.fx.ConfettiFX;
+import jerios.morecreeps.debug.CREEPSLogger;
 import jerios.morecreeps.entity.agressive.GEntity;
 import jerios.morecreeps.entity.nonLiving.TrophyEntity;
 import net.minecraft.client.Minecraft;
@@ -11,6 +12,7 @@ import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderSnowball;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
+import net.minecraft.world.World;
 
 public class ClientProxy extends CommonProxy {
 
@@ -37,22 +39,25 @@ public class ClientProxy extends CommonProxy {
         renderEntity(clazz, new RenderSnowball(item));
     }
 
-    public void spawnConfettiTrophyA(TrophyEntity trophyEntity) {
+    public void spawnConfettiTrophyA(Entity trophyEntity) {
         if (trophyEntity == null) return;
         if (trophyEntity.worldObj == null) return;
-        if (trophyEntity.worldObj.isRemote) return;
 
+        World world = trophyEntity.worldObj;
 
+        CREEPSLogger.error("ON CLIENT PROY" + world.isRemote);
 
         for (int i = 1; i < 10; i++) {
             for (int ii = 0; ii < 10; ii++) {
 
                 ConfettiFX particle = new ConfettiFX(
-                    trophyEntity.worldObj,
-                    trophyEntity.posX + (double)(trophyEntity.worldObj.rand.nextFloat() * 8F - trophyEntity.worldObj.rand.nextFloat() * 8F), trophyEntity.posY + (double)trophyEntity.worldObj.rand.nextInt(4) + 4D, trophyEntity.posZ + (double)(trophyEntity.worldObj.rand.nextFloat() * 8F - trophyEntity.worldObj.rand.nextFloat() * 8F));
+                    world,
+                    trophyEntity.posX + (world.rand.nextFloat() * 8.0F - world.rand.nextFloat() * 8.0F),
+                    trophyEntity.posY + world.rand.nextInt(4) + 4.0,
+                    trophyEntity.posZ + (world.rand.nextFloat() * 8.0F - world.rand.nextFloat() * 8.0F)
+                );
 
                 if (mc != null) {
-                    particle.renderDistanceWeight = 30.0;
                     mc.effectRenderer.addEffect(particle);
                 }
 

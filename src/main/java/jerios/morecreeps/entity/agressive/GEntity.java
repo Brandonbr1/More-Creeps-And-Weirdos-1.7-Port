@@ -1,9 +1,7 @@
 package jerios.morecreeps.entity.agressive;
 
-import jerios.morecreeps.debug.CREEPSLogger;
 import jerios.morecreeps.entity.base.BaseAgressiveCreep;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -133,12 +131,11 @@ public class GEntity extends BaseAgressiveCreep {
     protected void dropFewItems(boolean recentHit, int lootLevel) {
         super.dropFewItems(recentHit, lootLevel);
 
-
         final Random random = this.rand;
 
        final int random200 = random.nextInt(200);
        final int random150 = random.nextInt(150);
-      final   int random5 = random.nextInt(5);
+       final int random5 = random.nextInt(5);
 
 
 

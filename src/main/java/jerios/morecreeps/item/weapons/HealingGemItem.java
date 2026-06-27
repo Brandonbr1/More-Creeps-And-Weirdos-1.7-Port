@@ -1,6 +1,5 @@
 package jerios.morecreeps.item.weapons;
 
-import jerios.morecreeps.MoreCreeps;
 import jerios.morecreeps.item.base.CREEPSItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -23,7 +22,7 @@ public class HealingGemItem extends CREEPSItem {
 
 
         boolean HPIsNotFull = player.getHealth() < 20;
-        Random rand = MoreCreeps.globalRandom;
+        Random rand = worldIn.rand;
 
 
         if (HPIsNotFull) {
