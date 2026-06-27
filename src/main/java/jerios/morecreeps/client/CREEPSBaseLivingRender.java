@@ -5,8 +5,8 @@ import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
-public class CreepsBaseLivingRender extends RenderLiving {
-    public CreepsBaseLivingRender(ModelBase modelBase, float shadow) {
+public class CREEPSBaseLivingRender extends RenderLiving {
+    public CREEPSBaseLivingRender(ModelBase modelBase, float shadow) {
         super(modelBase, shadow);
     }
 

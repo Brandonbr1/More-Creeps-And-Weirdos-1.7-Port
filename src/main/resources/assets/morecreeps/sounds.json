@@ -24,5 +24,11 @@
       {"name":"GMob/death/gdeath1", "stream":false},
       {"name":"GMob/death/gdeath2", "stream":false}
     ]
+  },
+  "healinggem":{
+    "category": "master",
+    "sounds":[
+      {"name":"Gems/healinggem", "stream":false}
+    ]
   }
 }

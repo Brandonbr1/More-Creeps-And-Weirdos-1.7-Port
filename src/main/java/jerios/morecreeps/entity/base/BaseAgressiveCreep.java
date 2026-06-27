@@ -1,12 +1,22 @@
 package jerios.morecreeps.entity.base;
 
+import net.minecraft.entity.IEntityLivingData;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
 public class BaseAgressiveCreep extends EntityMob {
     boolean canBeShrunk = false;
+    int spawnAdditionalHP = 0;
 
+    public int getSpawnAdditionalHP() {
+        return spawnAdditionalHP;
+    }
+
+    public void setSpawnAdditionalHP(int spawnAdditionalHP) {
+        this.spawnAdditionalHP = spawnAdditionalHP;
+    }
 
     public float getModelSize() {
         return this.getDataWatcher().getWatchableObjectFloat(SIZE_DW);
@@ -19,6 +29,22 @@ public class BaseAgressiveCreep extends EntityMob {
     public BaseAgressiveCreep(World world) {
         super(world);
         setModelSize(1.0F);
+    }
+
+    public BaseAgressiveCreep(World world, float modelSize, int spawnAdditionalHP) {
+        super(world);
+        setModelSize(modelSize);
+        setSize(this.width * this.getModelSize(), this.height * this.getModelSize() + 0.5F);
+        setSpawnAdditionalHP(spawnAdditionalHP);
+    }
+
+
+    @Override
+    public IEntityLivingData onSpawnWithEgg(IEntityLivingData iEntityLivingData) {
+        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue((double)this.getMaxHealth() + (double)this.rand.nextInt(spawnAdditionalHP));
+        this.setHealth(this.getMaxHealth());
+
+        return super.onSpawnWithEgg(iEntityLivingData);
     }
 
     private static final int SIZE_DW = 20;

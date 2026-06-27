@@ -31,4 +31,8 @@ public class ClientProxy extends CommonProxy {
     private void render2D(Class<? extends Entity> clazz, Item item) {
         renderEntity(clazz, new RenderSnowball(item));
     }
+
+    public void spawnParticle() {
+
+    }
 }

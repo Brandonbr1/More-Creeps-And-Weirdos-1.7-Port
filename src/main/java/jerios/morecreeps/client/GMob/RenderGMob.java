@@ -1,15 +1,14 @@
 package jerios.morecreeps.client.GMob;
 
-import jerios.morecreeps.client.CreepsBaseLivingRender;
+import jerios.morecreeps.client.CREEPSBaseLivingRender;
 import jerios.morecreeps.entity.agressive.GEntity;
 import jerios.morecreeps.utils.ResourceLocationUtils;
-import net.minecraft.client.model.ModelBase;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
-public class RenderGMob extends CreepsBaseLivingRender {
+public class RenderGMob extends CREEPSBaseLivingRender {
 
 
     public RenderGMob() {
@@ -17,7 +16,7 @@ public class RenderGMob extends CreepsBaseLivingRender {
     }
 
     protected ResourceLocation getEntityTexture(GEntity entity) {
-        return ResourceLocationUtils.makeResourceLocationEntityHostile("G_entity");
+        return ResourceLocationUtils.makeResourceLocationEntityHostile("GEntity");
     }
 
     @Override

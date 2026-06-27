@@ -1,6 +1,6 @@
 package jerios.morecreeps.entity.agressive;
 
-import jerios.morecreeps.MoreCreeps;
+import jerios.morecreeps.debug.CREEPSLogger;
 import jerios.morecreeps.entity.base.BaseAgressiveCreep;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.IEntityLivingData;
@@ -13,16 +13,16 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
+import java.util.Random;
+
 public class GEntity extends BaseAgressiveCreep {
     int attackDelay;
     int attackDelayMax;
 
     public GEntity(World world) {
-        super(world);
+        super(world, 2.0F, 40);
         this.experienceValue = 15;
         this.attackDelayMax = 8;
-        this.setModelSize(2.0F);
-        setSize(this.width * this.getModelSize(), this.height * this.getModelSize() + 0.5F);
     }
 
     @Override
@@ -111,13 +111,9 @@ public class GEntity extends BaseAgressiveCreep {
         return "morecreeps:gdeath";
     }
 
-    @Override
-    public void onLivingUpdate() {
-        super.onLivingUpdate();
 
-        this.ignoreFrustumCheck = this.getModelSize() > 1.0F;
 
-    }
+
 
     @Override
     public void playLivingSound() {
@@ -132,22 +128,25 @@ public class GEntity extends BaseAgressiveCreep {
     protected void dropFewItems(boolean recentHit, int lootLevel) {
         super.dropFewItems(recentHit, lootLevel);
 
-        int random200 = this.worldObj.rand.nextInt(200);
-        int random150 = this.worldObj.rand.nextInt(150);
-        int random5 = this.worldObj.rand.nextInt(5);
+
+        final Random random = this.rand;
+
+       final int random200 = random.nextInt(200);
+       final int random150 = random.nextInt(150);
+      final   int random5 = random.nextInt(5);
 
 
 
 
         if (!(random200 == 98)) {
-            if (this.worldObj.rand.nextInt(100) > 88) {
-                dropItemAndCount(Item.getItemFromBlock(Blocks.grass), this.worldObj.rand.nextInt(6) + 1);
-            } else if(this.worldObj.rand.nextInt(100) > 88) {
-               MoreCreeps.LOG.warn("GUM");
-            } else if (this.worldObj.rand.nextInt(100) > 80) {
-                dropItemAndCount(Items.wheat, this.worldObj.rand.nextInt(6) + 1);
+            if (random.nextInt(100) > 88) {
+                dropItemAndCount(Item.getItemFromBlock(Blocks.grass), random.nextInt(6) + 1);
+            } else if(random.nextInt(100) > 88) {
+            //   MoreCreeps.LOG.warn("GUM");
+            } else if (random.nextInt(100) > 80) {
+                dropItemAndCount(Items.wheat, random.nextInt(6) + 1);
             } else {
-                switch (this.worldObj.rand.nextInt(26)) {
+                switch (random.nextInt(26)) {
                     case 0:
                     case 1:
                         dropItemAndCount(Items.golden_pickaxe, 1);
@@ -174,27 +173,27 @@ public class GEntity extends BaseAgressiveCreep {
                         break;
                     case 12:
                     case 13:
-                        dropItemAndCount(Item.getItemFromBlock(Blocks.glass), this.rand.nextInt(6) + 1);
+                        dropItemAndCount(Item.getItemFromBlock(Blocks.glass), random.nextInt(6) + 1);
                         break;
                     case 14:
                     case 15:
-                        MoreCreeps.LOG.warn("I would be the goo donut");
+                   //     MoreCreeps.LOG.warn("I would be the goo donut");
                         break;
                     case 16:
                     case 17:
-                        dropItemAndCount(Item.getItemFromBlock(Blocks.glowstone), this.rand.nextInt(2) + 1);
+                        dropItemAndCount(Item.getItemFromBlock(Blocks.glowstone), random.nextInt(2) + 1);
                         break;
                     case 18:
                     case 19:
-                        dropItemAndCount(Items.glowstone_dust, this.rand.nextInt(2) + 1);
+                        dropItemAndCount(Items.glowstone_dust, random.nextInt(2) + 1);
                         break;
                     case 20:
                     case 21:
-                        MoreCreeps.LOG.warn("GROW RAY");
+                     //   MoreCreeps.LOG.warn("GROW RAY");
                         break;
                     case 22:
                     case 23:
-                        MoreCreeps.LOG.warn("GUN");
+                     //   MoreCreeps.LOG.warn("GUN");
                         break;
                     case 24:
                     case 25:
@@ -207,7 +206,7 @@ public class GEntity extends BaseAgressiveCreep {
         } else if (random150 > 145) {
             dropItemAndCount(Items.golden_sword, 1);
         } else if (random5 == 0) {
-            dropItemAndCount(Items.gold_ingot, this.rand.nextInt(2) + 1);
+            dropItemAndCount(Items.gold_ingot, random.nextInt(2) + 1);
         } else {
             dropItemAndCount(Item.getItemFromBlock(Blocks.gold_block), 1);
         }
@@ -218,13 +217,5 @@ public class GEntity extends BaseAgressiveCreep {
             dropItem(item, size);
     }
 
-    @Override
-    public IEntityLivingData onSpawnWithEgg(IEntityLivingData p_110161_1_) {
-
-        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(40D + (double)this.rand.nextInt(40));
-        this.setHealth(this.getMaxHealth());
-
-        return super.onSpawnWithEgg(p_110161_1_);
-    }
 
 }
