@@ -1,10 +1,13 @@
 package jerios.morecreeps.client;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
+@SideOnly(Side.CLIENT)
 public class CREEPSBaseLivingRender extends RenderLiving {
     public CREEPSBaseLivingRender(ModelBase modelBase, float shadow) {
         super(modelBase, shadow);

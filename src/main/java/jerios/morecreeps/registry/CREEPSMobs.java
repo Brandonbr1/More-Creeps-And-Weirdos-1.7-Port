@@ -4,6 +4,7 @@ import cpw.mods.fml.common.registry.EntityRegistry;
 import jerios.morecreeps.CREEPSConstants;
 import jerios.morecreeps.MoreCreeps;
 import jerios.morecreeps.entity.agressive.GEntity;
+import jerios.morecreeps.entity.nonLiving.TrophyEntity;
 import jerios.morecreeps.utils.CreepsList;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -13,7 +14,8 @@ import net.minecraft.world.biome.BiomeGenBase;
 public class CREEPSMobs {
 
     public static void registerMobs() {
-        registerEntity(GEntity.class, "GEntity", 64, 5, true, true, 44975, 7969893);
+        registerEntity(GEntity.class, "GEntity", 64, 1, true, true, 44975, 7969893);
+        registerEntity(TrophyEntity.class, "Trophy", 64, 1, true, true, 44975, 7969893);
     }
 
     static int id = 1;

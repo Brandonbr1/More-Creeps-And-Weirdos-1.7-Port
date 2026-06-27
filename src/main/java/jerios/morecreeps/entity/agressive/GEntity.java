@@ -20,7 +20,7 @@ public class GEntity extends BaseAgressiveCreep {
     int attackDelayMax;
 
     public GEntity(World world) {
-        super(world, 2.0F, 40);
+        super(world, 2.0F);
         this.experienceValue = 15;
         this.attackDelayMax = 8;
     }
@@ -94,6 +94,11 @@ public class GEntity extends BaseAgressiveCreep {
     public int getMaxSpawnedInChunk()
     {
         return 1;
+    }
+
+    @Override
+    public void spawnHook() {
+        setIncreasedHP(40);
     }
 
     @Override

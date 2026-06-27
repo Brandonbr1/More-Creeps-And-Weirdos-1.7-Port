@@ -8,15 +8,6 @@ import net.minecraft.world.World;
 
 public class BaseAgressiveCreep extends EntityMob {
     boolean canBeShrunk = false;
-    int spawnAdditionalHP = 0;
-
-    public int getSpawnAdditionalHP() {
-        return spawnAdditionalHP;
-    }
-
-    public void setSpawnAdditionalHP(int spawnAdditionalHP) {
-        this.spawnAdditionalHP = spawnAdditionalHP;
-    }
 
     public float getModelSize() {
         return this.getDataWatcher().getWatchableObjectFloat(SIZE_DW);
@@ -31,18 +22,22 @@ public class BaseAgressiveCreep extends EntityMob {
         setModelSize(1.0F);
     }
 
-    public BaseAgressiveCreep(World world, float modelSize, int spawnAdditionalHP) {
+    public BaseAgressiveCreep(World world, float modelSize) {
         super(world);
         setModelSize(modelSize);
         setSize(this.width * this.getModelSize(), this.height * this.getModelSize() + 0.5F);
-        setSpawnAdditionalHP(spawnAdditionalHP);
     }
 
+    public void setIncreasedHP(int spawnAdditionalHP) {
+        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue((double)this.getMaxHealth() + (double)this.rand.nextInt(spawnAdditionalHP));
+        this.setHealth(this.getMaxHealth());
+    }
+
+    public void spawnHook() {}
 
     @Override
     public IEntityLivingData onSpawnWithEgg(IEntityLivingData iEntityLivingData) {
-        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue((double)this.getMaxHealth() + (double)this.rand.nextInt(spawnAdditionalHP));
-        this.setHealth(this.getMaxHealth());
+        spawnHook();
 
         return super.onSpawnWithEgg(iEntityLivingData);
     }
