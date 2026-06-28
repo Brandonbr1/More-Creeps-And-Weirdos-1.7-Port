@@ -2,8 +2,13 @@ package jerios.morecreeps;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.PlayerEvent;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import jerios.morecreeps.registry.RegistryHandler;
+import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.IIcon;
+import net.minecraftforge.client.event.TextureStitchEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
@@ -54,11 +59,28 @@ public class MoreCreeps {
 
         }
     }
+    public static IIcon blood;
+    public static IIcon piss;
+    public static IIcon barf;
 
- //   @SubscribeEvent
-  //  public void onJoinWorld(PlayerEvent.PlayerLoggedInEvent event) {
+    @SubscribeEvent
+    @SideOnly(Side.CLIENT)
+    public void addParticles(TextureStitchEvent event) {
+        TextureMap map = event.map;
+        if (event.map.getTextureType() == 1) {
+            blood = map.registerIcon(CREEPSConstants.MODID_PREFIX + "blood_particle2");
+            piss = map.registerIcon(CREEPSConstants.MODID_PREFIX + "piss_particle");
+        }
 
-   // }
+    }
+
+    // Do welcome message and sound!
+   @SubscribeEvent
+    public void onJoinWorld(PlayerEvent.PlayerLoggedInEvent event) {
+
+      //  event.player.worldObj.playSoundAtEntity();
+
+    }
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {

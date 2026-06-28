@@ -1,6 +1,6 @@
 package jerios.morecreeps.client.fx;
 
-import jerios.morecreeps.utils.ParticlesManager;
+import jerios.morecreeps.MoreCreeps;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.world.World;
 
@@ -9,7 +9,7 @@ public class BloodFX extends CREEPSFX{
     public BloodFX(World world, double x, double y, double z, float scale) {
         super(world, x, y, z, false);
         this.noClip = false;
-        this.setParticleIcon(ParticlesManager.bloodParticle);
+        this.setParticleIcon(MoreCreeps.blood);
         this.setSize(0.7F, 0.7F);
         super.particleRed = 1.0F;
         super.particleBlue = 1.0F;
