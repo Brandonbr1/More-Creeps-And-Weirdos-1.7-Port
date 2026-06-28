@@ -13,8 +13,8 @@ public class CommonProxy {
 
 
     // NO-OP SERVER METHODS
-    public void spawnConfettiTrophyA(Entity trophyEntity) {
-        CREEPSLogger.error("ON SERVER PROY" + trophyEntity.worldObj.isRemote);
+    public void spawnConfettiTrophyA(World world, double x, double y, double z) {
+
     }
 
 }

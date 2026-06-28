@@ -1,49 +1,30 @@
 package jerios.morecreeps.client.fx;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.particle.EntityFX;
 import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.util.MathHelper;
+import net.minecraft.entity.Entity;
 import net.minecraft.world.World;
 
-@SideOnly(Side.CLIENT)
-public class ConfettiFX extends EntityFX {
-
-    public ConfettiFX(World world, double x, double y, double z){
-        super(world, x, y, z, 0, 0, 0);
-
-        float color = 1.0F;
-
-        this.particleRed = color;
-        this.particleGreen = color;
-        this.particleBlue = color;
-
-        this.particleGravity = 1.0f;
-
-        this.noClip = false;
-        this.setParticleTextureIndex(this.rand.nextInt(99));
-
-        this.particleScale = 2.0F;
-        this.setSize(0.5f, 0.5f);
-        this.particleMaxAge = 55;
-
-        this.renderDistanceWeight = 30;
+public class CREEPSFX extends EntityFX {
+    public CREEPSFX(World p_i1218_1_, double p_i1218_2_, double p_i1218_4_, double p_i1218_6_) {
+        super(p_i1218_1_, p_i1218_2_, p_i1218_4_, p_i1218_6_);
     }
 
+    public CREEPSFX(World world, double x, double y, double z, boolean signatureTrick){
+        super(world, x, y, z, 0, 0, 0);
+    }
 
     @Override
     public int getFXLayer() {
-       return 2;
+        return 2;
     }
 
-    // remove check, allows it to be on the same layer as original more creeps
+    // remove check, allows it to be on the same layer as original more creeps.
     @Override
     public void setParticleTextureIndex(int p_70536_1_)
     {
-            this.particleTextureIndexX = p_70536_1_ % 16;
-            this.particleTextureIndexY = p_70536_1_ / 16;
-
+        this.particleTextureIndexX = p_70536_1_ % 16;
+        this.particleTextureIndexY = p_70536_1_ / 16;
     }
 
     @Override
@@ -60,11 +41,10 @@ public class ConfettiFX extends EntityFX {
         float f13 = (float)(this.prevPosZ + (this.posZ - this.prevPosZ) * (double)p_70539_2_ - interpPosZ);
         float f14 = this.getBrightness(p_70539_2_);
         tessellator.setColorOpaque_F(f14 * this.particleRed, f14 * this.particleGreen, f14 * this.particleBlue);
-       // tessellator.setColorRGBA_F(this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha);
+        // tessellator.setColorRGBA_F(this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha);
         tessellator.addVertexWithUV((double)(f11 - p_70539_3_ * f10 - p_70539_6_ * f10), (double)(f12 - p_70539_4_ * f10), (double)(f13 - p_70539_5_ * f10 - p_70539_7_ * f10), (double)f7, (double)f9);
         tessellator.addVertexWithUV((double)(f11 - p_70539_3_ * f10 + p_70539_6_ * f10), (double)(f12 + p_70539_4_ * f10), (double)(f13 - p_70539_5_ * f10 + p_70539_7_ * f10), (double)f7, (double)f8);
         tessellator.addVertexWithUV((double)(f11 + p_70539_3_ * f10 + p_70539_6_ * f10), (double)(f12 + p_70539_4_ * f10), (double)(f13 + p_70539_5_ * f10 + p_70539_7_ * f10), (double)f6, (double)f8);
         tessellator.addVertexWithUV((double)(f11 + p_70539_3_ * f10 - p_70539_6_ * f10), (double)(f12 - p_70539_4_ * f10), (double)(f13 + p_70539_5_ * f10 - p_70539_7_ * f10), (double)f6, (double)f9);
     }
-
 }

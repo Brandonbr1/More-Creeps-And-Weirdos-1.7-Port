@@ -8,6 +8,7 @@ import jerios.morecreeps.debug.CREEPSLogger;
 import jerios.morecreeps.entity.agressive.GEntity;
 import jerios.morecreeps.entity.nonLiving.TrophyEntity;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.particle.EntityLavaFX;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderSnowball;
 import net.minecraft.entity.Entity;
@@ -39,31 +40,30 @@ public class ClientProxy extends CommonProxy {
         renderEntity(clazz, new RenderSnowball(item));
     }
 
-    public void spawnConfettiTrophyA(Entity trophyEntity) {
-        if (trophyEntity == null) return;
-        if (trophyEntity.worldObj == null) return;
+    @Override
+    public void spawnConfettiTrophyA(World world, double x, double y, double z) {
+        if (world == null) return;
+        if (!world.isRemote) return;
 
-        World world = trophyEntity.worldObj;
+       for (int i = 1; i < 10; i++) {
+          for (int ii = 0; ii < 10; ii++) {
 
-        CREEPSLogger.error("ON CLIENT PROY" + world.isRemote);
-
-        for (int i = 1; i < 10; i++) {
-            for (int ii = 0; ii < 10; ii++) {
-
-                ConfettiFX particle = new ConfettiFX(
+        ConfettiFX particle = new ConfettiFX(
                     world,
-                    trophyEntity.posX + (world.rand.nextFloat() * 8.0F - world.rand.nextFloat() * 8.0F),
-                    trophyEntity.posY + world.rand.nextInt(4) + 4.0,
-                    trophyEntity.posZ + (world.rand.nextFloat() * 8.0F - world.rand.nextFloat() * 8.0F)
+                    x + (world.rand.nextFloat() * 8.0F - world.rand.nextFloat() * 8.0F),
+                    y + world.rand.nextInt(4) + 4.0,
+                    z + (world.rand.nextFloat() * 8.0F - world.rand.nextFloat() * 8.0F)
                 );
 
-                if (mc != null) {
+                if (mc != null && mc.effectRenderer != null)
+                {
                     mc.effectRenderer.addEffect(particle);
                 }
 
 
-            }
-        }
+
+           }
+       }
 
     }
 }

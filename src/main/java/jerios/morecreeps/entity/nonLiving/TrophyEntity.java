@@ -16,7 +16,7 @@ public class TrophyEntity extends Entity {
 
     public TrophyEntity(World worldIn) {
         super(worldIn);
-        this.partyTime = super.rand.nextInt(30) + 40;
+        this.partyTime = this.rand.nextInt(30) + 40;
         this.trophyLifespan = 80;
         this.setSize(1.0F, 2.5F);
     }
@@ -53,6 +53,6 @@ public class TrophyEntity extends Entity {
     }
 
     public void confetti() {
-        MoreCreeps.proxy.spawnConfettiTrophyA(this);
+        MoreCreeps.proxy.spawnConfettiTrophyA(worldObj, this.posX, this.posY, this.posZ);
     }
 }
