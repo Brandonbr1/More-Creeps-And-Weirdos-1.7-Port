@@ -1,5 +1,6 @@
 package jerios.morecreeps;
 
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.PlayerEvent;
 import cpw.mods.fml.relauncher.Side;
@@ -7,6 +8,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import jerios.morecreeps.registry.RegistryHandler;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.IIcon;
 import net.minecraftforge.client.event.TextureStitchEvent;
 import net.minecraftforge.common.MinecraftForge;
@@ -37,12 +39,15 @@ public class MoreCreeps {
     @SidedProxy(clientSide = "jerios.morecreeps.ClientProxy", serverSide = "jerios.morecreeps.CommonProxy")
     public static CommonProxy proxy;
 
+    public static DamageSource DAMAGESOURCE_TAZED = new DamageSource("tazed");
+
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         Config.synchronizeConfiguration(event.getSuggestedConfigurationFile());
         RegistryHandler.registerPreInit();
         proxy.clientProxy();
         MinecraftForge.EVENT_BUS.register(this);
+        FMLCommonHandler.instance().bus().register(this);
     }
 
     boolean DEBUG_MODE = false;
@@ -74,11 +79,16 @@ public class MoreCreeps {
 
     }
 
-    // Do welcome message and sound!
-   @SubscribeEvent
+    boolean loggedIn = false;
+    @SubscribeEvent
     public void onJoinWorld(PlayerEvent.PlayerLoggedInEvent event) {
 
-      //  event.player.worldObj.playSoundAtEntity();
+        if (Config.greeting && !loggedIn) {
+            loggedIn = true;
+            event.player.worldObj.playSoundAtEntity(event.player, "morecreeps:WelcomePlayer", 1.0F, 1.0F);
+        }
+
+
 
     }
 

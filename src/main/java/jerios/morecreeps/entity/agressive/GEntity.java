@@ -102,17 +102,17 @@ public class GEntity extends BaseAgressiveCreep {
 
     @Override
     protected String getLivingSound() {
-        return "morecreeps:gliving";
+        return "morecreeps:GLiving";
     }
 
     @Override
     protected String getHurtSound() {
-        return "morecreeps:ghurt";
+        return "morecreeps:GHurt";
     }
 
     @Override
     protected String getDeathSound() {
-        return "morecreeps:gdeath";
+        return "morecreeps:GGeath";
     }
 
 

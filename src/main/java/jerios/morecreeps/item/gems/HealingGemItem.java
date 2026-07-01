@@ -18,7 +18,7 @@ public class HealingGemItem extends CREEPSItem {
 
     @Override
     public ItemStack onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer player) {
-        worldIn.playSoundAtEntity(player, "morecreeps:healinggem", 1.0F, 1.0F);
+        worldIn.playSoundAtEntity(player, "morecreeps:HealingGem", 1.0F, 1.0F);
 
 
         boolean HPIsNotFull = player.getHealth() < 20;

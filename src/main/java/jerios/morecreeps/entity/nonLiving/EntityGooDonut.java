@@ -41,28 +41,6 @@ public class EntityGooDonut extends EntityItem {
         return d < d1 * d1;
     }
 
-
-   /** public void setThrowableHeading(double p_70186_1_, double p_70186_3_, double p_70186_5_, float p_70186_7_, float p_70186_8_)
-    {
-        float f2 = MathHelper.sqrt_double(p_70186_1_ * p_70186_1_ + p_70186_3_ * p_70186_3_ + p_70186_5_ * p_70186_5_);
-        p_70186_1_ /= (double)f2;
-        p_70186_3_ /= (double)f2;
-        p_70186_5_ /= (double)f2;
-        p_70186_1_ += this.rand.nextGaussian() * 0.007499999832361937D * (double)p_70186_8_;
-        p_70186_3_ += this.rand.nextGaussian() * 0.007499999832361937D * (double)p_70186_8_;
-        p_70186_5_ += this.rand.nextGaussian() * 0.007499999832361937D * (double)p_70186_8_;
-        p_70186_1_ *= (double)p_70186_7_;
-        p_70186_3_ *= (double)p_70186_7_;
-        p_70186_5_ *= (double)p_70186_7_;
-        this.motionX = p_70186_1_;
-        this.motionY = p_70186_3_;
-        this.motionZ = p_70186_5_;
-        float f3 = MathHelper.sqrt_double(p_70186_1_ * p_70186_1_ + p_70186_5_ * p_70186_5_);
-        this.prevRotationYaw = this.rotationYaw = (float)(Math.atan2(p_70186_1_, p_70186_5_) * 180.0D / Math.PI);
-        this.prevRotationPitch = this.rotationPitch = (float)(Math.atan2(p_70186_3_, (double)f3) * 180.0D / Math.PI);
-    }
-    **/
-
     public EntityGooDonut(World world, EntityLivingBase entity) {
         super(world /**, entity**/);
         this.setRotation(entity.rotationYaw, 0.0F);
@@ -153,7 +131,7 @@ public class EntityGooDonut extends EntityItem {
 
         double expand = 1.0D;
 
-        List<Entity> entityList = this.worldObj.getEntitiesWithinAABBExcludingEntity(this, this.boundingBox.expand(expand, expand, expand));
+        List<Entity> entityList = this.worldObj.getEntitiesWithinAABBExcludingEntity(this, this.boundingBox.addCoord(this.posX, this.posY, this.posZ).expand(expand, expand, expand));
 
         for (int i = 0; i < entityList.size(); i++) {
             Entity entity = entityList.get(i);
@@ -186,12 +164,6 @@ public class EntityGooDonut extends EntityItem {
         this.fuse = tagCompund.getInteger("Timer");
         this.exploded = tagCompund.getBoolean("Exploded");
         this.setEntityItemStack(new ItemStack(CREEPSItemBlocks.gooDonut));
-    }
-
- //   @Override
-    protected void onImpact(MovingObjectPosition movingObjectPosition) {
-
-
     }
 
     @Override

@@ -6,12 +6,12 @@ import net.minecraftforge.common.config.Configuration;
 
 public class Config {
 
-    public static String greeting = "Hello World";
+    public static boolean greeting = true;
 
     public static void synchronizeConfiguration(File configFile) {
         Configuration configuration = new Configuration(configFile);
 
-        greeting = configuration.getString("greeting", Configuration.CATEGORY_GENERAL, greeting, "How shall I greet?");
+        greeting = configuration.getBoolean("greeting", Configuration.CATEGORY_GENERAL, true, "Should More Creeps Narrator greet you on world Join?");
 
         if (configuration.hasChanged()) {
             configuration.save();

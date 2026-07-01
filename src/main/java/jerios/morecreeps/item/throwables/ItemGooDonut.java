@@ -15,13 +15,9 @@ public class ItemGooDonut extends CREEPSItem {
 
     @Override
     public ItemStack onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer player) {
-
-
         worldIn.playSoundAtEntity(player, "random.bow", 0.5F, 0.4F / (Item.itemRand.nextFloat() * 0.4F + 0.8F));
-    //    if (!worldIn.isRemote) {
-            itemStackIn.stackSize--;
-            worldIn.spawnEntityInWorld(new EntityGooDonut(worldIn, player));
-     //   }
+        itemStackIn.stackSize--;
+        worldIn.spawnEntityInWorld(new EntityGooDonut(worldIn, player));
 
         return super.onItemRightClick(itemStackIn, worldIn, player);
     }

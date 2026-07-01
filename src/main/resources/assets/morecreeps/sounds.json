@@ -1,5 +1,5 @@
 {
-  "gliving":{
+  "GLiving":{
     "category": "master",
     "sounds":[
       {"name":"GMob/alive/g1", "stream":false},
@@ -8,7 +8,7 @@
       {"name":"GMob/alive/g4", "stream":false}
     ]
   },
-  "ghurt":{
+  "GHurt":{
     "category": "master",
     "sounds":[
       {"name":"GMob/hurt/ghurt1", "stream":false},
@@ -18,17 +18,48 @@
       {"name":"GMob/hurt/ghurt5", "stream":false}
     ]
   },
-  "gdeath":{
+  "GGeath":{
     "category": "master",
     "sounds":[
       {"name":"GMob/death/gdeath1", "stream":false},
       {"name":"GMob/death/gdeath2", "stream":false}
     ]
   },
-  "healinggem":{
+  "Spark":{
+    "category": "master",
+    "sounds":[
+      {"name":"PlayerEvents/spark", "stream":false}
+    ]
+  },
+  "HealingGem":{
     "category": "master",
     "sounds":[
       {"name":"Gems/healinggem", "stream":false}
+    ]
+  },
+  "WelcomePlayer":{
+    "category": "master",
+    "sounds":[
+      {"name":"Welcome/welcome1", "stream":false},
+      {"name":"Welcome/welcome2", "stream":false},
+      {"name":"Welcome/welcome3", "stream":false},
+      {"name":"Welcome/welcome4", "stream":false},
+      {"name":"Welcome/welcome5", "stream":false},
+      {"name":"Welcome/welcome6", "stream":false},
+      {"name":"Welcome/welcome7", "stream":false},
+      {"name":"Welcome/welcome8", "stream":false},
+      {"name":"Welcome/welcome9", "stream":false},
+      {"name":"Welcome/welcome10", "stream":false},
+      {"name":"Welcome/welcome11", "stream":false},
+      {"name":"Welcome/welcome12", "stream":false},
+      {"name":"Welcome/welcome13", "stream":false},
+      {"name":"Welcome/welcome14", "stream":false},
+      {"name":"Welcome/welcome15", "stream":false},
+      {"name":"Welcome/welcome16", "stream":false},
+      {"name":"Welcome/welcome17", "stream":false},
+      {"name":"Welcome/welcome18", "stream":false},
+      {"name":"Welcome/welcome19", "stream":false},
+      {"name":"Welcome/welcome20", "stream":false}
     ]
   }
 }
