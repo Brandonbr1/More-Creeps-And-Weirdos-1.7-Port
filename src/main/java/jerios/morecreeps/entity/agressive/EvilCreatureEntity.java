@@ -1,17 +1,16 @@
 package jerios.morecreeps.entity.agressive;
 
-import jerios.morecreeps.entity.base.BaseAgressiveCreep;
-import net.minecraft.entity.Entity;
 import net.minecraft.world.World;
 
-public class EvilCreatureEntity extends BaseAgressiveCreep  {
+import jerios.morecreeps.entity.base.BaseAgressiveCreep;
+
+public class EvilCreatureEntity extends BaseAgressiveCreep {
 
     public EvilCreatureEntity(World world) {
         super(world);
         this.isImmuneToFire = true;
         this.experienceValue = 15;
     }
-
 
     protected String getLivingSound() {
         return "morecreeps:evilcreature";

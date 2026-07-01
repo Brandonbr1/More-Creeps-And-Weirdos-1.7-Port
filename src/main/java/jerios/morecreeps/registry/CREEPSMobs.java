@@ -1,5 +1,10 @@
 package jerios.morecreeps.registry;
 
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.world.biome.BiomeGenBase;
+
 import cpw.mods.fml.common.registry.EntityRegistry;
 import jerios.morecreeps.CREEPSConstants;
 import jerios.morecreeps.MoreCreeps;
@@ -7,10 +12,6 @@ import jerios.morecreeps.entity.agressive.GEntity;
 import jerios.morecreeps.entity.nonLiving.EntityGooDonut;
 import jerios.morecreeps.entity.nonLiving.TrophyEntity;
 import jerios.morecreeps.utils.CreepsList;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.EnumCreatureType;
-import net.minecraft.world.biome.BiomeGenBase;
 
 public class CREEPSMobs {
 
@@ -21,8 +22,8 @@ public class CREEPSMobs {
     }
 
     static int id = 1;
-    public static void registerEntity(
-        Class<? extends Entity> entityClass, String entityName, int trackingRange,
+
+    public static void registerEntity(Class<? extends Entity> entityClass, String entityName, int trackingRange,
         int updateFrequency, boolean sendsVelocityUpdates, boolean withEgg, int spot1, int spot2) {
         EntityRegistry.registerModEntity(
             entityClass,
@@ -32,15 +33,13 @@ public class CREEPSMobs {
             trackingRange,
             updateFrequency,
             sendsVelocityUpdates);
-        if (withEgg)
-        {
+        if (withEgg) {
             CreepsList.addMapping(entityClass, CREEPSConstants.MOD_ID_DOT + entityName, id++, spot1, spot2);
         }
     }
 
-    public static void registerEntityWithBiomes(
-        Class<? extends EntityLiving> entityClass, String entityName, int trackingRange,
-        int updateFrequency, boolean sendsVelocityUpdates, int weightProb, int min, int max,
+    public static void registerEntityWithBiomes(Class<? extends EntityLiving> entityClass, String entityName,
+        int trackingRange, int updateFrequency, boolean sendsVelocityUpdates, int weightProb, int min, int max,
         EnumCreatureType typeOfCreature, boolean withEgg, int spot1, int spot2, BiomeGenBase... biomes
 
     ) {
@@ -53,14 +52,14 @@ public class CREEPSMobs {
             updateFrequency,
             sendsVelocityUpdates);
         addBiomes(entityClass, weightProb, min, max, typeOfCreature, biomes);
-        if (withEgg)
-        {
+        if (withEgg) {
             CreepsList.addMapping(entityClass, CREEPSConstants.MOD_ID_DOT + entityName, id++, spot1, spot2);
         }
 
     }
 
-    private static void addBiomes(Class<? extends EntityLiving> entityClass, int weightedProb, int min, int max, EnumCreatureType typeOfCreature, BiomeGenBase... biomes) {
+    private static void addBiomes(Class<? extends EntityLiving> entityClass, int weightedProb, int min, int max,
+        EnumCreatureType typeOfCreature, BiomeGenBase... biomes) {
         EntityRegistry.addSpawn(entityClass, weightedProb, min, max, typeOfCreature, biomes);
     }
 }

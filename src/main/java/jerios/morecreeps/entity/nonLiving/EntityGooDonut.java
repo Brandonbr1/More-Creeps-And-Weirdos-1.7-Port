@@ -1,30 +1,27 @@
 package jerios.morecreeps.entity.nonLiving;
 
-import jerios.morecreeps.registry.CREEPSItemBlocks;
+import java.util.List;
+
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.projectile.EntityThrowable;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.MathHelper;
-import net.minecraft.util.MovingObjectPosition;
-import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 
-import java.util.List;
+import jerios.morecreeps.registry.CREEPSItemBlocks;
 
 public class EntityGooDonut extends EntityItem {
+
     protected double initialVelocity;
     double bounceFactor;
     boolean exploded;
     int fuse;
 
     public EntityGooDonut(World world) {
-        super(world);  ;
+        super(world);;
         this.setSize(0.25F, 0.25F);
         this.initialVelocity = 1.0;
         this.yOffset = 0.0F;
@@ -42,7 +39,8 @@ public class EntityGooDonut extends EntityItem {
     }
 
     public EntityGooDonut(World world, EntityLivingBase entity) {
-        super(world /**, entity**/);
+        super(world /** , entity **/
+        );
         this.setRotation(entity.rotationYaw, 0.0F);
         double xHeading = -MathHelper.sin(entity.rotationYaw * 3.141593F / 180.0F);
         double zHeading = MathHelper.cos(entity.rotationYaw * 3.141593F / 180.0F);
@@ -70,8 +68,8 @@ public class EntityGooDonut extends EntityItem {
         this.motionZ = d2;
         if (this.prevRotationPitch == 0.0F && this.prevRotationYaw == 0.0F) {
             float f = MathHelper.sqrt_double(d * d + d2 * d2);
-            this.prevRotationYaw = this.rotationYaw = (float)(Math.atan2(d, d2) * 180.0 / (float) Math.PI);
-            this.prevRotationPitch = this.rotationPitch = (float)(Math.atan2(d1, f) * 180.0 / (float) Math.PI);
+            this.prevRotationYaw = this.rotationYaw = (float) (Math.atan2(d, d2) * 180.0 / (float) Math.PI);
+            this.prevRotationPitch = this.rotationPitch = (float) (Math.atan2(d1, f) * 180.0 / (float) Math.PI);
         }
     }
 
@@ -110,16 +108,14 @@ public class EntityGooDonut extends EntityItem {
             for (int J = 0; J < 8; J++) {
                 for (int k = 0; k < 10; k++) {
                     float f3 = 0.85F;
-                    this.worldObj
-                        .spawnParticle(
-                            "bubble",
-                            this.posX - this.motionX - 0.25 * f3,
-                            this.posY - this.motionY - 0.25 * f3,
-                            this.posZ - this.motionZ - 0.25 * f3,
-                            this.motionX,
-                            this.motionY,
-                            this.motionZ
-                        );
+                    this.worldObj.spawnParticle(
+                        "bubble",
+                        this.posX - this.motionX - 0.25 * f3,
+                        this.posY - this.motionY - 0.25 * f3,
+                        this.posZ - this.motionZ - 0.25 * f3,
+                        this.motionX,
+                        this.motionY,
+                        this.motionZ);
                 }
             }
 
@@ -131,7 +127,10 @@ public class EntityGooDonut extends EntityItem {
 
         double expand = 1.0D;
 
-        List<Entity> entityList = this.worldObj.getEntitiesWithinAABBExcludingEntity(this, this.boundingBox.addCoord(this.posX, this.posY, this.posZ).expand(expand, expand, expand));
+        List<Entity> entityList = this.worldObj.getEntitiesWithinAABBExcludingEntity(
+            this,
+            this.boundingBox.addCoord(this.posX, this.posY, this.posZ)
+                .expand(expand, expand, expand));
 
         for (int i = 0; i < entityList.size(); i++) {
             Entity entity = entityList.get(i);
@@ -141,12 +140,10 @@ public class EntityGooDonut extends EntityItem {
 
         }
 
-
-       if (this.delayBeforeCanPickup > 0) {
+        if (this.delayBeforeCanPickup > 0) {
             this.delayBeforeCanPickup--;
         }
     }
-
 
     private void explode() {
         if (!this.worldObj.isRemote) {
@@ -174,8 +171,7 @@ public class EntityGooDonut extends EntityItem {
     }
 
     @Override
-    public void onCollideWithPlayer(EntityPlayer entityIn) {
-    }
+    public void onCollideWithPlayer(EntityPlayer entityIn) {}
 
     public float getShadowSize() {
         return 0.0F;

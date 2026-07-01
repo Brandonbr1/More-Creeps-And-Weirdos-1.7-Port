@@ -1,18 +1,15 @@
 package jerios.morecreeps.entity.nonLiving;
 
-import jerios.morecreeps.MoreCreeps;
-import jerios.morecreeps.entity.base.BaseAgressiveCreep;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
+
+import jerios.morecreeps.MoreCreeps;
 
 public class TrophyEntity extends Entity {
 
     public int partyTime;
     public int trophyLifespan;
-
 
     public TrophyEntity(World worldIn) {
         super(worldIn);
@@ -29,26 +26,26 @@ public class TrophyEntity extends Entity {
     @Override
     public void onUpdate() {
 
-     if (this.partyTime-- > 1) {
-         this.confetti();
+        if (this.partyTime-- > 1) {
+            this.confetti();
         }
 
         if (this.trophyLifespan-- < 0) {
             this.setDead();
-      }
+        }
         super.onUpdate();
     }
 
     @Override
-   protected void readEntityFromNBT(NBTTagCompound tagCompound) {
+    protected void readEntityFromNBT(NBTTagCompound tagCompound) {
         this.partyTime = tagCompound.getInteger("PartyTime");
         this.trophyLifespan = tagCompound.getInteger("Lifespan");
     }
 
     @Override
-  protected void writeEntityToNBT(NBTTagCompound tagCompound) {
-       tagCompound.setInteger("PartyTime", this.partyTime);
-       tagCompound.setInteger("Lifespan", this.trophyLifespan);
+    protected void writeEntityToNBT(NBTTagCompound tagCompound) {
+        tagCompound.setInteger("PartyTime", this.partyTime);
+        tagCompound.setInteger("Lifespan", this.trophyLifespan);
 
     }
 

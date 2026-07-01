@@ -1,13 +1,16 @@
 package jerios.morecreeps.client.GMob;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
+
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+
 @SideOnly(Side.CLIENT)
 public class ModelGMob extends ModelBase {
+
     public ModelRenderer bipedRightArm;
 
     public ModelRenderer bipedLeftArm;
@@ -119,10 +122,8 @@ public class ModelGMob extends ModelBase {
             this.bipedRightLeg.rotateAngleY = 0.3141593F;
             this.bipedLeftLeg.rotateAngleY = -0.3141593F;
         }
-        if (this.field_1279_h)
-            this.bipedLeftArm.rotateAngleX = this.bipedLeftArm.rotateAngleX * 0.5F - 0.3141593F;
-        if (this.field_1278_i)
-            this.bipedRightArm.rotateAngleX = this.bipedRightArm.rotateAngleX * 0.5F - 0.3141593F;
+        if (this.field_1279_h) this.bipedLeftArm.rotateAngleX = this.bipedLeftArm.rotateAngleX * 0.5F - 0.3141593F;
+        if (this.field_1278_i) this.bipedRightArm.rotateAngleX = this.bipedRightArm.rotateAngleX * 0.5F - 0.3141593F;
         this.bipedRightArm.rotateAngleY = 0.0F;
         this.bipedLeftArm.rotateAngleY = 0.0F;
         if (this.onGround > -9990.0F) {

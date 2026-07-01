@@ -1,6 +1,5 @@
 package jerios.morecreeps.entity.base;
 
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
@@ -8,14 +7,17 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
 public class BaseAgressiveCreep extends EntityMob {
+
     boolean canBeShrunk = false;
 
     public float getModelSize() {
-        return this.getDataWatcher().getWatchableObjectFloat(SIZE_DW);
+        return this.getDataWatcher()
+            .getWatchableObjectFloat(SIZE_DW);
     }
 
     public void setModelSize(float modelSize) {
-        this.getDataWatcher().updateObject(SIZE_DW, modelSize);
+        this.getDataWatcher()
+            .updateObject(SIZE_DW, modelSize);
     }
 
     public void setCanBeShrunk(boolean canBeShrunk) {
@@ -38,7 +40,8 @@ public class BaseAgressiveCreep extends EntityMob {
     }
 
     public void setIncreasedHP(int spawnAdditionalHP) {
-        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue((double)this.getMaxHealth() + (double)this.rand.nextInt(spawnAdditionalHP));
+        this.getEntityAttribute(SharedMonsterAttributes.maxHealth)
+            .setBaseValue((double) this.getMaxHealth() + (double) this.rand.nextInt(spawnAdditionalHP));
         this.setHealth(this.getMaxHealth());
     }
 
@@ -52,10 +55,12 @@ public class BaseAgressiveCreep extends EntityMob {
     }
 
     private static final int SIZE_DW = 20;
+
     @Override
     protected void entityInit() {
         super.entityInit();
-        this.getDataWatcher().addObject(SIZE_DW, 1.0F);
+        this.getDataWatcher()
+            .addObject(SIZE_DW, 1.0F);
     }
 
     private static final String DW_STRING = "CREEPSModelSize";

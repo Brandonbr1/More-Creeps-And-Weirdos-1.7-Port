@@ -1,13 +1,15 @@
 package jerios.morecreeps.item.throwables;
 
-import jerios.morecreeps.entity.nonLiving.EntityGooDonut;
-import jerios.morecreeps.item.base.CREEPSItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
+import jerios.morecreeps.entity.nonLiving.EntityGooDonut;
+import jerios.morecreeps.item.base.CREEPSItem;
+
 public class ItemGooDonut extends CREEPSItem {
+
     public ItemGooDonut() {
         super("gooDonut");
         this.setMaxStackSize(16);

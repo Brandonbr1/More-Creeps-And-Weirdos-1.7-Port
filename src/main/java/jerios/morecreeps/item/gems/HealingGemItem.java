@@ -1,11 +1,12 @@
 package jerios.morecreeps.item.gems;
 
-import jerios.morecreeps.item.base.CREEPSItem;
+import java.util.Random;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-import java.util.Random;
+import jerios.morecreeps.item.base.CREEPSItem;
 
 public class HealingGemItem extends CREEPSItem {
 
@@ -20,17 +21,14 @@ public class HealingGemItem extends CREEPSItem {
     public ItemStack onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer player) {
         worldIn.playSoundAtEntity(player, "morecreeps:HealingGem", 1.0F, 1.0F);
 
-
         boolean HPIsNotFull = player.getHealth() < 20;
         Random rand = worldIn.rand;
-
 
         if (HPIsNotFull) {
 
             if (!worldIn.isRemote) {
                 player.heal(HEAL_AMM);
             }
-
 
             itemStackIn.damageItem(1, player);
             player.swingItem();
@@ -45,8 +43,7 @@ public class HealingGemItem extends CREEPSItem {
                     player.posZ + rand.nextGaussian() * 0.5 - rand.nextGaussian() * 0.5,
                     d,
                     d1,
-                    d2
-                );
+                    d2);
                 worldIn.spawnParticle(
                     "heart",
                     player.posX + rand.nextGaussian() * 0.5 - rand.nextGaussian() * 0.5,
@@ -54,13 +51,10 @@ public class HealingGemItem extends CREEPSItem {
                     player.posZ + rand.nextGaussian() * 0.5 - rand.nextGaussian() * 0.5,
                     d,
                     d1,
-                    d2
-                );
+                    d2);
             }
 
         }
-
-
 
         return super.onItemRightClick(itemStackIn, worldIn, player);
     }

@@ -1,30 +1,33 @@
 package jerios.morecreeps;
 
-import cpw.mods.fml.common.FMLCommonHandler;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import cpw.mods.fml.common.gameevent.PlayerEvent;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import jerios.morecreeps.registry.RegistryHandler;
+import java.util.Random;
+
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.IIcon;
 import net.minecraftforge.client.event.TextureStitchEvent;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import cpw.mods.fml.common.gameevent.PlayerEvent;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import jerios.morecreeps.registry.RegistryHandler;
 
-import java.util.Random;
-
-@Mod(modid = MoreCreeps.MODID, version = Tags.VERSION, name = "More Creeps And Weirdos 1.7 Port", acceptedMinecraftVersions = "[1.7.10]")
+@Mod(
+    modid = MoreCreeps.MODID,
+    version = Tags.VERSION,
+    name = "More Creeps And Weirdos 1.7 Port",
+    acceptedMinecraftVersions = "[1.7.10]")
 public class MoreCreeps {
 
     public static final String MODID = "morecreeps";
@@ -34,7 +37,6 @@ public class MoreCreeps {
 
     @Mod.Instance("morecreeps")
     public static MoreCreeps INSTANCE;
-
 
     @SidedProxy(clientSide = "jerios.morecreeps.ClientProxy", serverSide = "jerios.morecreeps.CommonProxy")
     public static CommonProxy proxy;
@@ -47,7 +49,9 @@ public class MoreCreeps {
         RegistryHandler.registerPreInit();
         proxy.clientProxy();
         MinecraftForge.EVENT_BUS.register(this);
-        FMLCommonHandler.instance().bus().register(this);
+        FMLCommonHandler.instance()
+            .bus()
+            .register(this);
     }
 
     boolean DEBUG_MODE = false;
@@ -57,13 +61,15 @@ public class MoreCreeps {
     public void debugPlayer(LivingAttackEvent livingEvent) {
         if (livingEvent.entity instanceof EntityPlayer player) {
 
-            if (player.getCommandSenderName().equals("MORE_CREEP_DEV") && DEBUG_MODE) {
-               // livingEvent.setCanceled(true);
+            if (player.getCommandSenderName()
+                .equals("MORE_CREEP_DEV") && DEBUG_MODE) {
+                // livingEvent.setCanceled(true);
                 player.heal(livingEvent.ammount / 2);
             }
 
         }
     }
+
     public static IIcon blood;
     public static IIcon piss;
     public static IIcon barf;
@@ -80,6 +86,7 @@ public class MoreCreeps {
     }
 
     boolean loggedIn = false;
+
     @SubscribeEvent
     public void onJoinWorld(PlayerEvent.PlayerLoggedInEvent event) {
 
@@ -88,19 +95,14 @@ public class MoreCreeps {
             event.player.worldObj.playSoundAtEntity(event.player, "morecreeps:WelcomePlayer", 1.0F, 1.0F);
         }
 
-
-
     }
 
     @Mod.EventHandler
-    public void init(FMLInitializationEvent event) {
-    }
+    public void init(FMLInitializationEvent event) {}
 
     @Mod.EventHandler
-    public void postInit(FMLPostInitializationEvent event) {
-    }
+    public void postInit(FMLPostInitializationEvent event) {}
 
     @Mod.EventHandler
-    public void serverStarting(FMLServerStartingEvent event) {
-    }
+    public void serverStarting(FMLServerStartingEvent event) {}
 }

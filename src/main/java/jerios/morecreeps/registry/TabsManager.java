@@ -1,9 +1,10 @@
 package jerios.morecreeps.registry;
 
+import net.minecraft.creativetab.CreativeTabs;
+
 import jerios.morecreeps.tabs.CREEPSFoodTab;
 import jerios.morecreeps.tabs.CREEPSItemsTab;
 import jerios.morecreeps.tabs.CREEPSSpawnEggTab;
-import net.minecraft.creativetab.CreativeTabs;
 
 public class TabsManager {
 

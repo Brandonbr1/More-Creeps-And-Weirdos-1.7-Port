@@ -1,8 +1,9 @@
 package jerios.morecreeps.item.base;
 
+import net.minecraft.item.Item;
+
 import jerios.morecreeps.CREEPSConstants;
 import jerios.morecreeps.registry.TabsManager;
-import net.minecraft.item.Item;
 
 public class CREEPSFood extends Item {
 
@@ -11,6 +12,5 @@ public class CREEPSFood extends Item {
         this.setCreativeTab(TabsManager.FOODS_TAB);
         this.setTextureName(CREEPSConstants.MODID_PREFIX + name);
     }
-
 
 }

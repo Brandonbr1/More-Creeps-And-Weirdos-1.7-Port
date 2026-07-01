@@ -11,7 +11,11 @@ public class Config {
     public static void synchronizeConfiguration(File configFile) {
         Configuration configuration = new Configuration(configFile);
 
-        greeting = configuration.getBoolean("greeting", Configuration.CATEGORY_GENERAL, true, "Should More Creeps Narrator greet you on world Join?");
+        greeting = configuration.getBoolean(
+            "greeting",
+            Configuration.CATEGORY_GENERAL,
+            true,
+            "Should More Creeps Narrator greet you on world Join?");
 
         if (configuration.hasChanged()) {
             configuration.save();
