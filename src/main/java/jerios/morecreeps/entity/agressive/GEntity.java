@@ -1,6 +1,7 @@
 package jerios.morecreeps.entity.agressive;
 
 import jerios.morecreeps.entity.base.BaseAgressiveCreep;
+import jerios.morecreeps.registry.CREEPSItemBlocks;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
@@ -179,7 +180,7 @@ public class GEntity extends BaseAgressiveCreep {
                         break;
                     case 14:
                     case 15:
-                   //     MoreCreeps.LOG.warn("I would be the goo donut");
+                        dropItemAndCount(CREEPSItemBlocks.gooDonut, random.nextInt(3) + 1);
                         break;
                     case 16:
                     case 17:
@@ -218,4 +219,5 @@ public class GEntity extends BaseAgressiveCreep {
     private void dropItemAndCount(Item item, int size) {
             dropItem(item, size);
     }
+
 }

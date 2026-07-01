@@ -1,5 +1,6 @@
 package jerios.morecreeps.entity.base;
 
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
@@ -15,6 +16,14 @@ public class BaseAgressiveCreep extends EntityMob {
 
     public void setModelSize(float modelSize) {
         this.getDataWatcher().updateObject(SIZE_DW, modelSize);
+    }
+
+    public void setCanBeShrunk(boolean canBeShrunk) {
+        this.canBeShrunk = canBeShrunk;
+    }
+
+    public boolean canBeShrunk() {
+        return canBeShrunk;
     }
 
     public BaseAgressiveCreep(World world) {
@@ -62,4 +71,5 @@ public class BaseAgressiveCreep extends EntityMob {
         super.readEntityFromNBT(nbttagcompound);
         this.setModelSize(nbttagcompound.getFloat(DW_STRING));
     }
+
 }

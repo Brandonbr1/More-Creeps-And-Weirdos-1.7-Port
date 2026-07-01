@@ -39,5 +39,4 @@ public class EvilCreatureEntity extends BaseAgressiveCreep  {
     protected void fall(float distance) {
 
     }
-
 }
