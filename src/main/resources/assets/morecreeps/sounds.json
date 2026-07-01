@@ -31,6 +31,42 @@
       {"name":"PlayerEvents/spark", "stream":false}
     ]
   },
+  "EvilCreatureDeath":{
+    "category": "master",
+    "sounds":[
+      {"name":"EvilCreature/death/evilcreaturedeath1", "stream":false},
+      {"name":"EvilCreature/death/evilcreaturedeath2", "stream":false}
+    ]
+  },
+  "EvilCreatureHurt":{
+    "category": "master",
+    "sounds":[
+      {"name":"EvilCreature/hurt/evilcreaturehurt1", "stream":false},
+      {"name":"EvilCreature/hurt/evilcreaturehurt2", "stream":false},
+      {"name":"EvilCreature/hurt/evilcreaturehurt3", "stream":false},
+      {"name":"EvilCreature/hurt/evilcreaturehurt4", "stream":false},
+      {"name":"EvilCreature/hurt/evilcreaturehurt5", "stream":false},
+      {"name":"EvilCreature/hurt/evilcreaturehurt6", "stream":false}
+    ]
+  },
+  "EvilCreatureLiving":{
+    "category": "master",
+    "sounds":[
+      {"name":"EvilCreature/living/evilcreature1", "stream":false},
+      {"name":"EvilCreature/living/evilcreature2", "stream":false},
+      {"name":"EvilCreature/living/evilcreature3", "stream":false},
+      {"name":"EvilCreature/living/evilcreature4", "stream":false},
+      {"name":"EvilCreature/living/evilcreature5", "stream":false},
+      {"name":"EvilCreature/living/evilcreature6", "stream":false},
+      {"name":"EvilCreature/living/evilcreature7", "stream":false}
+    ]
+  },
+  "EvilCreatureJump":{
+    "category": "master",
+    "sounds":[
+      {"name":"EvilCreature/evilcreaturejump", "stream":false}
+    ]
+  },
   "HealingGem":{
     "category": "master",
     "sounds":[
