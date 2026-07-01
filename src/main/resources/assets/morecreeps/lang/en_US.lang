@@ -1,6 +1,13 @@
 entity.morecreeps.GEntity.name=Letter G
-
+entity.morecreeps.Trophy.name=Trophy
 
 # Items
 item.healingGem.name= Healing Gem
 item.gooDonut.name= Goo Donut
+item.battery.name= Battery
+
+
+# ItemGROUP
+itemGroup.morecreeps.SpawnEggs= More Creeps Spawn Eggs
+itemGroup.morecreeps.Items= More Creeps Items
+itemGroup.morecreeps.Food= More Creeps Food
