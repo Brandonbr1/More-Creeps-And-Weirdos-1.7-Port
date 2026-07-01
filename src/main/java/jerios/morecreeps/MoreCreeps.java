@@ -2,8 +2,15 @@ package jerios.morecreeps;
 
 import java.util.Random;
 
+import jerios.morecreeps.item.base.CREEPSItem;
+import jerios.morecreeps.registry.AchievmentRegistry;
+import jerios.morecreeps.registry.CREEPSItemBlocks;
+import jerios.morecreeps.utils.AchievementUtil;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.IIcon;
 import net.minecraftforge.client.event.TextureStitchEvent;
@@ -94,11 +101,44 @@ public class MoreCreeps {
             loggedIn = true;
             event.player.worldObj.playSoundAtEntity(event.player, "morecreeps:WelcomePlayer", 1.0F, 1.0F);
         }
+    }
+
+    @SubscribeEvent
+    public void onPickup(PlayerEvent.ItemPickupEvent pickupEvent) {
+        ItemStack[] inv = pickupEvent.player.inventory.mainInventory;
+
+       ItemStack stack = pickupEvent.pickedUp.getEntityItem();
+
+       boolean hasItem = stack.getItem() == CREEPSItemBlocks.money || stack.getItem() == CREEPSItemBlocks.ram16k ;
+
+       if (hasItem) {
+
+           final int invSize = inv.length;
+           for (int i = 0; i < invSize; i++) {
+
+               ItemStack allStack = inv[i];
+               boolean flag = allStack.getItem() != null && allStack.getItem() == CREEPSItemBlocks.money || allStack.getItem() == CREEPSItemBlocks.ram16k;
+
+               if (flag)
+               {
+                
+
+               }
+
+           }
+
+
+       }
+
+
+
 
     }
 
     @Mod.EventHandler
-    public void init(FMLInitializationEvent event) {}
+    public void init(FMLInitializationEvent event) {
+        RegistryHandler.registerInit();
+    }
 
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event) {}

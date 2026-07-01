@@ -7,4 +7,8 @@ public class RegistryHandler {
         CREEPSMobs.registerMobs();
     }
 
+    public static void registerInit() {
+        AchievmentRegistry.register();
+    }
+
 }

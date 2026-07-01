@@ -67,6 +67,12 @@
       {"name":"EvilCreature/evilcreaturejump", "stream":false}
     ]
   },
+  "Achievement":{
+    "category": "master",
+    "sounds":[
+      {"name":"PlayerEvents/achievement1", "stream":true}
+    ]
+  },
   "HealingGem":{
     "category": "master",
     "sounds":[

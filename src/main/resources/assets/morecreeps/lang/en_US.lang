@@ -2,12 +2,33 @@ entity.morecreeps.GEntity.name=Letter G
 entity.morecreeps.Trophy.name=Trophy
 
 # Items
-item.healingGem.name= Healing Gem
-item.gooDonut.name= Goo Donut
-item.battery.name= Battery
+item.healingGem.name=Healing Gem
+item.gooDonut.name=Goo Donut
+item.battery.name=Battery
 
 
 # ItemGROUP
-itemGroup.morecreeps.SpawnEggs= More Creeps Spawn Eggs
-itemGroup.morecreeps.Items= More Creeps Items
-itemGroup.morecreeps.Food= More Creeps Food
+itemGroup.morecreeps.SpawnEggs=More Creeps Spawn Eggs
+itemGroup.morecreeps.Items=More Creeps Items
+itemGroup.morecreeps.Food=More Creeps Food
+
+achievement.achieve100bucks=Chicken Scratch
+achievement.achieve100bucks.desc=Scrape together 100 dollars
+
+achievement.achieve500bucks=Half G
+achievement.achieve500bucks.desc=Fill your wallet with 500 dollars
+
+achievement.achieve1000bucks=Where's Jeeves?
+achievement.achieve1000bucks.desc=Get a big pile of 1000 dollars
+
+
+
+
+achievement.achieveram128=Radio Shack TRS-80
+achievement.achieveram128.desc=Aquire 128K of RAM
+
+achievement.achieveram512=DOS
+achievement.achieveram512.desc=Aquire 512K of RAM
+
+achievement.achieveram1024=Supercharged Super Computer
+achievement.achieveram1024.desc=Aquire a MEGABYTE of RAM

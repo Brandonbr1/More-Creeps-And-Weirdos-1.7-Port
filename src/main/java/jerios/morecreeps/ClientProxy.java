@@ -40,8 +40,7 @@ public class ClientProxy extends CommonProxy {
 
     @Override
     public void spawnConfettiTrophyA(World world, double x, double y, double z) {
-        if (world == null) return;
-        if (!world.isRemote) return;
+        if (world == null || !world.isRemote || mc == null || mc.effectRenderer == null) return;
 
         for (int i = 1; i < 10; i++) {
             for (int ii = 0; ii < 10; ii++) {
@@ -52,9 +51,7 @@ public class ClientProxy extends CommonProxy {
                     y + world.rand.nextInt(4) + 4.0,
                     z + (world.rand.nextFloat() * 8.0F - world.rand.nextFloat() * 8.0F));
 
-                if (mc != null && mc.effectRenderer != null) {
                     mc.effectRenderer.addEffect(particle);
-                }
 
             }
         }
