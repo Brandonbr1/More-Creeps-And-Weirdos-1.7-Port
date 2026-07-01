@@ -1,10 +1,10 @@
 package jerios.morecreeps.entity.agressive;
 
 import jerios.morecreeps.entity.base.BaseAgressiveCreep;
-import net.minecraft.util.DamageSource;
+import net.minecraft.entity.Entity;
 import net.minecraft.world.World;
 
-public class EvilCreatureEntity extends BaseAgressiveCreep {
+public class EvilCreatureEntity extends BaseAgressiveCreep  {
 
     public EvilCreatureEntity(World world) {
         super(world);
@@ -39,4 +39,5 @@ public class EvilCreatureEntity extends BaseAgressiveCreep {
     protected void fall(float distance) {
 
     }
+
 }

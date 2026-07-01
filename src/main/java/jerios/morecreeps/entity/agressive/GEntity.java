@@ -218,6 +218,4 @@ public class GEntity extends BaseAgressiveCreep {
     private void dropItemAndCount(Item item, int size) {
             dropItem(item, size);
     }
-
-
 }

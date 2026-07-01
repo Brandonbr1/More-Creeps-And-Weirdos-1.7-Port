@@ -1,4 +1,4 @@
-package jerios.morecreeps.item.weapons;
+package jerios.morecreeps.item.gems;
 
 import jerios.morecreeps.item.base.CREEPSItem;
 import net.minecraft.entity.player.EntityPlayer;

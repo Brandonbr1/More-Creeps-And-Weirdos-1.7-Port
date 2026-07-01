@@ -161,7 +161,7 @@ public class CreepsList {
 
             if (oclass != null)
             {
-                entity = (Entity)oclass.getConstructor(new Class[] {World.class}).newInstance(new Object[] {p_75616_1_});
+               entity = (Entity)oclass.getConstructor(new Class[] {World.class}).newInstance(new Object[] {p_75616_1_});
             }
         }
         catch (Exception exception)
@@ -209,13 +209,6 @@ public class CreepsList {
     {
         Class oclass = getClassFromID(p_75617_0_);
         return oclass != null ? (String)classToStringMapping.get(oclass) : null;
-    }
-
-    public static void func_151514_a() {}
-
-    public static Set<String> func_151515_b()
-    {
-        return Collections.unmodifiableSet(stringToIDMapping.keySet());
     }
 
     public static StatBase func_151182_a(CreepsList.EntityEggInfo p_151182_0_)
