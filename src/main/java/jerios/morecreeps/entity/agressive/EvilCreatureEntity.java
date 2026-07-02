@@ -2,6 +2,7 @@ package jerios.morecreeps.entity.agressive;
 
 import java.util.List;
 
+import jerios.morecreeps.entity.interfaces.ICreepGrowable;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -11,7 +12,7 @@ import net.minecraft.world.World;
 
 import jerios.morecreeps.entity.base.BaseAgressiveCreep;
 
-public class EvilCreatureEntity extends BaseAgressiveCreep {
+public class EvilCreatureEntity extends BaseAgressiveCreep implements ICreepGrowable {
 
     public boolean jumping;
 
@@ -135,4 +136,7 @@ public class EvilCreatureEntity extends BaseAgressiveCreep {
 
     }
 
+    @Override
+    public void onSizeChange() {
+    }
 }
