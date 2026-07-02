@@ -1,5 +1,7 @@
 package jerios.morecreeps.item;
 
+import java.lang.invoke.MethodHandle;
+import java.lang.invoke.MethodType;
 import java.util.*;
 
 import net.minecraft.block.Block;
@@ -10,27 +12,29 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemMonsterPlacer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.stats.StatBase;
 import net.minecraft.util.*;
 import net.minecraft.world.World;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import jerios.morecreeps.registry.TabsManager;
-import jerios.morecreeps.utils.CreepsList;
 
 public class CreepSpawnEggItem extends ItemMonsterPlacer {
 
-    /**
-     * private static final Map<Integer, Class> INTEGER_CLASS_MAP = new HashMap<>(64);
-     * private static final Map<Integer, String> INTEGER_STRING_MAP = new HashMap<>(64);
-     * private static final Map<Integer, Integer[][]> INTEGER_COLOR_MAP = new HashMap<>(64);
-     * 
-     * public static void addSpawnEgg(int id, Class clazz, String s, Integer[][] color) {
-     * INTEGER_CLASS_MAP.put(id, clazz);
-     * INTEGER_STRING_MAP.put(id, s);
-     * INTEGER_COLOR_MAP.put(id, color);
-     * }
-     **/
+    private static final Map<Integer, Class<?>> INTEGER_CLASS_MAP = new HashMap<>(32);
+    private static final Map<Integer, String> INTEGER_STRING_MAP = new HashMap<>(32);
+    private static final Map<Integer, EGGSpots> INTEGER_COLOR_MAP = new LinkedHashMap<>(32);
+    private static final Map<String, Class<?>> STRING_CLASS_MAP = new HashMap<>(32);
+    private static final Map<Integer, String> STRING_ID_MAP = new HashMap<>(32);
+
+    public static void addSpawnEgg(int id, Class<?> clazz, String s, int color1, int color2) {
+        INTEGER_CLASS_MAP.put(id, clazz);
+        INTEGER_STRING_MAP.put(id, s);
+        INTEGER_COLOR_MAP.put(id, new EGGSpots(color1, color2, id));
+        STRING_CLASS_MAP.put(s, clazz);
+        STRING_ID_MAP.put(id, s);
+    }
 
     public CreepSpawnEggItem() {
         super();
@@ -42,7 +46,7 @@ public class CreepSpawnEggItem extends ItemMonsterPlacer {
     @Override
     public String getItemStackDisplayName(ItemStack p_77653_1_) {
         String s = (StatCollector.translateToLocal(this.getUnlocalizedName() + ".name")).trim();
-        String s1 = CreepsList.getStringFromID(p_77653_1_.getItemDamage()); // INTEGER_STRING_MAP.get(p_77653_1_.getItemDamage());
+        String s1 = INTEGER_STRING_MAP.get(p_77653_1_.getItemDamage());
 
         if (s1 != null) {
             s = s + " " + StatCollector.translateToLocal("entity." + s1 + ".name");
@@ -54,9 +58,8 @@ public class CreepSpawnEggItem extends ItemMonsterPlacer {
     @SideOnly(Side.CLIENT)
     @Override
     public int getColorFromItemStack(ItemStack p_82790_1_, int p_82790_2_) {
-        CreepsList.EntityEggInfo entityegginfo = CreepsList.entityEggs.get(p_82790_1_.getItemDamage());
-        return entityegginfo != null ? (p_82790_2_ == 0 ? entityegginfo.primaryColor : entityegginfo.secondaryColor)
-            : 16777215;
+        EGGSpots entityegginfo = INTEGER_COLOR_MAP.get(p_82790_1_.getItemDamage());
+        return entityegginfo != null ? (p_82790_2_ == 0 ? entityegginfo.spot1 : entityegginfo.spot2) : 16777215;
     }
 
     @Override
@@ -119,12 +122,7 @@ public class CreepSpawnEggItem extends ItemMonsterPlacer {
                     }
 
                     if (worldIn.getBlock(i, j, k) instanceof BlockLiquid) {
-                        Entity entity = spawnCreature(
-                            worldIn,
-                            itemStackIn.getItemDamage(),
-                            (double) i,
-                            (double) j,
-                            (double) k);
+                        Entity entity = spawnCreature(worldIn, itemStackIn.getItemDamage(), i, j, k);
 
                         if (entity != null) {
                             if (entity instanceof EntityLivingBase && itemStackIn.hasDisplayName()) {
@@ -149,14 +147,14 @@ public class CreepSpawnEggItem extends ItemMonsterPlacer {
      */
     public static Entity spawnCreature(World p_77840_0_, int p_77840_1_, double p_77840_2_, double p_77840_4_,
         double p_77840_6_) {
-        if (/** !INTEGER_CLASS_MAP.containsKey(p_77840_1_) **/
-        !CreepsList.entityEggs.containsKey(p_77840_1_)) {
+        if (!INTEGER_COLOR_MAP.containsKey(p_77840_1_)
+        ) {
             return null;
         } else {
             Entity entity = null;
 
             for (int j = 0; j < 1; ++j) {
-                entity = CreepsList.createEntityByID(p_77840_1_, p_77840_0_);
+                entity = createEntityByID(p_77840_1_, p_77840_0_);
 
                 if (entity instanceof EntityLivingBase) {
                     EntityLiving entityliving = (EntityLiving) entity;
@@ -184,19 +182,83 @@ public class CreepSpawnEggItem extends ItemMonsterPlacer {
     @SideOnly(Side.CLIENT)
     public void getSubItems(Item p_150895_1_, CreativeTabs p_150895_2_, List<ItemStack> p_150895_3_) {
 
-        // for (int i = 0; i < INTEGER_CLASS_MAP.size(); i++)
-        // {
-        // p_150895_3_.add(new ItemStack(p_150895_1_, 1, i));
-        // }
+        for (EGGSpots entityegginfo : INTEGER_COLOR_MAP.values()) {
+            p_150895_3_.add(new ItemStack(p_150895_1_, 1, entityegginfo.id));
+        }
+    }
 
-        Iterator iterator = CreepsList.entityEggs.values()
-            .iterator();
+    public static StatBase createStat1(EGGSpots p_151182_0_) {
+        String s = STRING_ID_MAP.get(p_151182_0_.id); //CreepsList.getStringFromID(p_151182_0_.spawnedID);
+        return s == null ? null
+            : (new StatBase(
+            "stat.killEntity." + s,
+            new ChatComponentTranslation(
+                "stat.entityKill",
+                new Object[] { new ChatComponentTranslation("entity." + s + ".name", new Object[0]) })))
+            .registerStat();
+    }
 
-        while (iterator.hasNext()) {
-            CreepsList.EntityEggInfo entityegginfo = (CreepsList.EntityEggInfo) iterator.next();
-            p_150895_3_.add(new ItemStack(p_150895_1_, 1, entityegginfo.spawnedID));
+    public static StatBase createStat2(EGGSpots p_151176_0_) {
+        String s = STRING_ID_MAP.get(p_151176_0_.id); //CreepsList.getStringFromID(p_151176_0_.spawnedID);
+        return s == null ? null
+            : (new StatBase(
+            "stat.entityKilledBy." + s,
+            new ChatComponentTranslation(
+                "stat.entityKilledBy",
+                new Object[] { new ChatComponentTranslation("entity." + s + ".name", new Object[0]) })))
+            .registerStat();
+    }
+
+
+    static class EGGSpots {
+
+        public int spot1;
+        public int spot2;
+        public int id;
+        public final StatBase statBase1;
+        public final StatBase statBase2;
+
+        public EGGSpots(int spot1, int spot2, int id) {
+            this.spot1 = spot1;
+            this.spot2 = spot2;
+            this.id = id;
+            statBase1 = createStat1(this);
+            statBase2 = createStat2(this);
         }
 
+    }
+
+
+    public static Entity createEntityByID(int id, World p_75616_1_) {
+        Entity entity = null;
+        try {
+
+            Class<?> oclass = INTEGER_CLASS_MAP.get(id);
+
+            if (oclass != null) {
+                entity = (Entity) oclass.getConstructor(new Class[] { World.class })
+                   .newInstance(new Object[] { p_75616_1_ });
+            }
+        } catch (Exception ignored) {
+        }
+
+        return entity;
+    }
+
+    public static Entity createEntityByName(String name, World p_75616_1_) {
+        Entity entity = null;
+        try {
+
+            Class<?> oclass = STRING_CLASS_MAP.get(name);
+
+            if (oclass != null) {
+                entity = (Entity) oclass.getConstructor(new Class[] { World.class })
+                    .newInstance(new Object[] { p_75616_1_ });
+            }
+        } catch (Exception ignored) {
+        }
+
+        return entity;
     }
 
 }

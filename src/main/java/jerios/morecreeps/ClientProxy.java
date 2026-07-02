@@ -11,8 +11,10 @@ import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import jerios.morecreeps.client.GMob.RenderGMob;
 import jerios.morecreeps.client.evilCreature.EvilCreatureRender;
+import jerios.morecreeps.client.evilPig.EvilPigRender;
 import jerios.morecreeps.client.fx.ConfettiFX;
 import jerios.morecreeps.entity.agressive.EvilCreatureEntity;
+import jerios.morecreeps.entity.agressive.EvilPigEntity;
 import jerios.morecreeps.entity.agressive.GEntity;
 
 public class ClientProxy extends CommonProxy {
@@ -29,6 +31,7 @@ public class ClientProxy extends CommonProxy {
     private void registerMobs() {
         renderEntity(GEntity.class, new RenderGMob());
         renderEntity(EvilCreatureEntity.class, new EvilCreatureRender());
+        renderEntity(EvilPigEntity.class, new EvilPigRender());
     }
 
     private void registerThrowable() {}

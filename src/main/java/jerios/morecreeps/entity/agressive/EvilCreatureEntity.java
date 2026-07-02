@@ -2,7 +2,6 @@ package jerios.morecreeps.entity.agressive;
 
 import java.util.List;
 
-import jerios.morecreeps.entity.interfaces.ICreepGrowable;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -11,6 +10,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 import jerios.morecreeps.entity.base.BaseAgressiveCreep;
+import jerios.morecreeps.entity.interfaces.ICreepGrowable;
 
 public class EvilCreatureEntity extends BaseAgressiveCreep implements ICreepGrowable {
 
@@ -137,6 +137,5 @@ public class EvilCreatureEntity extends BaseAgressiveCreep implements ICreepGrow
     }
 
     @Override
-    public void onSizeChange() {
-    }
+    public void onSizeChange() {}
 }
