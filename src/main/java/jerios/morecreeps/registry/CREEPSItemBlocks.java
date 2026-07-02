@@ -1,10 +1,10 @@
 package jerios.morecreeps.registry;
 
-import jerios.morecreeps.item.base.CREEPSItem;
 import net.minecraft.item.Item;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import jerios.morecreeps.item.CreepSpawnEggItem;
+import jerios.morecreeps.item.base.CREEPSItem;
 import jerios.morecreeps.item.gems.HealingGemItem;
 import jerios.morecreeps.item.misc.BatteryItem;
 import jerios.morecreeps.item.throwables.ItemGooDonut;

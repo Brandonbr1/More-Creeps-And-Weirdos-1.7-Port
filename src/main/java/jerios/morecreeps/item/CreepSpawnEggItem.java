@@ -1,7 +1,6 @@
 package jerios.morecreeps.item;
 
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLiquid;
@@ -16,21 +15,34 @@ import net.minecraft.world.World;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import jerios.morecreeps.registry.TabsManager;
 import jerios.morecreeps.utils.CreepsList;
 
 public class CreepSpawnEggItem extends ItemMonsterPlacer {
+
+    /**
+     * private static final Map<Integer, Class> INTEGER_CLASS_MAP = new HashMap<>(64);
+     * private static final Map<Integer, String> INTEGER_STRING_MAP = new HashMap<>(64);
+     * private static final Map<Integer, Integer[][]> INTEGER_COLOR_MAP = new HashMap<>(64);
+     * 
+     * public static void addSpawnEgg(int id, Class clazz, String s, Integer[][] color) {
+     * INTEGER_CLASS_MAP.put(id, clazz);
+     * INTEGER_STRING_MAP.put(id, s);
+     * INTEGER_COLOR_MAP.put(id, color);
+     * }
+     **/
 
     public CreepSpawnEggItem() {
         super();
         this.setUnlocalizedName("monsterPlacer");
         this.setTextureName("spawn_egg");
-        this.setCreativeTab(CreativeTabs.tabMisc);
+        this.setCreativeTab(TabsManager.SPAWN_EGG_TAB);
     }
 
     @Override
     public String getItemStackDisplayName(ItemStack p_77653_1_) {
         String s = (StatCollector.translateToLocal(this.getUnlocalizedName() + ".name")).trim();
-        String s1 = CreepsList.getStringFromID(p_77653_1_.getItemDamage());
+        String s1 = CreepsList.getStringFromID(p_77653_1_.getItemDamage()); // INTEGER_STRING_MAP.get(p_77653_1_.getItemDamage());
 
         if (s1 != null) {
             s = s + " " + StatCollector.translateToLocal("entity." + s1 + ".name");
@@ -137,7 +149,8 @@ public class CreepSpawnEggItem extends ItemMonsterPlacer {
      */
     public static Entity spawnCreature(World p_77840_0_, int p_77840_1_, double p_77840_2_, double p_77840_4_,
         double p_77840_6_) {
-        if (!CreepsList.entityEggs.containsKey(p_77840_1_)) {
+        if (/** !INTEGER_CLASS_MAP.containsKey(p_77840_1_) **/
+        !CreepsList.entityEggs.containsKey(p_77840_1_)) {
             return null;
         } else {
             Entity entity = null;
@@ -155,7 +168,7 @@ public class CreepSpawnEggItem extends ItemMonsterPlacer {
                         0.0F);
                     entityliving.rotationYawHead = entityliving.rotationYaw;
                     entityliving.renderYawOffset = entityliving.rotationYaw;
-                    entityliving.onSpawnWithEgg((IEntityLivingData) null);
+                    entityliving.onSpawnWithEgg(null);
                     p_77840_0_.spawnEntityInWorld(entity);
                     entityliving.playLivingSound();
                 }
@@ -170,6 +183,12 @@ public class CreepSpawnEggItem extends ItemMonsterPlacer {
      */
     @SideOnly(Side.CLIENT)
     public void getSubItems(Item p_150895_1_, CreativeTabs p_150895_2_, List<ItemStack> p_150895_3_) {
+
+        // for (int i = 0; i < INTEGER_CLASS_MAP.size(); i++)
+        // {
+        // p_150895_3_.add(new ItemStack(p_150895_1_, 1, i));
+        // }
+
         Iterator iterator = CreepsList.entityEggs.values()
             .iterator();
 
@@ -177,6 +196,7 @@ public class CreepSpawnEggItem extends ItemMonsterPlacer {
             CreepsList.EntityEggInfo entityegginfo = (CreepsList.EntityEggInfo) iterator.next();
             p_150895_3_.add(new ItemStack(p_150895_1_, 1, entityegginfo.spawnedID));
         }
+
     }
 
 }

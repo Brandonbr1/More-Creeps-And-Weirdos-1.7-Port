@@ -1,10 +1,13 @@
 entity.morecreeps.GEntity.name=Letter G
 entity.morecreeps.Trophy.name=Trophy
+entity.morecreeps.EvilCreature.name=Evil Creature
 
 # Items
 item.healingGem.name=Healing Gem
 item.gooDonut.name=Goo Donut
 item.battery.name=Battery
+item.money.name=Money
+item.ram16k.name=Ram
 
 
 # ItemGROUP

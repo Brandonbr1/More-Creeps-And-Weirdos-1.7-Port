@@ -10,7 +10,9 @@ import net.minecraft.world.World;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import jerios.morecreeps.client.GMob.RenderGMob;
+import jerios.morecreeps.client.evilCreature.EvilCreatureRender;
 import jerios.morecreeps.client.fx.ConfettiFX;
+import jerios.morecreeps.entity.agressive.EvilCreatureEntity;
 import jerios.morecreeps.entity.agressive.GEntity;
 
 public class ClientProxy extends CommonProxy {
@@ -26,6 +28,7 @@ public class ClientProxy extends CommonProxy {
 
     private void registerMobs() {
         renderEntity(GEntity.class, new RenderGMob());
+        renderEntity(EvilCreatureEntity.class, new EvilCreatureRender());
     }
 
     private void registerThrowable() {}
@@ -51,7 +54,7 @@ public class ClientProxy extends CommonProxy {
                     y + world.rand.nextInt(4) + 4.0,
                     z + (world.rand.nextFloat() * 8.0F - world.rand.nextFloat() * 8.0F));
 
-                    mc.effectRenderer.addEffect(particle);
+                mc.effectRenderer.addEffect(particle);
 
             }
         }

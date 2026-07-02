@@ -22,7 +22,8 @@ public class AchievmentRegistry {
             0,
             0,
             CREEPSItemBlocks.money,
-            null).registerStat().setSpecial();
+            null).registerStat()
+                .setSpecial();
 
         achieve500bucks = new Achievement(
             "achievement.achieve500bucks",
@@ -30,7 +31,8 @@ public class AchievmentRegistry {
             1,
             0,
             CREEPSItemBlocks.money,
-            achieve100bucks).registerStat();
+            achieve100bucks).registerStat()
+                .setSpecial();
 
         achieve1000bucks = new Achievement(
             "achievement.achieve1000bucks",
@@ -38,31 +40,35 @@ public class AchievmentRegistry {
             2,
             0,
             CREEPSItemBlocks.money,
-            achieve500bucks).registerStat();
+            achieve500bucks).registerStat()
+                .setSpecial();
 
         achieveram128 = new Achievement(
             "achievement.achieveram128",
             "achieveram128",
             0,
             1,
-            CREEPSItemBlocks.money,
-            null).registerStat();
+            CREEPSItemBlocks.ram16k,
+            null).registerStat()
+                .setSpecial();
 
         achieveram512 = new Achievement(
             "achievement.achieveram512",
             "achieveram512",
             1,
             1,
-            CREEPSItemBlocks.money,
-            achieveram128).registerStat();
+            CREEPSItemBlocks.ram16k,
+            achieveram128).registerStat()
+                .setSpecial();
 
         achieveram1024 = new Achievement(
             "achievement.achieveram1024",
             "achieveram1024",
             2,
             1,
-            CREEPSItemBlocks.money,
-            achieveram512).registerStat();
+            CREEPSItemBlocks.ram16k,
+            achieveram512).registerStat()
+                .setSpecial();
 
         creepsPage = new AchievementPage(
             "More Creeps",

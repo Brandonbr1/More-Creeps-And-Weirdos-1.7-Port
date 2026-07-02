@@ -3,8 +3,11 @@ package jerios.morecreeps.client.fx;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.world.World;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import jerios.morecreeps.MoreCreeps;
 
+@SideOnly(Side.CLIENT)
 public class BloodFX extends CREEPSFX {
 
     public BloodFX(World world, double x, double y, double z, float scale) {

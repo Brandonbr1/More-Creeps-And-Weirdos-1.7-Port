@@ -13,9 +13,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 import jerios.morecreeps.entity.base.BaseAgressiveCreep;
-import jerios.morecreeps.registry.AchievmentRegistry;
 import jerios.morecreeps.registry.CREEPSItemBlocks;
-import jerios.morecreeps.utils.AchievementUtil;
 
 public class GEntity extends BaseAgressiveCreep {
 

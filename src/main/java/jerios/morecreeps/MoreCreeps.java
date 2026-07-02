@@ -2,14 +2,8 @@ package jerios.morecreeps;
 
 import java.util.Random;
 
-import jerios.morecreeps.item.base.CREEPSItem;
-import jerios.morecreeps.registry.AchievmentRegistry;
-import jerios.morecreeps.registry.CREEPSItemBlocks;
-import jerios.morecreeps.utils.AchievementUtil;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.IIcon;
@@ -28,7 +22,11 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.PlayerEvent;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import jerios.morecreeps.registry.AchievmentRegistry;
+import jerios.morecreeps.registry.CREEPSItemBlocks;
 import jerios.morecreeps.registry.RegistryHandler;
+import jerios.morecreeps.utils.AchievementUtil;
+import jerios.morecreeps.utils.CREEPSProps;
 
 @Mod(
     modid = MoreCreeps.MODID,
@@ -59,6 +57,7 @@ public class MoreCreeps {
         FMLCommonHandler.instance()
             .bus()
             .register(this);
+        CREEPSProps.register();
     }
 
     boolean DEBUG_MODE = false;
@@ -107,31 +106,60 @@ public class MoreCreeps {
     public void onPickup(PlayerEvent.ItemPickupEvent pickupEvent) {
         ItemStack[] inv = pickupEvent.player.inventory.mainInventory;
 
-       ItemStack stack = pickupEvent.pickedUp.getEntityItem();
+        EntityPlayer player = pickupEvent.player;
 
-       boolean hasItem = stack.getItem() == CREEPSItemBlocks.money || stack.getItem() == CREEPSItemBlocks.ram16k ;
+        ItemStack stack = pickupEvent.pickedUp.getEntityItem();
 
-       if (hasItem) {
+        boolean hasItem = stack.getItem() == CREEPSItemBlocks.money || stack.getItem() == CREEPSItemBlocks.ram16k;
 
-           final int invSize = inv.length;
-           for (int i = 0; i < invSize; i++) {
+        if (hasItem) {
 
-               ItemStack allStack = inv[i];
-               boolean flag = allStack.getItem() != null && allStack.getItem() == CREEPSItemBlocks.money || allStack.getItem() == CREEPSItemBlocks.ram16k;
+            int money = 0;
+            int ram = 0;
 
-               if (flag)
-               {
-                
+            for (int i = 0; i < inv.length; i++) {
 
-               }
+                ItemStack allStack = inv[i];
 
-           }
+                boolean check = allStack != null && allStack.getItem() != null;
 
+                if (check && allStack.getItem() == CREEPSItemBlocks.money) {
+                    money += allStack.stackSize;
 
-       }
+                    if (money > 99) {
+                        AchievementUtil.givePlayerAchievement(player, AchievmentRegistry.achieve100bucks);
+                    }
 
+                    if (money > 499) {
+                        AchievementUtil.givePlayerAchievement(player, AchievmentRegistry.achieve500bucks);
+                    }
 
+                    if (money > 999) {
+                        AchievementUtil.givePlayerAchievement(player, AchievmentRegistry.achieve1000bucks);
+                    }
 
+                }
+
+                if (check && allStack.getItem() == CREEPSItemBlocks.ram16k) {
+                    ram += allStack.stackSize;
+
+                    if (ram > 8) {
+                        AchievementUtil.givePlayerAchievement(player, AchievmentRegistry.achieveram128);
+                    }
+
+                    if (ram > 32) {
+                        AchievementUtil.givePlayerAchievement(player, AchievmentRegistry.achieveram512);
+                    }
+
+                    if (ram > 64) {
+                        AchievementUtil.givePlayerAchievement(player, AchievmentRegistry.achieveram1024);
+                    }
+
+                }
+
+            }
+
+        }
 
     }
 
