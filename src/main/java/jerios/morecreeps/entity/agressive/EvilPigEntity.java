@@ -1,5 +1,6 @@
 package jerios.morecreeps.entity.agressive;
 
+import jerios.morecreeps.entity.interfaces.IEvilMobs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
@@ -9,7 +10,7 @@ import net.minecraft.world.World;
 
 import jerios.morecreeps.entity.base.BaseAgressiveCreep;
 
-public class EvilPigEntity extends BaseAgressiveCreep {
+public class EvilPigEntity extends BaseAgressiveCreep implements IEvilMobs {
 
     public EvilPigEntity(World world) {
         super(world);

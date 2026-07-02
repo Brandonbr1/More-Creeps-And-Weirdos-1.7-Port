@@ -129,7 +129,7 @@ public class EntityGooDonut extends EntityItem {
 
         List<Entity> entityList = this.worldObj.getEntitiesWithinAABBExcludingEntity(
             this,
-            this.boundingBox.addCoord(this.posX, this.posY, this.posZ)
+            this.boundingBox.addCoord(this.motionX, this.motionY, this.motionZ)
                 .expand(expand, expand, expand));
 
         for (int i = 0; i < entityList.size(); i++) {

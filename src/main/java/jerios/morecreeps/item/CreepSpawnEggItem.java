@@ -1,7 +1,5 @@
 package jerios.morecreeps.item;
 
-import java.lang.invoke.MethodHandle;
-import java.lang.invoke.MethodType;
 import java.util.*;
 
 import net.minecraft.block.Block;
@@ -188,7 +186,7 @@ public class CreepSpawnEggItem extends ItemMonsterPlacer {
     }
 
     public static StatBase createStat1(EGGSpots p_151182_0_) {
-        String s = STRING_ID_MAP.get(p_151182_0_.id); //CreepsList.getStringFromID(p_151182_0_.spawnedID);
+        String s = STRING_ID_MAP.get(p_151182_0_.id);
         return s == null ? null
             : (new StatBase(
             "stat.killEntity." + s,
@@ -199,7 +197,7 @@ public class CreepSpawnEggItem extends ItemMonsterPlacer {
     }
 
     public static StatBase createStat2(EGGSpots p_151176_0_) {
-        String s = STRING_ID_MAP.get(p_151176_0_.id); //CreepsList.getStringFromID(p_151176_0_.spawnedID);
+        String s = STRING_ID_MAP.get(p_151176_0_.id);
         return s == null ? null
             : (new StatBase(
             "stat.entityKilledBy." + s,

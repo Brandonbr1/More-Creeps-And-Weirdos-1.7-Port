@@ -1,6 +1,8 @@
 entity.morecreeps.GEntity.name=Letter G
 entity.morecreeps.Trophy.name=Trophy
 entity.morecreeps.EvilCreature.name=Evil Creature
+entity.morecreeps.EvilPig.name=Evil Pig
+entity.morecreeps.EvilLight.name=Evil Light
 
 # Items
 item.healingGem.name=Healing Gem
