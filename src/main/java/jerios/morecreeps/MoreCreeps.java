@@ -27,6 +27,7 @@ import jerios.morecreeps.registry.CREEPSItemBlocks;
 import jerios.morecreeps.registry.RegistryHandler;
 import jerios.morecreeps.utils.AchievementUtil;
 import jerios.morecreeps.utils.CREEPSProps;
+import net.minecraftforge.event.entity.player.AchievementEvent;
 
 @Mod(
     modid = MoreCreeps.MODID,

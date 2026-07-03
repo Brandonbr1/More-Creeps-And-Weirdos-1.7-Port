@@ -45,6 +45,7 @@ public class AchievementUtil {
                     1.0F,
                     (originalEntity.worldObj.rand.nextFloat() - originalEntity.worldObj.rand.nextFloat()) * 0.2F
                         + 1.0F);
+                spawnTrophy(player, player.worldObj);
             }
 
         }

@@ -1,5 +1,6 @@
 package jerios.morecreeps.entity.base;
 
+import jerios.morecreeps.CREEPSConstants;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
@@ -63,7 +64,7 @@ public class BaseAgressiveCreep extends EntityMob {
             .addObject(SIZE_DW, 1.0F);
     }
 
-    private static final String DW_STRING = "CREEPSModelSize";
+    private static final String DW_STRING = CREEPSConstants.MOD_ID_DOT + "ModelSize";
 
     @Override
     public void writeEntityToNBT(NBTTagCompound nbttagcompound) {

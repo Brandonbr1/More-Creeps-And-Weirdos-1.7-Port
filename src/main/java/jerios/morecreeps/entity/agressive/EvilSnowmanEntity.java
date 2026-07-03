@@ -1,14 +1,13 @@
 package jerios.morecreeps.entity.agressive;
 
 import jerios.morecreeps.entity.base.BaseAgressiveCreep;
+import jerios.morecreeps.entity.nonLiving.TrophyEntity;
 import jerios.morecreeps.registry.AchievmentRegistry;
 import jerios.morecreeps.utils.AchievementUtil;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.util.DamageSource;
@@ -50,7 +49,6 @@ public class EvilSnowmanEntity extends BaseAgressiveCreep {
                 AchievementUtil.givePlayerAchievement(player, AchievmentRegistry.achievesnow);
             }
         }
-
 
         super.onDeath(damageSource);
 
@@ -192,7 +190,7 @@ public class EvilSnowmanEntity extends BaseAgressiveCreep {
         if (this.getModelSize() > 6.0F) {
             this.setModelSize(6.0F);
         }
-        
+
         this.setSize(this.getModelSize() * 0.45F, this.getModelSize() * 2.0F);
 
         if (this.getModelSize() < 0.05D) {
@@ -218,6 +216,18 @@ public class EvilSnowmanEntity extends BaseAgressiveCreep {
 
     @Override
     protected void fall(float distance) {
+
+    }
+
+    public void spawnConfetti(EntityPlayer entityplayer) {
+        double xHeading = -MathHelper.sin(entityplayer.rotationYaw * 3.141593F / 180.0F);
+        double zHeading = MathHelper.cos(entityplayer.rotationYaw * 3.141593F / 180.0F);
+        TrophyEntity trophyEntity = new TrophyEntity(worldObj);
+        trophyEntity.setLocationAndAngles(
+            entityplayer.posX + xHeading * 3.0, entityplayer.posY - 2.0, entityplayer.posZ + zHeading * 3.0, entityplayer.rotationYaw, 0.0F
+        );
+
+        entityplayer.worldObj.spawnEntityInWorld(trophyEntity);
 
     }
 
