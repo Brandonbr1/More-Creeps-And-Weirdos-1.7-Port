@@ -3,6 +3,7 @@ entity.morecreeps.Trophy.name=Trophy
 entity.morecreeps.EvilCreature.name=Evil Creature
 entity.morecreeps.EvilPig.name=Evil Pig
 entity.morecreeps.EvilLight.name=Evil Light
+entity.morecreeps.EvilSnowman.name=Evil Snowman
 
 # Items
 item.healingGem.name=Healing Gem
@@ -26,9 +27,6 @@ achievement.achieve500bucks.desc=Fill your wallet with 500 dollars
 achievement.achieve1000bucks=Where's Jeeves?
 achievement.achieve1000bucks.desc=Get a big pile of 1000 dollars
 
-
-
-
 achievement.achieveram128=Radio Shack TRS-80
 achievement.achieveram128.desc=Aquire 128K of RAM
 
@@ -37,3 +35,12 @@ achievement.achieveram512.desc=Aquire 512K of RAM
 
 achievement.achieveram1024=Supercharged Super Computer
 achievement.achieveram1024.desc=Aquire a MEGABYTE of RAM
+
+achievement.achievesnowtiny=Tiny Snowflake
+achievement.achievesnowtiny.desc=Kill a tiny Evil Snowman
+
+achievement.achievesnowtall=Big Snowballs
+achievement.achievesnowtall.desc=Kill a huge Evil Snowman
+
+achievement.achievesnow=Bad Snow Day
+achievement.achievesnow.desc=Kill an Evil Snowman

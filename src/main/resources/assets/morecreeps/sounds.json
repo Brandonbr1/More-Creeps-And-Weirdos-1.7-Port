@@ -73,6 +73,40 @@
       {"name":"PlayerEvents/achievement1", "stream":true}
     ]
   },
+  "EvilLight":{
+    "category": "master",
+    "sounds":[
+      {"name":"EvilLight/evillight1", "stream":false},
+      {"name":"EvilLight/evillight2", "stream":false},
+      {"name":"EvilLight/evillight3", "stream":false}
+    ]
+  },
+  "Snowman":{
+    "category": "master",
+    "sounds":[
+      {"name":"EvilSnowman/living/snowman1", "stream":false},
+      {"name":"EvilSnowman/living/snowman2", "stream":false},
+      {"name":"EvilSnowman/living/snowman3", "stream":false}
+    ]
+  },
+  "SnowmanDeath":{
+    "category": "master",
+    "sounds":[
+      {"name":"EvilSnowman/death/snowmandeath1", "stream":false}
+    ]
+  },
+  "SnowmanHurt":{
+    "category": "master",
+    "sounds":[
+      {"name":"EvilSnowman/hurt/snowmanhurt1", "stream":false}
+    ]
+  },
+  "SnowmanBounce":{
+    "category": "master",
+    "sounds":[
+      {"name":"EvilSnowman/SnowmanBounce", "stream":false}
+    ]
+  },
   "HealingGem":{
     "category": "master",
     "sounds":[

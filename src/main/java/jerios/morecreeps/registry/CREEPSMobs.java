@@ -1,6 +1,6 @@
 package jerios.morecreeps.registry;
 
-import jerios.morecreeps.entity.agressive.EvilLight;
+import jerios.morecreeps.entity.agressive.*;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EnumCreatureType;
@@ -9,9 +9,6 @@ import net.minecraft.world.biome.BiomeGenBase;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import jerios.morecreeps.CREEPSConstants;
 import jerios.morecreeps.MoreCreeps;
-import jerios.morecreeps.entity.agressive.EvilCreatureEntity;
-import jerios.morecreeps.entity.agressive.EvilPigEntity;
-import jerios.morecreeps.entity.agressive.GEntity;
 import jerios.morecreeps.entity.nonLiving.EntityGooDonut;
 import jerios.morecreeps.entity.nonLiving.TrophyEntity;
 import jerios.morecreeps.item.CreepSpawnEggItem;
@@ -25,6 +22,7 @@ public class CREEPSMobs {
         registerEntity(EntityGooDonut.class, "GooDonut", 128, 1, true, false, 44975, 7969893);
         registerEntity(EvilPigEntity.class, "EvilPig", 128, 1, true, true, 44975, 7969893);
         registerEntity(EvilLight.class, "EvilLight", 128, 1, true, true, 44975, 7969893);
+        registerEntity(EvilSnowmanEntity.class, "EvilSnowman", 128, 1, true, true, 44975, 7969893);
     }
 
     static int id = 1;

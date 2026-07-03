@@ -4,6 +4,7 @@ import jerios.morecreeps.client.CREEPSBaseLivingRender;
 import jerios.morecreeps.entity.agressive.EvilLight;
 import jerios.morecreeps.entity.agressive.EvilPigEntity;
 import jerios.morecreeps.utils.ResourceLocationUtils;
+import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
@@ -22,26 +23,20 @@ public class RenderEvilLight extends CREEPSBaseLivingRender {
     }
 
 
-    @Override
-    protected void preRenderCallback(EntityLivingBase p_77041_1_, float p_77041_2_) {
-        super.preRenderCallback(p_77041_1_, p_77041_2_);
-    //    GL11.glScalef(4.0F, 3.0F, 4.0F);
-    }
-
     protected int glow(EvilLight entityevillight, int i, float f) {
+        if (i != 0) {
+            return -1;
+        }
 
         if (i != 0) {
             return -1;
         }
 
         this.bindTexture(RENDER_EFFECT);
-       float f1 = (1.0F - entityevillight.getBrightness(1.0F)) * 0.5F;
-        GL11.glEnable(GL11.GL_BLEND);
-      //  GL11.glDisable(GL11.GL_ALPHA_TEST);
-        GL11.glBlendFunc(GL11.GL_ONE, GL11.GL_ONE);
+        float f1 = (1.0F - entityevillight.getBrightness(1.0F)) * 0.5F;
+        GL11.glEnable(3042);
+        GL11.glBlendFunc(1, 771);
         GL11.glColor4f(1.0F, 1.0F, 1.0F, f1);
-
-
         return 1;
     }
 

@@ -48,10 +48,10 @@ public class EvilLight extends BaseAgressiveCreep implements IEvilMobs{
             Entity entity = list.get(i);
             if (entity.canBeCollidedWith() && !(entity instanceof IEvilMobs)) {
                 dealFireDamageToMob(entity,3);
-                entity.motionX = super.rand.nextFloat() * 0.7F;
-                entity.motionY = super.rand.nextFloat() * 0.4F;
-                entity.motionZ = super.rand.nextFloat() * 0.7F;
-                super.worldObj.playSoundAtEntity(this, "morecreeps:evillight", 0.2F, 1.0F / (super.rand.nextFloat() * 0.1F + 0.95F));
+                entity.motionX = this.rand.nextFloat() * 0.7F;
+                entity.motionY = this.rand.nextFloat() * 0.4F;
+                entity.motionZ = this.rand.nextFloat() * 0.7F;
+                this.worldObj.playSoundAtEntity(this, "morecreeps:EvilLight", 0.2F, 1.0F / (super.rand.nextFloat() * 0.1F + 0.95F));
 
             }
 
@@ -60,11 +60,11 @@ public class EvilLight extends BaseAgressiveCreep implements IEvilMobs{
     }
 
     // Method was protected for some reason, copypasta!
-    public void dealFireDamageToMob(Entity entity, int amount)
+    public void dealFireDamageToMob(Entity entity, float amount)
     {
         if (!entity.isImmuneToFire())
         {
-            entity.attackEntityFrom(DamageSource.inFire, (float)amount);
+            entity.attackEntityFrom(DamageSource.inFire, amount);
         }
     }
 
@@ -82,17 +82,17 @@ public class EvilLight extends BaseAgressiveCreep implements IEvilMobs{
 
     @Override
     protected String getLivingSound() {
-        return "morecreeps:evillight";
+        return "morecreeps:EvilLight";
     }
 
     @Override
     protected String getHurtSound() {
-        return "morecreeps:evillight";
+        return "morecreeps:EvilLight";
     }
 
     @Override
     protected String getDeathSound() {
-        return "morecreeps:evillight";
+        return "morecreeps:EvilLight";
     }
 
 
@@ -106,19 +106,6 @@ public class EvilLight extends BaseAgressiveCreep implements IEvilMobs{
         }
 
     }
-
-    // test
- /**   @Override
-    public void onCollideWithPlayer(EntityPlayer entityIn) {
-
-    }
-
-    @Override
-    public boolean canBePushed()
-    {
-        return false;
-    }
-  **/
 
     @Override
     protected void fall(float par1) {

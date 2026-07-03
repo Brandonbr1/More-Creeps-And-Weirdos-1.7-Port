@@ -1,5 +1,6 @@
 package jerios.morecreeps.registry;
 
+import net.minecraft.init.Items;
 import net.minecraft.stats.Achievement;
 import net.minecraftforge.common.AchievementPage;
 
@@ -14,6 +15,10 @@ public class AchievmentRegistry {
     public static Achievement achieveram128;
     public static Achievement achieveram512;
     public static Achievement achieveram1024;
+
+    public static Achievement achievesnowtiny;
+    public static Achievement achievesnowtall;
+    public static Achievement achievesnow;
 
     public static void register() {
         achieve100bucks = new Achievement(
@@ -70,6 +75,33 @@ public class AchievmentRegistry {
             achieveram512).registerStat()
                 .setSpecial();
 
+        achievesnowtiny = new Achievement(
+            "achievement.achievesnowtiny",
+            "achievesnowtiny",
+            0,
+            3,
+            Items.snowball,
+            null).registerStat()
+            .setSpecial();
+
+        achievesnowtall = new Achievement(
+            "achievement.achievesnowtall",
+            "achievesnowtall",
+            1,
+            3,
+            Items.snowball,
+            null).registerStat()
+            .setSpecial();
+
+        achievesnow = new Achievement(
+            "achievement.achievesnow",
+            "achievesnow",
+            2,
+            3,
+            Items.snowball,
+            null).registerStat()
+            .setSpecial();
+
         creepsPage = new AchievementPage(
             "More Creeps",
             achieve100bucks,
@@ -77,7 +109,10 @@ public class AchievmentRegistry {
             achieve1000bucks,
             achieveram128,
             achieveram512,
-            achieveram1024);
+            achieveram1024,
+            achievesnowtiny,
+            achievesnow,
+            achievesnowtall);
 
         AchievementPage.registerAchievementPage(creepsPage);
     }
