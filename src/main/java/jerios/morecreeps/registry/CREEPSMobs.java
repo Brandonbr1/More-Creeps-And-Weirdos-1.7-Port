@@ -36,7 +36,7 @@ public class CREEPSMobs {
         registerEntityWithEgg(CastleCritterEntity.class, "CastleCritter", 128, 1, true, 10487043, 13896822);
     }
 
-    static int id = 0;
+    static int id = 10;
 
     public static void registerEntity(Class<? extends Entity> entityClass, String entityName, int trackingRange,
         int updateFrequency, boolean sendsVelocityUpdates, int spot1, int spot2) {
