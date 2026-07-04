@@ -14,43 +14,20 @@ public class AchievementUtil {
     public static void givePlayerAchievement(EntityPlayer player, Achievement achievement) {
 
         if (player instanceof EntityPlayerMP) {
-            EntityPlayerMP p = (EntityPlayerMP) player;
-            boolean hasAch = p.func_147099_x()
-                .hasAchievementUnlocked(achievement);
-
-            if (!hasAch) {
+            EntityPlayerMP playerMP = (EntityPlayerMP) player;
+            if (!playerMP.func_147099_x().hasAchievementUnlocked(achievement)) {
                 player.worldObj.playSoundAtEntity(
                     player,
                     "morecreeps:Achievement",
                     1.0F,
                     (player.worldObj.rand.nextFloat() - player.worldObj.rand.nextFloat()) * 0.2F + 1.0F);
                 spawnTrophy(player, player.worldObj);
+                player.triggerAchievement(achievement);
             }
         }
-
-
-        player.triggerAchievement(achievement);
     }
 
-    public static void givePlayerAchievement2(EntityPlayer player, Entity originalEntity, Achievement achievement) {
-        if (player instanceof EntityPlayerMP) {
-            EntityPlayerMP p = (EntityPlayerMP) player;
-            boolean hasAch = p.func_147099_x()
-                .hasAchievementUnlocked(achievement);
 
-            if (!hasAch) {
-                player.worldObj.playSoundAtEntity(
-                    originalEntity,
-                    "morecreeps:Achievement",
-                    1.0F,
-                    (originalEntity.worldObj.rand.nextFloat() - originalEntity.worldObj.rand.nextFloat()) * 0.2F
-                        + 1.0F);
-            }
-            spawnTrophy(player, player.worldObj);
-        }
-
-        player.triggerAchievement(achievement);
-    }
 
     public static void spawnTrophy(EntityPlayer entityplayer, World world) {
         double xHeading = -MathHelper.sin(entityplayer.rotationYaw * 3.141593F / 180.0F);
@@ -64,5 +41,6 @@ public class AchievementUtil {
             0.0F);
         world.spawnEntityInWorld(entitytrophy);
     }
+
 
 }

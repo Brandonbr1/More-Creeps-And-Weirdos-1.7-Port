@@ -33,7 +33,8 @@ public class RenderTrophy extends Render {
     {
         GL11.glPushMatrix();
         GL11.glTranslatef((float)f1, (float)p_76986_4_, (float)p_76986_6_);
-        this.bindEntityTexture(trophyEntity);
+        GL11.glRotatef(180.0F, 0.0F, 0.0F, 1.0F);
+        this.bindTexture(TEXTURE);
 
         this.model.render(trophyEntity, 0.0F, 0.0F, -0.1F, 0.0F, 0.0F, 0.0625F);
 

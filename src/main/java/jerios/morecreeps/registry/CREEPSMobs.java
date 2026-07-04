@@ -17,20 +17,27 @@ import jerios.morecreeps.item.CreepSpawnEggItem;
 public class CREEPSMobs {
 
     public static void registerMobs() {
-        registerEntity(GEntity.class, "GEntity", 128, 1, true, true, 44975, 7969893);
-        registerEntity(TrophyEntity.class, "Trophy", 128, 1, true, true, 44975, 7969893);
-        registerEntity(EvilCreatureEntity.class, "EvilCreature", 128, 1, true, true, 44975, 7969893);
-        registerEntity(EntityGooDonut.class, "GooDonut", 128, 1, true, false, 44975, 7969893);
-        registerEntity(EvilPigEntity.class, "EvilPig", 128, 1, true, true, 44975, 7969893);
-        registerEntity(EvilLight.class, "EvilLight", 128, 1, true, true, 44975, 7969893);
-        registerEntity(EvilSnowmanEntity.class, "EvilSnowman", 128, 1, true, true, 44975, 7969893);
-        registerEntity(InvisibleManEntity.class, "InvisibleMan", 128, 1, true, true, 44975, 7969893);
+        registerEntityWithEgg(GEntity.class, "GEntity", 128, 1, true, 12728089, 222630);
+
+        registerEntity(TrophyEntity.class, "Trophy", 128, 1, true,  44975, 7969893);
+
+        registerEntityWithEgg(EvilCreatureEntity.class, "EvilCreature", 128, 1, true,  2247962, 10224389);
+
+        registerEntity(EntityGooDonut.class, "GooDonut", 128, 1, true,  44975, 7969893);
+
+        registerEntityWithEgg(EvilPigEntity.class, "EvilPig", 128, 1, true,  12100209, 13303810);
+
+        registerEntityWithEgg(EvilLight.class, "EvilLight", 128, 1, true,  16378430, 0);
+
+        registerEntityWithEgg(EvilSnowmanEntity.class, "EvilSnowman", 128, 1, true,  11645613, 2236962);
+
+        registerEntityWithEgg(InvisibleManEntity.class, "InvisibleMan", 128, 1, true, 9145227, 9145227);
     }
 
     static int id = 1;
 
     public static void registerEntity(Class<? extends Entity> entityClass, String entityName, int trackingRange,
-        int updateFrequency, boolean sendsVelocityUpdates, boolean withEgg, int spot1, int spot2) {
+        int updateFrequency, boolean sendsVelocityUpdates, int spot1, int spot2) {
         EntityRegistry.registerModEntity(
             entityClass,
             entityName,
@@ -39,9 +46,20 @@ public class CREEPSMobs {
             trackingRange,
             updateFrequency,
             sendsVelocityUpdates);
-        if (withEgg) {
+    }
+
+    public static void registerEntityWithEgg(Class<? extends Entity> entityClass, String entityName, int trackingRange,
+                                      int updateFrequency, boolean sendsVelocityUpdates, int spot1, int spot2) {
+        EntityRegistry.registerModEntity(
+            entityClass,
+            entityName,
+            id++,
+            MoreCreeps.INSTANCE,
+            trackingRange,
+            updateFrequency,
+            sendsVelocityUpdates);
             CreepSpawnEggItem.addSpawnEgg(id++, entityClass, CREEPSConstants.MOD_ID_DOT + entityName, spot1, spot2);
-        }
+
     }
 
     private static void addBiomes(Class<? extends EntityLiving> entityClass, int weightedProb, int min, int max,

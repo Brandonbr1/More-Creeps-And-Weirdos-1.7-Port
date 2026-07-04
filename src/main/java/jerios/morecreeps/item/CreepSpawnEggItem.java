@@ -1,6 +1,8 @@
 package jerios.morecreeps.item;
 
+import java.lang.invoke.MethodHandle;
 import java.lang.invoke.MethodHandles;
+import java.lang.invoke.MethodType;
 import java.util.*;
 
 import net.minecraft.block.Block;
@@ -150,12 +152,12 @@ public class CreepSpawnEggItem extends ItemMonsterPlacer {
         ) {
             return null;
         } else {
-            Entity entity = null;
+            EntityLivingBase entity = null;
 
             for (int j = 0; j < 1; ++j) {
                 entity = createEntityByID(p_77840_1_, p_77840_0_);
 
-                if (entity instanceof EntityLivingBase) {
+                if (entity != null) {
                     EntityLiving entityliving = (EntityLiving) entity;
                     entity.setLocationAndAngles(
                         p_77840_2_,
@@ -228,38 +230,36 @@ public class CreepSpawnEggItem extends ItemMonsterPlacer {
     }
 
 
-
-    public static Entity createEntityByID(int id, World p_75616_1_) {
-        Entity entity = null;
+    public static EntityLivingBase createEntityByID(int id, World world) {
         try {
-            MethodHandles.Lookup lookup = MethodHandles.lookup();
 
-            Class<?> oclass = INTEGER_CLASS_MAP.get(id);
+           final Class<?> oclass = INTEGER_CLASS_MAP.get(id);
 
             if (oclass != null) {
-                entity = (Entity) oclass.getConstructor(new Class[] { World.class })
-                   .newInstance(new Object[] { p_75616_1_ });
+               final MethodType type = MethodType.methodType(void.class, World.class);
+               final MethodHandle handle = MethodHandles.lookup().findConstructor(oclass, type);
+
+                return (EntityLivingBase) handle.invoke(world);
             }
-        } catch (Exception ignored) {
+        } catch (Throwable ignored) {
         }
 
-        return entity;
+        return null;
     }
 
-    public static Entity createEntityByName(String name, World p_75616_1_) {
-        Entity entity = null;
+    public static Entity createEntityByName(String name, World world) {
         try {
 
-            Class<?> oclass = STRING_CLASS_MAP.get(name);
+          final   Class<?> oclass = STRING_CLASS_MAP.get(name);
 
-            if (oclass != null) {
-                entity = (Entity) oclass.getConstructor(new Class[] { World.class })
-                    .newInstance(new Object[] { p_75616_1_ });
-            }
-        } catch (Exception ignored) {
+           final MethodType type = MethodType.methodType(void.class, World.class);
+            final MethodHandle handle = MethodHandles.lookup().findConstructor(oclass, type);
+
+            return (EntityLivingBase) handle.invoke(world);
+        } catch (Throwable ignored) {
         }
 
-        return entity;
+        return null;
     }
 
 }

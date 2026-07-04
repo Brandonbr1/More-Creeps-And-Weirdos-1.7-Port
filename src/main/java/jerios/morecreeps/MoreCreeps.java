@@ -27,7 +27,6 @@ import jerios.morecreeps.registry.CREEPSItemBlocks;
 import jerios.morecreeps.registry.RegistryHandler;
 import jerios.morecreeps.utils.AchievementUtil;
 import jerios.morecreeps.utils.CREEPSProps;
-import net.minecraftforge.event.entity.player.AchievementEvent;
 
 @Mod(
     modid = MoreCreeps.MODID,
@@ -92,15 +91,15 @@ public class MoreCreeps {
 
     }
 
-    boolean loggedIn = false;
-
+    private boolean loggedIn = false;
     @SubscribeEvent
     public void onJoinWorld(PlayerEvent.PlayerLoggedInEvent event) {
+            if (Config.greeting && !loggedIn) {
+                loggedIn = true;
+                event.player.worldObj.playSoundAtEntity(event.player, "morecreeps:WelcomePlayer", 1.0F, 1.0F);
+            }
 
-        if (Config.greeting && !loggedIn) {
-            loggedIn = true;
-            event.player.worldObj.playSoundAtEntity(event.player, "morecreeps:WelcomePlayer", 1.0F, 1.0F);
-        }
+
     }
 
     @SubscribeEvent
