@@ -20,13 +20,9 @@ public class EvilPigRender extends CREEPSBaseLivingRender {
         this.setRenderPassModel(new ModelEvilPig());
     }
 
-    protected ResourceLocation getEntityTexture(EvilPigEntity entity) {
-        return ResourceLocationUtils.makeResourceLocationEntityHostile("evilpig");
-    }
-
     @Override
     protected ResourceLocation getEntityTexture(Entity entity) {
-        return getEntityTexture((EvilPigEntity) entity);
+        return ResourceLocationUtils.makeResourceLocationEntityHostile("evilpig");
     }
 
     protected void preRenderCallback(EvilPigEntity mob, float size) {

@@ -24,10 +24,10 @@ public class AchievementUtil {
                     "morecreeps:Achievement",
                     1.0F,
                     (player.worldObj.rand.nextFloat() - player.worldObj.rand.nextFloat()) * 0.2F + 1.0F);
-
                 spawnTrophy(player, player.worldObj);
             }
         }
+
 
         player.triggerAchievement(achievement);
     }
@@ -45,10 +45,10 @@ public class AchievementUtil {
                     1.0F,
                     (originalEntity.worldObj.rand.nextFloat() - originalEntity.worldObj.rand.nextFloat()) * 0.2F
                         + 1.0F);
-                spawnTrophy(player, player.worldObj);
             }
-
+            spawnTrophy(player, player.worldObj);
         }
+
         player.triggerAchievement(achievement);
     }
 
@@ -58,7 +58,7 @@ public class AchievementUtil {
         TrophyEntity entitytrophy = new TrophyEntity(world);
         entitytrophy.setLocationAndAngles(
             entityplayer.posX + xHeading * 3.0,
-            entityplayer.posY - 2.0,
+            entityplayer.posY,
             entityplayer.posZ + zHeading * 3.0,
             entityplayer.rotationYaw,
             0.0F);

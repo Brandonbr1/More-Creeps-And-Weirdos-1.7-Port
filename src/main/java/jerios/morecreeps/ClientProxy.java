@@ -2,7 +2,11 @@ package jerios.morecreeps;
 
 import jerios.morecreeps.client.evilLight.RenderEvilLight;
 import jerios.morecreeps.client.evilSnowman.RenderEvilSnowman;
+import jerios.morecreeps.client.invisibleMan.RenderInvisbleMan;
+import jerios.morecreeps.client.trophy.RenderTrophy;
 import jerios.morecreeps.entity.agressive.*;
+import jerios.morecreeps.entity.netural.InvisibleManEntity;
+import jerios.morecreeps.entity.nonLiving.TrophyEntity;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderSnowball;
@@ -30,10 +34,12 @@ public class ClientProxy extends CommonProxy {
 
     private void registerMobs() {
         renderEntity(GEntity.class, new RenderGMob());
+        renderEntity(TrophyEntity.class, new RenderTrophy());
         renderEntity(EvilCreatureEntity.class, new EvilCreatureRender());
         renderEntity(EvilPigEntity.class, new EvilPigRender());
         renderEntity(EvilLight.class, new RenderEvilLight());
         renderEntity(EvilSnowmanEntity.class, new RenderEvilSnowman());
+        renderEntity(InvisibleManEntity.class, new RenderInvisbleMan());
     }
 
     private void registerThrowable() {}

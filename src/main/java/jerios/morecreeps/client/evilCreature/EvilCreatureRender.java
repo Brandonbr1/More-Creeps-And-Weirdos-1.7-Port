@@ -199,12 +199,9 @@ public class EvilCreatureRender extends CREEPSBaseLivingRender {
         GL11.glTranslatef(0.0F, 0.1875F, 0.0F);
     }
 
-    protected ResourceLocation getEntityTexture(EvilCreatureEntity entity) {
-        return ResourceLocationUtils.makeResourceLocationEntityHostile("evilcreature");
-    }
 
     @Override
     protected ResourceLocation getEntityTexture(Entity entity) {
-        return getEntityTexture((EvilCreatureEntity) entity);
+        return ResourceLocationUtils.makeResourceLocationEntityHostile("evilcreature");
     }
 }

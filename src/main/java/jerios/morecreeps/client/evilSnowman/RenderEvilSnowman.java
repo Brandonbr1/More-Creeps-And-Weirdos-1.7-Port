@@ -28,13 +28,10 @@ public class RenderEvilSnowman extends CREEPSBaseLivingRender {
         this.preRenderCallback((EvilSnowmanEntity)mob);
     }
 
-    protected ResourceLocation getEntityTexture(EvilSnowmanEntity entity) {
-        return ResourceLocationUtils.makeResourceLocationEntityHostile("evilsnowman");
-    }
 
     @Override
     protected ResourceLocation getEntityTexture(Entity entity) {
-        return getEntityTexture((EvilSnowmanEntity) entity);
+        return ResourceLocationUtils.makeResourceLocationEntityHostile("evilsnowman");
     }
 
 }

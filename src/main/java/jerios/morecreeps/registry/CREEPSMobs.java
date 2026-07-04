@@ -1,6 +1,7 @@
 package jerios.morecreeps.registry;
 
 import jerios.morecreeps.entity.agressive.*;
+import jerios.morecreeps.entity.netural.InvisibleManEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EnumCreatureType;
@@ -23,6 +24,7 @@ public class CREEPSMobs {
         registerEntity(EvilPigEntity.class, "EvilPig", 128, 1, true, true, 44975, 7969893);
         registerEntity(EvilLight.class, "EvilLight", 128, 1, true, true, 44975, 7969893);
         registerEntity(EvilSnowmanEntity.class, "EvilSnowman", 128, 1, true, true, 44975, 7969893);
+        registerEntity(InvisibleManEntity.class, "InvisibleMan", 128, 1, true, true, 44975, 7969893);
     }
 
     static int id = 1;

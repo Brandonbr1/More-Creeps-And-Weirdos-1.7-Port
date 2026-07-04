@@ -8,6 +8,7 @@ public class Config {
 
     public static boolean greeting = true;
     public static boolean invisibleManGetsAngryWhenPunched = true;
+    public static boolean megaSpawn = false;
 
     public static void synchronizeConfiguration(File configFile) {
         Configuration configuration = new Configuration(configFile);
@@ -23,6 +24,14 @@ public class Config {
             Configuration.CATEGORY_GENERAL,
             true,
             "Should the invisible man get more angry when you attack it?");
+
+        megaSpawn = configuration.getBoolean(
+            "Mega Spawn",
+            Configuration.CATEGORY_GENERAL,
+            false,
+            "Increase spawning rates?");
+
+
 
         if (configuration.hasChanged()) {
             configuration.save();

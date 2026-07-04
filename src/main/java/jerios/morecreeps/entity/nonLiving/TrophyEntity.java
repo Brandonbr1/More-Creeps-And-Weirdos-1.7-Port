@@ -16,6 +16,7 @@ public class TrophyEntity extends Entity {
         this.partyTime = this.rand.nextInt(30) + 40;
         this.trophyLifespan = 80;
         this.setSize(1.0F, 2.5F);
+        this.ignoreFrustumCheck = true;
     }
 
     @Override
@@ -31,7 +32,7 @@ public class TrophyEntity extends Entity {
         }
 
         if (this.trophyLifespan-- < 0) {
-            this.setDead();
+             this.setDead();
         }
         super.onUpdate();
     }

@@ -4,6 +4,7 @@ import net.minecraft.world.World;
 
 public class CommonProxy {
 
+
     public void clientProxy() {}
 
     // NO-OP SERVER METHODS

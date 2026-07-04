@@ -1,5 +1,6 @@
 package jerios.morecreeps.item;
 
+import java.lang.invoke.MethodHandles;
 import java.util.*;
 
 import net.minecraft.block.Block;
@@ -227,9 +228,11 @@ public class CreepSpawnEggItem extends ItemMonsterPlacer {
     }
 
 
+
     public static Entity createEntityByID(int id, World p_75616_1_) {
         Entity entity = null;
         try {
+            MethodHandles.Lookup lookup = MethodHandles.lookup();
 
             Class<?> oclass = INTEGER_CLASS_MAP.get(id);
 

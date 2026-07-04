@@ -45,12 +45,9 @@ public class RenderEvilLight extends CREEPSBaseLivingRender {
         return this.glow((EvilLight)livingBase, i, f);
     }
 
-    protected ResourceLocation getEntityTexture(EvilLight entity) {
-        return TEXTURE;
-    }
 
     @Override
     protected ResourceLocation getEntityTexture(Entity entity) {
-        return getEntityTexture((EvilLight) entity);
+        return TEXTURE;
     }
 }
