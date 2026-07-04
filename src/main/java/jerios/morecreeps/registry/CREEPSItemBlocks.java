@@ -1,5 +1,8 @@
 package jerios.morecreeps.registry;
 
+import jerios.morecreeps.item.BlockCREEPSSpawner;
+import jerios.morecreeps.item.ItemMonsterSpawner;
+import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -38,6 +41,16 @@ public class CREEPSItemBlocks {
         ram16k = new CREEPSItem("ram16k").setMaxStackSize(64);
         registerItem(ram16k, "ram16k");
 
+        registerBlocks();
+    }
+
+    public static Block spawner;
+
+    private static void registerBlocks() {
+
+        spawner= new BlockCREEPSSpawner().setCreativeTab(TabsManager.SPAWN_EGG_TAB);
+
+        GameRegistry.registerBlock(spawner, ItemMonsterSpawner.class, "monsterSpawner");
     }
 
     private static void registerItem(Item item, String name) {

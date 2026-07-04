@@ -23,11 +23,11 @@ import jerios.morecreeps.registry.TabsManager;
 
 public class CreepSpawnEggItem extends ItemMonsterPlacer {
 
-    private static final Map<Integer, Class<?>> INTEGER_CLASS_MAP = new HashMap<>(32);
-    private static final Map<Integer, String> INTEGER_STRING_MAP = new HashMap<>(32);
-    private static final Map<Integer, EGGSpots> INTEGER_COLOR_MAP = new LinkedHashMap<>(32);
-    private static final Map<String, Class<?>> STRING_CLASS_MAP = new HashMap<>(32);
-    private static final Map<Integer, String> STRING_ID_MAP = new HashMap<>(32);
+    public static final Map<Integer, Class<?>> INTEGER_CLASS_MAP = new HashMap <>(32);
+    public static final Map<Integer, String> INTEGER_STRING_MAP = new HashMap <>(32);
+    public static final Map<Integer, EGGSpots> INTEGER_COLOR_MAP = new LinkedHashMap<>(32);
+    public static final Map<String, Class<?>> STRING_CLASS_MAP = new HashMap <>(32);
+    public static final Map<Integer, String> STRING_ID_MAP = new HashMap <>(32);
 
     public static void addSpawnEgg(int id, Class<?> clazz, String s, int color1, int color2) {
         INTEGER_CLASS_MAP.put(id, clazz);
@@ -152,13 +152,13 @@ public class CreepSpawnEggItem extends ItemMonsterPlacer {
         ) {
             return null;
         } else {
-            EntityLivingBase entity = null;
+            EntityLiving entity = null;
 
             for (int j = 0; j < 1; ++j) {
                 entity = createEntityByID(p_77840_1_, p_77840_0_);
 
                 if (entity != null) {
-                    EntityLiving entityliving = (EntityLiving) entity;
+                    EntityLiving entityliving = entity;
                     entity.setLocationAndAngles(
                         p_77840_2_,
                         p_77840_4_,
@@ -211,7 +211,7 @@ public class CreepSpawnEggItem extends ItemMonsterPlacer {
     }
 
 
-    static class EGGSpots {
+    public static class EGGSpots {
 
         public int spot1;
         public int spot2;
@@ -230,7 +230,7 @@ public class CreepSpawnEggItem extends ItemMonsterPlacer {
     }
 
 
-    public static EntityLivingBase createEntityByID(int id, World world) {
+    public static EntityLiving createEntityByID(int id, World world) {
         try {
 
            final Class<?> oclass = INTEGER_CLASS_MAP.get(id);
@@ -238,8 +238,9 @@ public class CreepSpawnEggItem extends ItemMonsterPlacer {
             if (oclass != null) {
                final MethodType type = MethodType.methodType(void.class, World.class);
                final MethodHandle handle = MethodHandles.lookup().findConstructor(oclass, type);
+                handle.asType(type);
 
-                return (EntityLivingBase) handle.invoke(world);
+                return (EntityLiving) handle.invoke(world);
             }
         } catch (Throwable ignored) {
         }
@@ -255,7 +256,7 @@ public class CreepSpawnEggItem extends ItemMonsterPlacer {
            final MethodType type = MethodType.methodType(void.class, World.class);
             final MethodHandle handle = MethodHandles.lookup().findConstructor(oclass, type);
 
-            return (EntityLivingBase) handle.invoke(world);
+            return (EntityLiving) handle.invoke(world);
         } catch (Throwable ignored) {
         }
 

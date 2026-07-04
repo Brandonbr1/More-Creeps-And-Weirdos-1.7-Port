@@ -32,14 +32,14 @@ public class AchievementUtil {
     public static void spawnTrophy(EntityPlayer entityplayer, World world) {
         double xHeading = -MathHelper.sin(entityplayer.rotationYaw * 3.141593F / 180.0F);
         double zHeading = MathHelper.cos(entityplayer.rotationYaw * 3.141593F / 180.0F);
-        TrophyEntity entitytrophy = new TrophyEntity(world);
-        entitytrophy.setLocationAndAngles(
+        TrophyEntity entityTrophy = new TrophyEntity(world);
+        entityTrophy.setLocationAndAngles(
             entityplayer.posX + xHeading * 3.0,
-            entityplayer.posY,
+            entityplayer.posY + world.rand.nextInt(2),
             entityplayer.posZ + zHeading * 3.0,
             entityplayer.rotationYaw,
             0.0F);
-        world.spawnEntityInWorld(entitytrophy);
+        world.spawnEntityInWorld(entityTrophy);
     }
 
 

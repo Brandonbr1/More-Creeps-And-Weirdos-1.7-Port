@@ -104,7 +104,7 @@
   "SnowmanBounce":{
     "category": "master",
     "sounds":[
-      {"name":"EvilSnowman/SnowmanBounce", "stream":false}
+      {"name":"EvilSnowman/snowmanbounce", "stream":false}
     ]
   },
   "HealingGem":{

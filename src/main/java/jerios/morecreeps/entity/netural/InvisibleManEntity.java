@@ -186,7 +186,7 @@ public class InvisibleManEntity extends BaseAgressiveCreep {
             && m != Blocks.planks
             && !(m instanceof BlockStoneSlab)
             && super.worldObj.getCollidingBoundingBoxes(this, this.boundingBox).isEmpty()
-       //     && super.worldObj.checkIfAABBIsClear(this.boundingBox)
+            && super.worldObj.checkNoEntityCollision(this.boundingBox)
             && super.worldObj.canBlockSeeTheSky(i, j, k)
             && chance
             && l > 7;

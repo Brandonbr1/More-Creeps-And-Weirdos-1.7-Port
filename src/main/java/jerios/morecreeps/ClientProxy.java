@@ -1,5 +1,6 @@
 package jerios.morecreeps;
 
+import jerios.morecreeps.client.castleCritter.RenderCastleCritter;
 import jerios.morecreeps.client.evilLight.RenderEvilLight;
 import jerios.morecreeps.client.evilSnowman.RenderEvilSnowman;
 import jerios.morecreeps.client.invisibleMan.RenderInvisbleMan;
@@ -40,6 +41,7 @@ public class ClientProxy extends CommonProxy {
         renderEntity(EvilLight.class, new RenderEvilLight());
         renderEntity(EvilSnowmanEntity.class, new RenderEvilSnowman());
         renderEntity(InvisibleManEntity.class, new RenderInvisbleMan());
+        renderEntity(CastleCritterEntity.class, new RenderCastleCritter());
     }
 
     private void registerThrowable() {}
