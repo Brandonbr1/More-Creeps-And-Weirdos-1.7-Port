@@ -23,7 +23,7 @@ public class RenderEvilLight extends CREEPSBaseLivingRender {
     }
 
 
-    protected int glow(EvilLight entityevillight, int i, float f) {
+  /**  protected int glow(EvilLight entityevillight, int i, float f) {
         if (i != 0) {
             return -1;
         }
@@ -38,12 +38,13 @@ public class RenderEvilLight extends CREEPSBaseLivingRender {
         GL11.glBlendFunc(1, 771);
         GL11.glColor4f(1.0F, 1.0F, 1.0F, f1);
         return 1;
-    }
+    }**/
 
-    @Override
+ /**   @Override
     protected int shouldRenderPass(EntityLivingBase livingBase, int i, float f) {
         return this.glow((EvilLight)livingBase, i, f);
     }
+  **/
 
 
     @Override

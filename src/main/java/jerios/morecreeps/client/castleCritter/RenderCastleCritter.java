@@ -25,7 +25,7 @@ public class RenderCastleCritter extends CREEPSBaseLivingRender {
         preRenderCallback((CastleCritterEntity)p_77041_1_);
     }
 
-    protected int eyeGlow(CastleCritterEntity entitycastlecritter, int i, float f) {
+  /**  protected int eyeGlow(CastleCritterEntity entitycastlecritter, int i, float f) {
         if (i != 0) {
             return -1;
         }
@@ -38,6 +38,7 @@ public class RenderCastleCritter extends CREEPSBaseLivingRender {
         GL11.glColor4f(1.0F, 1.0F, 1.0F, f1);
         return 1;
     }
+   **/
 
     @Override
     protected ResourceLocation getEntityTexture(Entity p_110775_1_) {
