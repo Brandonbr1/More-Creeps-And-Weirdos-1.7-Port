@@ -12,11 +12,11 @@ import net.minecraft.world.World;
 import jerios.morecreeps.entity.base.BaseAgressiveCreep;
 import jerios.morecreeps.entity.interfaces.ICreepGrowable;
 
-public class EvilCreatureEntity extends BaseAgressiveCreep implements ICreepGrowable {
+public class EntityEvilCreature extends BaseAgressiveCreep implements ICreepGrowable {
 
     public boolean jumping;
 
-    public EvilCreatureEntity(World world) {
+    public EntityEvilCreature(World world) {
         super(world);
         this.isImmuneToFire = true;
         this.experienceValue = 15;

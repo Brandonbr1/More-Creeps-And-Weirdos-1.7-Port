@@ -1,7 +1,7 @@
 package jerios.morecreeps.entity.agressive;
 
 import jerios.morecreeps.entity.base.BaseAgressiveCreep;
-import jerios.morecreeps.entity.nonLiving.TrophyEntity;
+import jerios.morecreeps.entity.nonLiving.EntityTrophy;
 import jerios.morecreeps.registry.AchievmentRegistry;
 import jerios.morecreeps.utils.AchievementUtil;
 import net.minecraft.block.Block;
@@ -222,12 +222,12 @@ public class EvilSnowmanEntity extends BaseAgressiveCreep {
     public void spawnConfetti(EntityPlayer entityplayer) {
         double xHeading = -MathHelper.sin(entityplayer.rotationYaw * 3.141593F / 180.0F);
         double zHeading = MathHelper.cos(entityplayer.rotationYaw * 3.141593F / 180.0F);
-        TrophyEntity trophyEntity = new TrophyEntity(worldObj);
-        trophyEntity.setLocationAndAngles(
+        EntityTrophy entityTrophy = new EntityTrophy(worldObj);
+        entityTrophy.setLocationAndAngles(
             entityplayer.posX + xHeading * 3.0, entityplayer.posY - 2.0, entityplayer.posZ + zHeading * 3.0, entityplayer.rotationYaw, 0.0F
         );
 
-        entityplayer.worldObj.spawnEntityInWorld(trophyEntity);
+        entityplayer.worldObj.spawnEntityInWorld(entityTrophy);
 
     }
 

@@ -1,139 +1,139 @@
 {
   "GLiving":{
-    "category": "master",
+    "category": "hostile",
     "sounds":[
-      {"name":"GMob/alive/g1", "stream":false},
-      {"name":"GMob/alive/g2", "stream":false},
-      {"name":"GMob/alive/g3", "stream":false},
-      {"name":"GMob/alive/g4", "stream":false}
+      {"name":"GMob/alive/G1", "stream":false},
+      {"name":"GMob/alive/G2", "stream":false},
+      {"name":"GMob/alive/G3", "stream":false},
+      {"name":"GMob/alive/G4", "stream":false}
     ]
   },
   "GHurt":{
-    "category": "master",
+    "category": "hostile",
     "sounds":[
-      {"name":"GMob/hurt/ghurt1", "stream":false},
-      {"name":"GMob/hurt/ghurt2", "stream":false},
-      {"name":"GMob/hurt/ghurt3", "stream":false},
-      {"name":"GMob/hurt/ghurt4", "stream":false},
-      {"name":"GMob/hurt/ghurt5", "stream":false}
+      {"name":"GMob/hurt/GHurt1", "stream":false},
+      {"name":"GMob/hurt/GHurt2", "stream":false},
+      {"name":"GMob/hurt/GHurt3", "stream":false},
+      {"name":"GMob/hurt/GHurt4", "stream":false},
+      {"name":"GMob/hurt/GHurt5", "stream":false}
     ]
   },
   "GGeath":{
-    "category": "master",
+    "category": "hostile",
     "sounds":[
-      {"name":"GMob/death/gdeath1", "stream":false},
-      {"name":"GMob/death/gdeath2", "stream":false}
+      {"name":"GMob/death/GDeath1", "stream":false},
+      {"name":"GMob/death/GDeath2", "stream":false}
     ]
   },
   "Spark":{
     "category": "master",
     "sounds":[
-      {"name":"PlayerEvents/spark", "stream":false}
+      {"name":"PlayerEvents/Spark", "stream":false}
     ]
   },
   "EvilCreatureDeath":{
-    "category": "master",
+    "category": "hostile",
     "sounds":[
-      {"name":"EvilCreature/death/evilcreaturedeath1", "stream":false},
-      {"name":"EvilCreature/death/evilcreaturedeath2", "stream":false}
+      {"name":"EvilCreature/death/CvilCreatureDeath1", "stream":false},
+      {"name":"EvilCreature/death/CvilCreatureDeath2", "stream":false}
     ]
   },
   "EvilCreatureHurt":{
-    "category": "master",
+    "category": "hostile",
     "sounds":[
-      {"name":"EvilCreature/hurt/evilcreaturehurt1", "stream":false},
-      {"name":"EvilCreature/hurt/evilcreaturehurt2", "stream":false},
-      {"name":"EvilCreature/hurt/evilcreaturehurt3", "stream":false},
-      {"name":"EvilCreature/hurt/evilcreaturehurt4", "stream":false},
-      {"name":"EvilCreature/hurt/evilcreaturehurt5", "stream":false},
-      {"name":"EvilCreature/hurt/evilcreaturehurt6", "stream":false}
+      {"name":"EvilCreature/hurt/EvilCreatureHurt1", "stream":false},
+      {"name":"EvilCreature/hurt/EvilCreatureHurt2", "stream":false},
+      {"name":"EvilCreature/hurt/EvilCreatureHurt3", "stream":false},
+      {"name":"EvilCreature/hurt/EvilCreatureHurt4", "stream":false},
+      {"name":"EvilCreature/hurt/EvilCreatureHurt5", "stream":false},
+      {"name":"EvilCreature/hurt/EvilCreatureHurt6", "stream":false}
     ]
   },
   "EvilCreatureLiving":{
-    "category": "master",
+    "category": "hostile",
     "sounds":[
-      {"name":"EvilCreature/living/evilcreature1", "stream":false},
-      {"name":"EvilCreature/living/evilcreature2", "stream":false},
-      {"name":"EvilCreature/living/evilcreature3", "stream":false},
-      {"name":"EvilCreature/living/evilcreature4", "stream":false},
-      {"name":"EvilCreature/living/evilcreature5", "stream":false},
-      {"name":"EvilCreature/living/evilcreature6", "stream":false},
-      {"name":"EvilCreature/living/evilcreature7", "stream":false}
+      {"name":"EvilCreature/living/EvilCreature1", "stream":false},
+      {"name":"EvilCreature/living/EvilCreature2", "stream":false},
+      {"name":"EvilCreature/living/EvilCreature3", "stream":false},
+      {"name":"EvilCreature/living/EvilCreature4", "stream":false},
+      {"name":"EvilCreature/living/EvilCreature5", "stream":false},
+      {"name":"EvilCreature/living/EvilCreature6", "stream":false},
+      {"name":"EvilCreature/living/EvilCreature7", "stream":false}
     ]
   },
   "EvilCreatureJump":{
-    "category": "master",
+    "category": "hostile",
     "sounds":[
-      {"name":"EvilCreature/evilcreaturejump", "stream":false}
+      {"name":"EvilCreature/EvilCreatureJump", "stream":false}
     ]
   },
   "Achievement":{
     "category": "master",
     "sounds":[
-      {"name":"PlayerEvents/achievement1", "stream":true}
+      {"name":"PlayerEvents/Achievement1", "stream":true}
     ]
   },
   "EvilLight":{
-    "category": "master",
+    "category": "hostile",
     "sounds":[
-      {"name":"EvilLight/evillight1", "stream":false},
-      {"name":"EvilLight/evillight2", "stream":false},
-      {"name":"EvilLight/evillight3", "stream":false}
+      {"name":"EvilLight/EvilLight1", "stream":false},
+      {"name":"EvilLight/EvilLight2", "stream":false},
+      {"name":"EvilLight/EvilLight3", "stream":false}
     ]
   },
   "Snowman":{
-    "category": "master",
+    "category": "hostile",
     "sounds":[
-      {"name":"EvilSnowman/living/snowman1", "stream":false},
-      {"name":"EvilSnowman/living/snowman2", "stream":false},
-      {"name":"EvilSnowman/living/snowman3", "stream":false}
+      {"name":"EvilSnowman/living/SnowMan1", "stream":false},
+      {"name":"EvilSnowman/living/SnowMan2", "stream":false},
+      {"name":"EvilSnowman/living/SnowMan3", "stream":false}
     ]
   },
   "SnowmanDeath":{
-    "category": "master",
+    "category": "hostile",
     "sounds":[
-      {"name":"EvilSnowman/death/snowmandeath1", "stream":false}
+      {"name":"EvilSnowman/death/SnowManDeath1", "stream":false}
     ]
   },
   "SnowmanHurt":{
-    "category": "master",
+    "category": "hostile",
     "sounds":[
-      {"name":"EvilSnowman/hurt/snowmanhurt1", "stream":false}
+      {"name":"EvilSnowman/hurt/SnowManHurt1", "stream":false}
     ]
   },
   "SnowmanBounce":{
-    "category": "master",
+    "category": "hostile",
     "sounds":[
-      {"name":"EvilSnowman/snowmanbounce", "stream":false}
+      {"name":"EvilSnowman/SnowManBounce", "stream":false}
     ]
   },
   "HealingGem":{
     "category": "master",
     "sounds":[
-      {"name":"Gems/healinggem", "stream":false}
+      {"name":"Gems/HealingGem", "stream":false}
     ]
   },
   "CastleCritter":{
-    "category": "master",
+    "category": "hostile",
     "sounds":[
-      {"name":"CastleCritter/living/castlecritter1", "stream":false},
-      {"name":"CastleCritter/living/castlecritter2", "stream":false},
-      {"name":"CastleCritter/living/castlecritter3", "stream":false},
-      {"name":"CastleCritter/living/castlecritter4", "stream":false}
+      {"name":"CastleCritter/living/CastleCritter1", "stream":false},
+      {"name":"CastleCritter/living/CastleCritter2", "stream":false},
+      {"name":"CastleCritter/living/CastleCritter3", "stream":false},
+      {"name":"CastleCritter/living/CastleCritter4", "stream":false}
     ]
   },
   "CastleCritterHurt":{
-    "category": "master",
+    "category": "hostile",
     "sounds":[
-      {"name":"CastleCritter/hurt/castlecritterhurt1", "stream":false},
-      {"name":"CastleCritter/hurt/castlecritterhurt2", "stream":false},
-      {"name":"CastleCritter/hurt/castlecritterhurt3", "stream":false}
+      {"name":"CastleCritter/hurt/CastleCritterHurt1", "stream":false},
+      {"name":"CastleCritter/hurt/CastleCritterHurt2", "stream":false},
+      {"name":"CastleCritter/hurt/CastleCritterHurt3", "stream":false}
     ]
   },
   "CastleCritterDeath":{
-    "category": "master",
+    "category": "hostile",
     "sounds":[
-      {"name":"CastleCritter/death/castlecritterdeath", "stream":false}
+      {"name":"CastleCritter/death/CastleCritterDeath", "stream":false}
     ]
   },
   "BandAid":{
@@ -143,78 +143,102 @@
     ]
   },
   "InvisibleManForgetIt":{
-    "category": "master",
+    "category": "neutral",
     "sounds":[
-      {"name":"InvisibleMan/invisiblemanforgetit", "stream":false}
+      {"name":"InvisibleMan/InvisibleManForgetIt", "stream":false}
     ]
   },
   "InvisibleMan":{
-    "category": "master",
+    "category": "neutral",
     "sounds":[
-      {"name":"InvisibleMan/living/invisibleman1", "stream":false},
-      {"name":"InvisibleMan/living/invisibleman2", "stream":false},
-      {"name":"InvisibleMan/living/invisibleman3", "stream":false},
-      {"name":"InvisibleMan/living/invisibleman4", "stream":false},
-      {"name":"InvisibleMan/living/invisibleman5", "stream":false}
+      {"name":"InvisibleMan/living/InvisibleMan1", "stream":false},
+      {"name":"InvisibleMan/living/InvisibleMan2", "stream":false},
+      {"name":"InvisibleMan/living/InvisibleMan3", "stream":false},
+      {"name":"InvisibleMan/living/InvisibleMan4", "stream":false},
+      {"name":"InvisibleMan/living/InvisibleMan5", "stream":false}
     ]
   },
   "InvisibleManAngry":{
-    "category": "master",
+    "category": "neutral",
     "sounds":[
-      {"name":"InvisibleMan/living/angry/invisiblemanangry1", "stream":false},
-      {"name":"InvisibleMan/living/angry/invisiblemanangry2", "stream":false},
-      {"name":"InvisibleMan/living/angry/invisiblemanangry3", "stream":false},
-      {"name":"InvisibleMan/living/angry/invisiblemanangry4", "stream":false},
-      {"name":"InvisibleMan/living/angry/invisiblemanangry5", "stream":false},
-      {"name":"InvisibleMan/living/angry/invisiblemanangry6", "stream":false},
-      {"name":"InvisibleMan/living/angry/invisiblemanangry7", "stream":false},
-      {"name":"InvisibleMan/living/angry/invisiblemanangry8", "stream":false},
-      {"name":"InvisibleMan/living/angry/invisiblemanangry9", "stream":false},
-      {"name":"InvisibleMan/living/angry/invisiblemanangry10", "stream":false},
-      {"name":"InvisibleMan/living/angry/invisiblemanangry11", "stream":false}
+      {"name":"InvisibleMan/living/angry/InvisibleManAngry1", "stream":false},
+      {"name":"InvisibleMan/living/angry/InvisibleManAngry2", "stream":false},
+      {"name":"InvisibleMan/living/angry/InvisibleManAngry3", "stream":false},
+      {"name":"InvisibleMan/living/angry/InvisibleManAngry4", "stream":false},
+      {"name":"InvisibleMan/living/angry/InvisibleManAngry5", "stream":false},
+      {"name":"InvisibleMan/living/angry/InvisibleManAngry6", "stream":false},
+      {"name":"InvisibleMan/living/angry/InvisibleManAngry7", "stream":false},
+      {"name":"InvisibleMan/living/angry/InvisibleManAngry8", "stream":false},
+      {"name":"InvisibleMan/living/angry/InvisibleManAngry9", "stream":false},
+      {"name":"InvisibleMan/living/angry/InvisibleManAngry10", "stream":false},
+      {"name":"InvisibleMan/living/angry/InvisibleManAngry11", "stream":false}
     ]
   },
    "InvisibleManDeath":{
-    "category": "master",
+    "category": "neutral",
     "sounds":[
-      {"name":"InvisibleMan/death/invisiblemandeath1", "stream":false},
-	   {"name":"InvisibleMan/death/invisiblemandeath2", "stream":false}
+      {"name":"InvisibleMan/death/InvisibleManDeath1", "stream":false},
+	   {"name":"InvisibleMan/death/InvisibleManDeath2", "stream":false}
     ]
   },
    "InvisibleManHurt":{
-    "category": "master",
+    "category": "neutral",
     "sounds":[
-      {"name":"InvisibleMan/hurt/invisiblemanhurt1", "stream":false},
-	    {"name":"InvisibleMan/hurt/invisiblemanhurt2", "stream":false},
-	    {"name":"InvisibleMan/hurt/invisiblemanhurt3", "stream":false},
-	    {"name":"InvisibleMan/hurt/invisiblemanhurt4", "stream":false},
-	    {"name":"InvisibleMan/hurt/invisiblemanhurt5", "stream":false},
-	    {"name":"InvisibleMan/hurt/invisiblemanhurt6", "stream":false}
+      {"name":"InvisibleMan/hurt/InvisibleManHurt1", "stream":false},
+	    {"name":"InvisibleMan/hurt/InvisibleManHurt2", "stream":false},
+	    {"name":"InvisibleMan/hurt/InvisibleManHurt3", "stream":false},
+	    {"name":"InvisibleMan/hurt/InvisibleManHurt4", "stream":false},
+	    {"name":"InvisibleMan/hurt/InvisibleManHurt5", "stream":false},
+	    {"name":"InvisibleMan/hurt/InvisibleManHurt6", "stream":false}
+    ]
+  },
+   "RockMonster":{
+    "category": "neutral",
+    "sounds":[
+      {"name":"RockMonster/living/RockMonster1", "stream":false},
+	    {"name":"RockMonster/living/RockMonster2", "stream":false},
+	    {"name":"RockMonster/living/RockMonster3", "stream":false},
+	    {"name":"RockMonster/living/RockMonster4", "stream":false}
+    ]
+  },
+  "RockMonsterHurt":{
+    "category": "neutral",
+    "sounds":[
+      {"name":"RockMonster/hurt/RockMonsterHurt1", "stream":false},
+	    {"name":"RockMonster/hurt/RockMonsterHurt2", "stream":false},
+	    {"name":"RockMonster/hurt/RockMonsterHurt3", "stream":false}
+    ]
+  },
+  "RockMonsterDeath":{
+    "category": "neutral",
+    "sounds":[
+      {"name":"RockMonster/hurt/RockMonsterDeath1", "stream":false},
+	    {"name":"RockMonster/hurt/RockMonsterDeath2", "stream":false}
     ]
   },
   "WelcomePlayer":{
     "category": "master",
     "sounds":[
-      {"name":"Welcome/welcome1", "stream":false},
-      {"name":"Welcome/welcome2", "stream":false},
-      {"name":"Welcome/welcome3", "stream":false},
-      {"name":"Welcome/welcome4", "stream":false},
-      {"name":"Welcome/welcome5", "stream":false},
-      {"name":"Welcome/welcome6", "stream":false},
-      {"name":"Welcome/welcome7", "stream":false},
-      {"name":"Welcome/welcome8", "stream":false},
-      {"name":"Welcome/welcome9", "stream":false},
-      {"name":"Welcome/welcome10", "stream":false},
-      {"name":"Welcome/welcome11", "stream":false},
-      {"name":"Welcome/welcome12", "stream":false},
-      {"name":"Welcome/welcome13", "stream":false},
-      {"name":"Welcome/welcome14", "stream":false},
-      {"name":"Welcome/welcome15", "stream":false},
-      {"name":"Welcome/welcome16", "stream":false},
-      {"name":"Welcome/welcome17", "stream":false},
-      {"name":"Welcome/welcome18", "stream":false},
-      {"name":"Welcome/welcome19", "stream":false},
-      {"name":"Welcome/welcome20", "stream":false}
+      {"name":"Welcome/Welcome1", "stream":false},
+      {"name":"Welcome/Welcome2", "stream":false},
+      {"name":"Welcome/Welcome3", "stream":false},
+      {"name":"Welcome/Welcome4", "stream":false},
+      {"name":"Welcome/Welcome5", "stream":false},
+      {"name":"Welcome/Welcome6", "stream":false},
+      {"name":"Welcome/Welcome7", "stream":false},
+      {"name":"Welcome/Welcome8", "stream":false},
+      {"name":"Welcome/Welcome9", "stream":false},
+      {"name":"Welcome/Welcome10", "stream":false},
+      {"name":"Welcome/Welcome11", "stream":false},
+      {"name":"Welcome/Welcome12", "stream":false},
+      {"name":"Welcome/Welcome13", "stream":false},
+      {"name":"Welcome/Welcome14", "stream":false},
+      {"name":"Welcome/Welcome15", "stream":false},
+      {"name":"Welcome/Welcome16", "stream":false},
+      {"name":"Welcome/Welcome17", "stream":false},
+      {"name":"Welcome/Welcome18", "stream":false},
+      {"name":"Welcome/Welcome19", "stream":false},
+      {"name":"Welcome/Welcome20", "stream":false}
     ]
   }
 }

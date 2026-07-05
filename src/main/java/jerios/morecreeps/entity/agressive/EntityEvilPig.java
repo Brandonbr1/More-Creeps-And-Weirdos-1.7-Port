@@ -10,9 +10,9 @@ import net.minecraft.world.World;
 
 import jerios.morecreeps.entity.base.BaseAgressiveCreep;
 
-public class EvilPigEntity extends BaseAgressiveCreep implements IEvilMobs {
+public class EntityEvilPig extends BaseAgressiveCreep implements IEvilMobs {
 
-    public EvilPigEntity(World world) {
+    public EntityEvilPig(World world) {
         super(world);
         this.fallDistance = -25.0F;
         this.experienceValue = 8;

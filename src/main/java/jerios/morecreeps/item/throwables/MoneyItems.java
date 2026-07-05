@@ -5,11 +5,11 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-import jerios.morecreeps.item.base.CREEPSItem;
+import jerios.morecreeps.item.base.ItemsCREEPS;
 
-public class ItemMoney extends CREEPSItem {
+public class MoneyItems extends ItemsCREEPS {
 
-    public ItemMoney() {
+    public MoneyItems() {
         super("money");
     }
 

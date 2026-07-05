@@ -9,7 +9,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class EvilCreatureModel extends ModelBase {
+public class ModelEvilCreature extends ModelBase {
 
     public ModelRenderer bipedHead;
     public ModelRenderer bipedHeadwear;
@@ -26,15 +26,15 @@ public class EvilCreatureModel extends ModelBase {
     public boolean getvictim;
     public int raise;
 
-    public EvilCreatureModel() {
+    public ModelEvilCreature() {
         this(0.0F);
     }
 
-    public EvilCreatureModel(float f) {
+    public ModelEvilCreature(float f) {
         this(f, 0.0F);
     }
 
-    public EvilCreatureModel(float f, float f1) {
+    public ModelEvilCreature(float f, float f1) {
         this.bipedCloak = new ModelRenderer(this, 0, 0);
         this.bipedCloak.addBox(-5.0F, 0.0F, -1.0F, 10, 16, 1, f);
         this.bipedEars = new ModelRenderer(this, 24, 0);

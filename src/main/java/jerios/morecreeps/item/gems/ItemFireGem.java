@@ -1,4 +1,4 @@
 package jerios.morecreeps.item.gems;
 
-public class FireGemItem {
+public class ItemFireGem {
 }

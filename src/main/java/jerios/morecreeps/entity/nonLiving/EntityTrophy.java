@@ -6,12 +6,12 @@ import net.minecraft.world.World;
 
 import jerios.morecreeps.MoreCreeps;
 
-public class TrophyEntity extends Entity {
+public class EntityTrophy extends Entity {
 
     public int partyTime;
     public int trophyLifespan;
 
-    public TrophyEntity(World worldIn) {
+    public EntityTrophy(World worldIn) {
         super(worldIn);
         this.partyTime = this.rand.nextInt(30) + 40;
         this.trophyLifespan = 80;

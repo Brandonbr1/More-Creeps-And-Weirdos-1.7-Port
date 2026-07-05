@@ -30,7 +30,7 @@ public class ItemMonsterSpawner extends ItemBlock {
     @Override
     public String getItemStackDisplayName(ItemStack p_77653_1_) {
         String s = (StatCollector.translateToLocal(this.getUnlocalizedName() + ".name")).trim();
-        String s1 = CreepSpawnEggItem.INTEGER_STRING_MAP.get(p_77653_1_.getItemDamage());
+        String s1 = ItemCreepSpawnEgg.INTEGER_STRING_MAP.get(p_77653_1_.getItemDamage());
 
         if (s1 != null) {
             s = s + " " + StatCollector.translateToLocal("entity." + s1 + ".name");
@@ -40,7 +40,7 @@ public class ItemMonsterSpawner extends ItemBlock {
     }
 
     public String getEntityNameOnly(ItemStack p_77653_1_) {
-        String s1 = CreepSpawnEggItem.INTEGER_STRING_MAP.get(p_77653_1_.getItemDamage());
+        String s1 = ItemCreepSpawnEgg.INTEGER_STRING_MAP.get(p_77653_1_.getItemDamage());
 
         if (s1 != null) {
             return StatCollector.translateToLocal("entity." + s1 + ".name");
@@ -63,7 +63,7 @@ public class ItemMonsterSpawner extends ItemBlock {
 
             if (tileentitymobspawner != null)
             {
-                String name = CreepSpawnEggItem.STRING_ID_MAP.get(stack.getItemDamage());
+                String name = ItemCreepSpawnEgg.STRING_ID_MAP.get(stack.getItemDamage());
                 if (name != null) {
                     tileentitymobspawner.func_145881_a().setEntityName(name);
                 }
@@ -82,7 +82,7 @@ public class ItemMonsterSpawner extends ItemBlock {
     @Override
     public void addInformation(ItemStack stack, EntityPlayer player, List<String> list, boolean p_77624_4_) {
 
-        EntityLiving entity = CreepSpawnEggItem.createEntityByID(stack.getItemDamage(), player.worldObj);
+        EntityLiving entity = ItemCreepSpawnEgg.createEntityByID(stack.getItemDamage(), player.worldObj);
 
         if (entity instanceof IMob && getEntityNameOnly(stack) != null) {
             list.add(EnumChatFormatting.RED + getEntityNameOnly(stack));
@@ -96,7 +96,7 @@ public class ItemMonsterSpawner extends ItemBlock {
     @SideOnly(Side.CLIENT)
     @Override
     public void getSubItems(Item item, CreativeTabs tab, List<ItemStack> stacks) {
-        for (CreepSpawnEggItem.EGGSpots entityegginfo : CreepSpawnEggItem.INTEGER_COLOR_MAP.values()) {
+        for (ItemCreepSpawnEgg.EGGSpots entityegginfo : ItemCreepSpawnEgg.INTEGER_COLOR_MAP.values()) {
             stacks.add(new ItemStack(item, 1, entityegginfo.id));
         }
 

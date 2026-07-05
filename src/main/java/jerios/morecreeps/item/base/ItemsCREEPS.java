@@ -5,9 +5,9 @@ import net.minecraft.item.Item;
 import jerios.morecreeps.CREEPSConstants;
 import jerios.morecreeps.registry.TabsManager;
 
-public class CREEPSItem extends Item {
+public class ItemsCREEPS extends Item {
 
-    public CREEPSItem(String name) {
+    public ItemsCREEPS(String name) {
         this.setUnlocalizedName(name);
         this.setCreativeTab(TabsManager.ITEMS_TAB);
         this.setTextureName(CREEPSConstants.MODID_PREFIX + name);

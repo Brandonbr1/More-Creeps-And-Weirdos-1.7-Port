@@ -4,7 +4,6 @@ import jerios.morecreeps.entity.base.BaseAgressiveCreep;
 import jerios.morecreeps.entity.interfaces.IEvilMobs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
@@ -12,10 +11,10 @@ import net.minecraft.world.World;
 import java.util.List;
 
 
-public class EvilLight extends BaseAgressiveCreep implements IEvilMobs{
+public class EntityEvilLight extends BaseAgressiveCreep implements IEvilMobs{
     public int lifespan;
 
-    public EvilLight(World world) {
+    public EntityEvilLight(World world) {
         super(world);
         this.lifespan = 200;
         this.motionZ = this.rand.nextFloat() * 2.0F - 1.0F;

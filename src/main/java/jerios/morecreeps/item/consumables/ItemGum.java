@@ -1,4 +1,4 @@
 package jerios.morecreeps.item.consumables;
 
-public class GumItem {
+public class ItemGum {
 }

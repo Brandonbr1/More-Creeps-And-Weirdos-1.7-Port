@@ -1,6 +1,6 @@
 package jerios.morecreeps.registry;
 
-import jerios.morecreeps.item.CreepSpawnEggItem;
+import jerios.morecreeps.item.ItemCreepSpawnEgg;
 import jerios.morecreeps.networking.CREEPSPacketHandler;
 import net.minecraft.block.BlockDispenser;
 import net.minecraft.dispenser.BehaviorDefaultDispenseItem;
@@ -34,7 +34,7 @@ public class RegistryHandler {
                 double d0 = source.getX() + (double)enumfacing.getFrontOffsetX();
                 double d1 = (float)source.getYInt() + 0.2F;
                 double d2 = source.getZ() + (double)enumfacing.getFrontOffsetZ();
-                Entity entity = CreepSpawnEggItem.spawnCreature(source.getWorld(), stack.getItemDamage(), d0, d1, d2);
+                Entity entity = ItemCreepSpawnEgg.spawnCreature(source.getWorld(), stack.getItemDamage(), d0, d1, d2);
 
                 if (entity instanceof EntityLivingBase && stack.hasDisplayName())
                 {

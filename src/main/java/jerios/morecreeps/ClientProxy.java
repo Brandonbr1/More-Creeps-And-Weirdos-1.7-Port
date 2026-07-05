@@ -6,8 +6,8 @@ import jerios.morecreeps.client.evilSnowman.RenderEvilSnowman;
 import jerios.morecreeps.client.invisibleMan.RenderInvisbleMan;
 import jerios.morecreeps.client.trophy.RenderTrophy;
 import jerios.morecreeps.entity.agressive.*;
-import jerios.morecreeps.entity.netural.InvisibleManEntity;
-import jerios.morecreeps.entity.nonLiving.TrophyEntity;
+import jerios.morecreeps.entity.netural.EntityInvisibleMan;
+import jerios.morecreeps.entity.nonLiving.EntityTrophy;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderSnowball;
@@ -18,8 +18,8 @@ import net.minecraft.world.World;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import jerios.morecreeps.client.GMob.RenderGMob;
-import jerios.morecreeps.client.evilCreature.EvilCreatureRender;
-import jerios.morecreeps.client.evilPig.EvilPigRender;
+import jerios.morecreeps.client.evilCreature.RenderEvilCreature;
+import jerios.morecreeps.client.evilPig.RenderEvilPig;
 import jerios.morecreeps.client.fx.ConfettiFX;
 
 public class ClientProxy extends CommonProxy {
@@ -34,14 +34,14 @@ public class ClientProxy extends CommonProxy {
     }
 
     private void registerMobs() {
-        renderEntity(GEntity.class, new RenderGMob());
-        renderEntity(TrophyEntity.class, new RenderTrophy());
-        renderEntity(EvilCreatureEntity.class, new EvilCreatureRender());
-        renderEntity(EvilPigEntity.class, new EvilPigRender());
-        renderEntity(EvilLight.class, new RenderEvilLight());
+        renderEntity(EntityG.class, new RenderGMob());
+        renderEntity(EntityTrophy.class, new RenderTrophy());
+        renderEntity(EntityEvilCreature.class, new RenderEvilCreature());
+        renderEntity(EntityEvilPig.class, new RenderEvilPig());
+        renderEntity(EntityEvilLight.class, new RenderEvilLight());
         renderEntity(EvilSnowmanEntity.class, new RenderEvilSnowman());
-        renderEntity(InvisibleManEntity.class, new RenderInvisbleMan());
-        renderEntity(CastleCritterEntity.class, new RenderCastleCritter());
+        renderEntity(EntityInvisibleMan.class, new RenderInvisbleMan());
+        renderEntity(EntityCastleCritter.class, new RenderCastleCritter());
     }
 
     private void registerThrowable() {}

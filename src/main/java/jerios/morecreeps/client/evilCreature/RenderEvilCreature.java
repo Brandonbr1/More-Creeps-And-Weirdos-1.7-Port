@@ -24,27 +24,27 @@ import com.mojang.authlib.GameProfile;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import jerios.morecreeps.client.CREEPSBaseLivingRender;
-import jerios.morecreeps.entity.agressive.EvilCreatureEntity;
+import jerios.morecreeps.entity.agressive.EntityEvilCreature;
 import jerios.morecreeps.utils.ResourceLocationUtils;
 
 @SideOnly(Side.CLIENT)
-public class EvilCreatureRender extends CREEPSBaseLivingRender {
+public class RenderEvilCreature extends CREEPSBaseLivingRender {
 
-    private EvilCreatureModel modelBipedMain;
+    private ModelEvilCreature modelBipedMain;
 
-    public EvilCreatureRender() {
-        super(new EvilCreatureModel(), 0.5f);
-        modelBipedMain = new EvilCreatureModel();
+    public RenderEvilCreature() {
+        super(new ModelEvilCreature(), 0.5f);
+        modelBipedMain = new ModelEvilCreature();
     }
 
-    protected void preRenderCallback(EvilCreatureEntity mob, float size) {
+    protected void preRenderCallback(EntityEvilCreature mob, float size) {
         GL11.glScalef(mob.getModelSize(), mob.getModelSize(), mob.getModelSize());
     }
 
     @Override
     protected void preRenderCallback(EntityLivingBase mob, float size) {
         super.preRenderCallback(mob, size);
-        this.preRenderCallback((EvilCreatureEntity) mob, size);
+        this.preRenderCallback((EntityEvilCreature) mob, size);
 
     }
 

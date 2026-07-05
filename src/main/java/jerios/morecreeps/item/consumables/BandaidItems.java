@@ -1,18 +1,16 @@
 package jerios.morecreeps.item.consumables;
 
-import jerios.morecreeps.item.base.CREEPSItem;
+import jerios.morecreeps.item.base.ItemsCREEPS;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-import java.util.Random;
-
-public class ItemBandaid extends CREEPSItem {
+public class BandaidItems extends ItemsCREEPS {
 
     private static final int HEAL_AMM = 4;
 
-    public ItemBandaid() {
-        super("bandAid");
+    public BandaidItems() {
+        super("band_aid");
         this.setMaxStackSize(24);
     }
 

@@ -1,13 +1,12 @@
 package jerios.morecreeps.utils;
 
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.stats.Achievement;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-import jerios.morecreeps.entity.nonLiving.TrophyEntity;
+import jerios.morecreeps.entity.nonLiving.EntityTrophy;
 
 public class AchievementUtil {
 
@@ -32,7 +31,7 @@ public class AchievementUtil {
     public static void spawnTrophy(EntityPlayer entityplayer, World world) {
         double xHeading = -MathHelper.sin(entityplayer.rotationYaw * 3.141593F / 180.0F);
         double zHeading = MathHelper.cos(entityplayer.rotationYaw * 3.141593F / 180.0F);
-        TrophyEntity entityTrophy = new TrophyEntity(world);
+        EntityTrophy entityTrophy = new EntityTrophy(world);
         entityTrophy.setLocationAndAngles(
             entityplayer.posX + xHeading * 3.0,
             entityplayer.posY + world.rand.nextInt(2),

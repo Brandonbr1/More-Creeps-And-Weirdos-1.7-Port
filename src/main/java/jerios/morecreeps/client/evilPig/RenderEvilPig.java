@@ -9,13 +9,13 @@ import org.lwjgl.opengl.GL11;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import jerios.morecreeps.client.CREEPSBaseLivingRender;
-import jerios.morecreeps.entity.agressive.EvilPigEntity;
+import jerios.morecreeps.entity.agressive.EntityEvilPig;
 import jerios.morecreeps.utils.ResourceLocationUtils;
 
 @SideOnly(Side.CLIENT)
-public class EvilPigRender extends CREEPSBaseLivingRender {
+public class RenderEvilPig extends CREEPSBaseLivingRender {
 
-    public EvilPigRender() {
+    public RenderEvilPig() {
         super(new ModelEvilPig(), 0.5f);
         this.setRenderPassModel(new ModelEvilPig());
     }
@@ -25,14 +25,14 @@ public class EvilPigRender extends CREEPSBaseLivingRender {
         return ResourceLocationUtils.makeResourceLocationEntityHostile("evilpig");
     }
 
-    protected void preRenderCallback(EvilPigEntity mob, float size) {
+    protected void preRenderCallback(EntityEvilPig mob, float size) {
         GL11.glScalef(mob.getModelSize(), mob.getModelSize(), mob.getModelSize());
     }
 
     @Override
     protected void preRenderCallback(EntityLivingBase mob, float size) {
         super.preRenderCallback(mob, size);
-        this.preRenderCallback((EvilPigEntity) mob, size);
+        this.preRenderCallback((EntityEvilPig) mob, size);
 
     }
 }

@@ -2,11 +2,8 @@ package jerios.morecreeps.client.invisibleMan;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import jerios.morecreeps.client.CREEPSBaseLivingRender;
-import jerios.morecreeps.entity.agressive.GEntity;
-import jerios.morecreeps.entity.netural.InvisibleManEntity;
+import jerios.morecreeps.entity.netural.EntityInvisibleMan;
 import jerios.morecreeps.utils.ResourceLocationUtils;
-import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.entity.RenderBiped;
 import net.minecraft.entity.Entity;
@@ -19,13 +16,13 @@ public class RenderInvisbleMan extends RenderBiped {
         super(new ModelBiped(), 0.5f);
     }
 
-    protected ResourceLocation getEntityTexture(InvisibleManEntity entity) {
+    protected ResourceLocation getEntityTexture(EntityInvisibleMan entity) {
         return ResourceLocationUtils.makeResourceLocationEntityHostile(entity.getTexture());
     }
 
     @Override
     protected ResourceLocation getEntityTexture(Entity entity) {
-        return getEntityTexture((InvisibleManEntity) entity);
+        return getEntityTexture((EntityInvisibleMan) entity);
     }
 
 }

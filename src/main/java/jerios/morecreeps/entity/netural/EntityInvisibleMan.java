@@ -2,13 +2,11 @@ package jerios.morecreeps.entity.netural;
 
 import jerios.morecreeps.CREEPSConstants;
 import jerios.morecreeps.Config;
-import jerios.morecreeps.MoreCreeps;
 import jerios.morecreeps.entity.base.BaseAgressiveCreep;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockStoneSlab;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -18,7 +16,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class InvisibleManEntity extends BaseAgressiveCreep {
+public class EntityInvisibleMan extends BaseAgressiveCreep {
 
     private static final ItemStack defaultHeldItem = new ItemStack(Items.stick, 1);
     private int anger = 0;
@@ -58,7 +56,7 @@ public class InvisibleManEntity extends BaseAgressiveCreep {
     };
 
 
-    public InvisibleManEntity(World world) {
+    public EntityInvisibleMan(World world) {
         super(world);
         anger = 0;
         setTexture("invisibleman");

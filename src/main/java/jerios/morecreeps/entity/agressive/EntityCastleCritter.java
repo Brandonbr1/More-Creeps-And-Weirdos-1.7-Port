@@ -7,14 +7,13 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class CastleCritterEntity extends BaseAgressiveCreep {
+public class EntityCastleCritter extends BaseAgressiveCreep {
 
-    public CastleCritterEntity(World world) {
+    public EntityCastleCritter(World world) {
         super(world);
         this.setSize(0.6F, 0.6F);
         this.setModelSize(1.6f);

@@ -6,12 +6,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 import jerios.morecreeps.entity.nonLiving.EntityGooDonut;
-import jerios.morecreeps.item.base.CREEPSItem;
+import jerios.morecreeps.item.base.ItemsCREEPS;
 
-public class ItemGooDonut extends CREEPSItem {
+public class GooDonutItems extends ItemsCREEPS {
 
-    public ItemGooDonut() {
-        super("gooDonut");
+    public GooDonutItems() {
+        super("goo_donut");
         this.setMaxStackSize(16);
     }
 

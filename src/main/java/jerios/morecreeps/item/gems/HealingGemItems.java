@@ -6,14 +6,14 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-import jerios.morecreeps.item.base.CREEPSItem;
+import jerios.morecreeps.item.base.ItemsCREEPS;
 
-public class HealingGemItem extends CREEPSItem {
+public class HealingGemItems extends ItemsCREEPS {
 
     private static final int HEAL_AMM = 5;
 
-    public HealingGemItem() {
-        super("healingGem");
+    public HealingGemItems() {
+        super("healing_gem");
         setMaxDamage(16);
     }
 

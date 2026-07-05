@@ -5,11 +5,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 import jerios.morecreeps.MoreCreeps;
-import jerios.morecreeps.item.base.CREEPSItem;
+import jerios.morecreeps.item.base.ItemsCREEPS;
 
-public class BatteryItem extends CREEPSItem {
+public class BatteryItems extends ItemsCREEPS {
 
-    public BatteryItem() {
+    public BatteryItems() {
         super("battery");
     }
 

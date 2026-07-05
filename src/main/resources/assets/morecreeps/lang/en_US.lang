@@ -8,11 +8,12 @@ entity.morecreeps.InvisibleMan.name=Invisible Man
 entity.morecreeps.CastleCritter.name=Castle Critter
 
 # Items
-item.healingGem.name=Healing Gem
-item.gooDonut.name=Goo Donut
+item.healing_gem.name=Healing Gem
+item.goo_donut.name=Goo Donut
 item.battery.name=Battery
 item.money.name=Money
 item.ram16k.name=Ram
+item.band_aid.name=Band-Aid
 
 
 # ItemGROUP

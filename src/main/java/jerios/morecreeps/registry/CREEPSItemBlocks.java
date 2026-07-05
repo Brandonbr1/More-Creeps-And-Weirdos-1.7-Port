@@ -2,17 +2,17 @@ package jerios.morecreeps.registry;
 
 import jerios.morecreeps.item.BlockCREEPSSpawner;
 import jerios.morecreeps.item.ItemMonsterSpawner;
-import jerios.morecreeps.item.consumables.ItemBandaid;
+import jerios.morecreeps.item.consumables.BandaidItems;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import jerios.morecreeps.item.CreepSpawnEggItem;
-import jerios.morecreeps.item.base.CREEPSItem;
-import jerios.morecreeps.item.gems.HealingGemItem;
-import jerios.morecreeps.item.misc.BatteryItem;
-import jerios.morecreeps.item.throwables.ItemGooDonut;
-import jerios.morecreeps.item.throwables.ItemMoney;
+import jerios.morecreeps.item.ItemCreepSpawnEgg;
+import jerios.morecreeps.item.base.ItemsCREEPS;
+import jerios.morecreeps.item.gems.HealingGemItems;
+import jerios.morecreeps.item.misc.BatteryItems;
+import jerios.morecreeps.item.throwables.GooDonutItems;
+import jerios.morecreeps.item.throwables.MoneyItems;
 
 public class CREEPSItemBlocks {
 
@@ -25,25 +25,25 @@ public class CREEPSItemBlocks {
     public static Item bandaid;
 
     public static void registerItems() {
-        spawnEgg = new CreepSpawnEggItem().setCreativeTab(TabsManager.SPAWN_EGG_TAB);
+        spawnEgg = new ItemCreepSpawnEgg().setCreativeTab(TabsManager.SPAWN_EGG_TAB);
         registerItem(spawnEgg, "spawn_egg");
 
-        healingGem = new HealingGemItem();
+        healingGem = new HealingGemItems();
         registerItem(healingGem, "healingGem");
 
-        gooDonut = new ItemGooDonut();
+        gooDonut = new GooDonutItems();
         registerItem(gooDonut, "GooDonut");
 
-        battery = new BatteryItem();
+        battery = new BatteryItems();
         registerItem(battery, "Battery");
 
-        money = new ItemMoney();
+        money = new MoneyItems();
         registerItem(money, "money");
 
-        ram16k = new CREEPSItem("ram16k").setMaxStackSize(64);
+        ram16k = new ItemsCREEPS("ram16k").setMaxStackSize(64);
         registerItem(ram16k, "ram16k");
 
-        bandaid = new ItemBandaid();
+        bandaid = new BandaidItems();
         registerItem(bandaid, "bandAid");
 
         registerBlocks();

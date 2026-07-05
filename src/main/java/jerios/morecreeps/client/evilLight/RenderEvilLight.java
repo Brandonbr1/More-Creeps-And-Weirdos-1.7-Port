@@ -1,15 +1,9 @@
 package jerios.morecreeps.client.evilLight;
 
 import jerios.morecreeps.client.CREEPSBaseLivingRender;
-import jerios.morecreeps.entity.agressive.EvilLight;
-import jerios.morecreeps.entity.agressive.EvilPigEntity;
 import jerios.morecreeps.utils.ResourceLocationUtils;
-import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
-import org.lwjgl.opengl.GL11;
 
 public class RenderEvilLight extends CREEPSBaseLivingRender {
 

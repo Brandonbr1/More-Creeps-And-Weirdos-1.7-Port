@@ -1,7 +1,7 @@
 package jerios.morecreeps.registry;
 
 import jerios.morecreeps.entity.agressive.*;
-import jerios.morecreeps.entity.netural.InvisibleManEntity;
+import jerios.morecreeps.entity.netural.EntityInvisibleMan;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EnumCreatureType;
@@ -11,29 +11,29 @@ import cpw.mods.fml.common.registry.EntityRegistry;
 import jerios.morecreeps.CREEPSConstants;
 import jerios.morecreeps.MoreCreeps;
 import jerios.morecreeps.entity.nonLiving.EntityGooDonut;
-import jerios.morecreeps.entity.nonLiving.TrophyEntity;
-import jerios.morecreeps.item.CreepSpawnEggItem;
+import jerios.morecreeps.entity.nonLiving.EntityTrophy;
+import jerios.morecreeps.item.ItemCreepSpawnEgg;
 
 public class CREEPSMobs {
 
     public static void registerMobs() {
-        registerEntityWithEgg(GEntity.class, "GEntity", 128, 1, true, 12728089, 222630);
+        registerEntityWithEgg(EntityG.class, "GEntity", 128, 1, true, 12728089, 222630);
 
-        registerEntity(TrophyEntity.class, "Trophy", 128, 1, true,  44975, 7969893);
+        registerEntity(EntityTrophy.class, "Trophy", 128, 1, true,  44975, 7969893);
 
-        registerEntityWithEgg(EvilCreatureEntity.class, "EvilCreature", 128, 1, true,  2247962, 10224389);
+        registerEntityWithEgg(EntityEvilCreature.class, "EvilCreature", 128, 1, true,  2247962, 10224389);
 
         registerEntity(EntityGooDonut.class, "GooDonut", 128, 1, true,  44975, 7969893);
 
-        registerEntityWithEgg(EvilPigEntity.class, "EvilPig", 128, 1, true,  12100209, 13303810);
+        registerEntityWithEgg(EntityEvilPig.class, "EvilPig", 128, 1, true,  12100209, 13303810);
 
-        registerEntityWithEgg(EvilLight.class, "EvilLight", 128, 1, true,  16378430, 0);
+        registerEntityWithEgg(EntityEvilLight.class, "EvilLight", 128, 1, true,  16378430, 0);
 
         registerEntityWithEgg(EvilSnowmanEntity.class, "EvilSnowman", 128, 1, true,  11645613, 2236962);
 
-        registerEntityWithEgg(InvisibleManEntity.class, "InvisibleMan", 128, 1, true, 9145227, 9145227);
+        registerEntityWithEgg(EntityInvisibleMan.class, "InvisibleMan", 128, 1, true, 9145227, 9145227);
 
-        registerEntityWithEgg(CastleCritterEntity.class, "CastleCritter", 128, 1, true, 10487043, 13896822);
+        registerEntityWithEgg(EntityCastleCritter.class, "CastleCritter", 128, 1, true, 10487043, 13896822);
     }
 
     static int id = 10;
@@ -60,7 +60,7 @@ public class CREEPSMobs {
             trackingRange,
             updateFrequency,
             sendsVelocityUpdates);
-            CreepSpawnEggItem.addSpawnEgg(id++, entityClass, CREEPSConstants.MOD_ID_DOT + entityName, spot1, spot2);
+            ItemCreepSpawnEgg.addSpawnEgg(id++, entityClass, CREEPSConstants.MOD_ID_DOT + entityName, spot1, spot2);
 
     }
 

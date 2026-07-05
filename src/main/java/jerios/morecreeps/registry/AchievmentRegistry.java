@@ -1,6 +1,8 @@
 package jerios.morecreeps.registry;
 
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.stats.Achievement;
 import net.minecraftforge.common.AchievementPage;
 
@@ -19,6 +21,8 @@ public class AchievmentRegistry {
     public static Achievement achievesnowtiny;
     public static Achievement achievesnowtall;
     public static Achievement achievesnow;
+
+    public static Achievement achieverockmonster;
 
     public static void register() {
         achieve100bucks = new Achievement(
@@ -102,6 +106,15 @@ public class AchievmentRegistry {
             null).registerStat()
             .setSpecial();
 
+        achieverockmonster = new Achievement(
+            "achievement.achieverockmonster",
+            "achieverockmonster",
+            0,
+            4,
+            Item.getItemFromBlock(Blocks.cobblestone),
+            null).registerStat()
+            .setSpecial();
+
         creepsPage = new AchievementPage(
             "More Creeps",
             achieve100bucks,
@@ -112,7 +125,8 @@ public class AchievmentRegistry {
             achieveram1024,
             achievesnowtiny,
             achievesnow,
-            achievesnowtall);
+            achievesnowtall,
+            achieverockmonster);
 
         AchievementPage.registerAchievementPage(creepsPage);
     }

@@ -15,12 +15,12 @@ import net.minecraft.world.World;
 import jerios.morecreeps.entity.base.BaseAgressiveCreep;
 import jerios.morecreeps.registry.CREEPSItemBlocks;
 
-public class GEntity extends BaseAgressiveCreep {
+public class EntityG extends BaseAgressiveCreep {
 
     int attackDelay;
     int attackDelayMax;
 
-    public GEntity(World world) {
+    public EntityG(World world) {
         super(world, 2.0F);
         this.experienceValue = 15;
         this.attackDelayMax = 8;

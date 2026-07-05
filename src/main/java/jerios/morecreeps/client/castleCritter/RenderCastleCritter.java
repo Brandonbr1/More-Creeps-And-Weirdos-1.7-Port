@@ -1,9 +1,8 @@
 package jerios.morecreeps.client.castleCritter;
 
 import jerios.morecreeps.client.CREEPSBaseLivingRender;
-import jerios.morecreeps.entity.agressive.CastleCritterEntity;
+import jerios.morecreeps.entity.agressive.EntityCastleCritter;
 import jerios.morecreeps.utils.ResourceLocationUtils;
-import net.minecraft.client.model.ModelBase;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
@@ -15,14 +14,14 @@ public class RenderCastleCritter extends CREEPSBaseLivingRender {
         super(new ModelCastleCritter(), 0.5f);
     }
 
-    protected void preRenderCallback(CastleCritterEntity mob) {
+    protected void preRenderCallback(EntityCastleCritter mob) {
         GL11.glScalef(mob.getModelSize(), mob.getModelSize(), mob.getModelSize());
     }
 
     @Override
     protected void preRenderCallback(EntityLivingBase p_77041_1_, float p_77041_2_) {
         super.preRenderCallback(p_77041_1_, p_77041_2_);
-        preRenderCallback((CastleCritterEntity)p_77041_1_);
+        preRenderCallback((EntityCastleCritter)p_77041_1_);
     }
 
   /**  protected int eyeGlow(CastleCritterEntity entitycastlecritter, int i, float f) {

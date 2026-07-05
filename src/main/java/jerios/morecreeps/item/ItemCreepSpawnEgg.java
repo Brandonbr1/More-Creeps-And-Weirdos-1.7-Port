@@ -21,7 +21,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import jerios.morecreeps.registry.TabsManager;
 
-public class CreepSpawnEggItem extends ItemMonsterPlacer {
+public class ItemCreepSpawnEgg extends ItemMonsterPlacer {
 
     public static final Map<Integer, Class<?>> INTEGER_CLASS_MAP = new HashMap <>(32);
     public static final Map<Integer, String> INTEGER_STRING_MAP = new HashMap <>(32);
@@ -37,7 +37,7 @@ public class CreepSpawnEggItem extends ItemMonsterPlacer {
         STRING_ID_MAP.put(id, s);
     }
 
-    public CreepSpawnEggItem() {
+    public ItemCreepSpawnEgg() {
         super();
         this.setUnlocalizedName("monsterPlacer");
         this.setTextureName("spawn_egg");
