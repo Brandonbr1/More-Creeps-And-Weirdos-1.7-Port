@@ -23,11 +23,11 @@ import jerios.morecreeps.registry.TabsManager;
 
 public class ItemCreepSpawnEgg extends ItemMonsterPlacer {
 
-    public static final Map<Integer, Class<?>> INTEGER_CLASS_MAP = new HashMap <>(32);
-    public static final Map<Integer, String> INTEGER_STRING_MAP = new HashMap <>(32);
+    public static final Map<Integer, Class<?>> INTEGER_CLASS_MAP = new HashMap<>(32);
+    public static final Map<Integer, String> INTEGER_STRING_MAP = new HashMap<>(32);
     public static final Map<Integer, EGGSpots> INTEGER_COLOR_MAP = new LinkedHashMap<>(32);
-    public static final Map<String, Class<?>> STRING_CLASS_MAP = new HashMap <>(32);
-    public static final Map<Integer, String> STRING_ID_MAP = new HashMap <>(32);
+    public static final Map<String, Class<?>> STRING_CLASS_MAP = new HashMap<>(32);
+    public static final Map<Integer, String> STRING_ID_MAP = new HashMap<>(32);
 
     public static void addSpawnEgg(int id, Class<?> clazz, String s, int color1, int color2) {
         INTEGER_CLASS_MAP.put(id, clazz);
@@ -148,8 +148,7 @@ public class ItemCreepSpawnEgg extends ItemMonsterPlacer {
      */
     public static Entity spawnCreature(World p_77840_0_, int p_77840_1_, double p_77840_2_, double p_77840_4_,
         double p_77840_6_) {
-        if (!INTEGER_COLOR_MAP.containsKey(p_77840_1_)
-        ) {
+        if (!INTEGER_COLOR_MAP.containsKey(p_77840_1_)) {
             return null;
         } else {
             EntityLiving entity = null;
@@ -192,24 +191,23 @@ public class ItemCreepSpawnEgg extends ItemMonsterPlacer {
         String s = STRING_ID_MAP.get(p_151182_0_.id);
         return s == null ? null
             : (new StatBase(
-            "stat.killEntity." + s,
-            new ChatComponentTranslation(
-                "stat.entityKill",
-                new Object[] { new ChatComponentTranslation("entity." + s + ".name", new Object[0]) })))
-            .registerStat();
+                "stat.killEntity." + s,
+                new ChatComponentTranslation(
+                    "stat.entityKill",
+                    new Object[] { new ChatComponentTranslation("entity." + s + ".name", new Object[0]) })))
+                        .registerStat();
     }
 
     public static StatBase createStat2(EGGSpots p_151176_0_) {
         String s = STRING_ID_MAP.get(p_151176_0_.id);
         return s == null ? null
             : (new StatBase(
-            "stat.entityKilledBy." + s,
-            new ChatComponentTranslation(
-                "stat.entityKilledBy",
-                new Object[] { new ChatComponentTranslation("entity." + s + ".name", new Object[0]) })))
-            .registerStat();
+                "stat.entityKilledBy." + s,
+                new ChatComponentTranslation(
+                    "stat.entityKilledBy",
+                    new Object[] { new ChatComponentTranslation("entity." + s + ".name", new Object[0]) })))
+                        .registerStat();
     }
-
 
     public static class EGGSpots {
 
@@ -229,21 +227,20 @@ public class ItemCreepSpawnEgg extends ItemMonsterPlacer {
 
     }
 
-
     public static EntityLiving createEntityByID(int id, World world) {
         try {
 
-           final Class<?> oclass = INTEGER_CLASS_MAP.get(id);
+            final Class<?> oclass = INTEGER_CLASS_MAP.get(id);
 
             if (oclass != null) {
-               final MethodType type = MethodType.methodType(void.class, World.class);
-               final MethodHandle handle = MethodHandles.lookup().findConstructor(oclass, type);
+                final MethodType type = MethodType.methodType(void.class, World.class);
+                final MethodHandle handle = MethodHandles.lookup()
+                    .findConstructor(oclass, type);
                 handle.asType(type);
 
                 return (EntityLiving) handle.invoke(world);
             }
-        } catch (Throwable ignored) {
-        }
+        } catch (Throwable ignored) {}
 
         return null;
     }
@@ -251,14 +248,14 @@ public class ItemCreepSpawnEgg extends ItemMonsterPlacer {
     public static Entity createEntityByName(String name, World world) {
         try {
 
-          final   Class<?> oclass = STRING_CLASS_MAP.get(name);
+            final Class<?> oclass = STRING_CLASS_MAP.get(name);
 
-           final MethodType type = MethodType.methodType(void.class, World.class);
-            final MethodHandle handle = MethodHandles.lookup().findConstructor(oclass, type);
+            final MethodType type = MethodType.methodType(void.class, World.class);
+            final MethodHandle handle = MethodHandles.lookup()
+                .findConstructor(oclass, type);
 
             return (EntityLiving) handle.invoke(world);
-        } catch (Throwable ignored) {
-        }
+        } catch (Throwable ignored) {}
 
         return null;
     }

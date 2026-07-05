@@ -1,6 +1,5 @@
 package jerios.morecreeps.utils;
 
-import jerios.morecreeps.CREEPSConstants;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;

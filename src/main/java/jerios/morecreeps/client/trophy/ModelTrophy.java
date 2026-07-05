@@ -1,7 +1,6 @@
 package jerios.morecreeps.client.trophy;
 
 import net.minecraft.client.model.ModelBase;
-
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
@@ -98,6 +97,5 @@ public class ModelTrophy extends ModelBase {
         this.New_Shape10.render(f5);
         this.New_Shape9.render(f5);
     }
-
 
 }

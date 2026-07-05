@@ -199,7 +199,6 @@ public class RenderEvilCreature extends CREEPSBaseLivingRender {
         GL11.glTranslatef(0.0F, 0.1875F, 0.0F);
     }
 
-
     @Override
     protected ResourceLocation getEntityTexture(Entity entity) {
         return ResourceLocationUtils.makeResourceLocationEntityHostile("evilcreature");

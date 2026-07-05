@@ -19,7 +19,6 @@ public class RenderGMob extends CREEPSBaseLivingRender {
         super(new ModelGMob(), 0.5f);
     }
 
-
     @Override
     protected ResourceLocation getEntityTexture(Entity entity) {
         return ResourceLocationUtils.makeResourceLocationEntityHostile("GEntity");

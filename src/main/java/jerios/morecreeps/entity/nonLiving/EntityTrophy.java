@@ -32,7 +32,7 @@ public class EntityTrophy extends Entity {
         }
 
         if (this.trophyLifespan-- < 0) {
-             this.setDead();
+            this.setDead();
         }
         super.onUpdate();
     }

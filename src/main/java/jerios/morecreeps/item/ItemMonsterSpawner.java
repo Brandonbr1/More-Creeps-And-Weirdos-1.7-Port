@@ -1,8 +1,7 @@
 package jerios.morecreeps.item;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import jerios.morecreeps.registry.TabsManager;
+import java.util.List;
+
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLiving;
@@ -18,9 +17,12 @@ import net.minecraft.util.Facing;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 
-import java.util.List;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import jerios.morecreeps.registry.TabsManager;
 
 public class ItemMonsterSpawner extends ItemBlock {
+
     public ItemMonsterSpawner(Block block) {
         super(block);
         this.setHasSubtypes(true);
@@ -50,7 +52,8 @@ public class ItemMonsterSpawner extends ItemBlock {
     }
 
     @Override
-    public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int facing, float unknown, float unkown2, float unkown3) {
+    public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int facing,
+        float unknown, float unkown2, float unkown3) {
 
         if (!world.isRemote) {
             x += Facing.offsetsXForSide[facing];
@@ -59,13 +62,13 @@ public class ItemMonsterSpawner extends ItemBlock {
 
             world.setBlock(x, y, z, Blocks.mob_spawner, 0, 2);
 
-            TileEntityMobSpawner tileentitymobspawner = (TileEntityMobSpawner)world.getTileEntity(x, y, z);
+            TileEntityMobSpawner tileentitymobspawner = (TileEntityMobSpawner) world.getTileEntity(x, y, z);
 
-            if (tileentitymobspawner != null)
-            {
+            if (tileentitymobspawner != null) {
                 String name = ItemCreepSpawnEgg.STRING_ID_MAP.get(stack.getItemDamage());
                 if (name != null) {
-                    tileentitymobspawner.func_145881_a().setEntityName(name);
+                    tileentitymobspawner.func_145881_a()
+                        .setEntityName(name);
                 }
             }
 
@@ -77,7 +80,6 @@ public class ItemMonsterSpawner extends ItemBlock {
 
         return true;
     }
-
 
     @Override
     public void addInformation(ItemStack stack, EntityPlayer player, List<String> list, boolean p_77624_4_) {

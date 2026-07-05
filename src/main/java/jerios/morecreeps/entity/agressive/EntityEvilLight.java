@@ -1,17 +1,18 @@
 package jerios.morecreeps.entity.agressive;
 
-import jerios.morecreeps.entity.base.BaseAgressiveCreep;
-import jerios.morecreeps.entity.interfaces.IEvilMobs;
+import java.util.List;
+
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
-import java.util.List;
+import jerios.morecreeps.entity.base.BaseAgressiveCreep;
+import jerios.morecreeps.entity.interfaces.IEvilMobs;
 
+public class EntityEvilLight extends BaseAgressiveCreep implements IEvilMobs {
 
-public class EntityEvilLight extends BaseAgressiveCreep implements IEvilMobs{
     public int lifespan;
 
     public EntityEvilLight(World world) {
@@ -41,16 +42,23 @@ public class EntityEvilLight extends BaseAgressiveCreep implements IEvilMobs{
             this.setDead();
         }
 
-        List<Entity> list = this.worldObj.getEntitiesWithinAABBExcludingEntity(this, this.boundingBox.expand(this.motionX, this.motionY, this.motionZ).expand(1.0, 1.0,1.0));
+        List<Entity> list = this.worldObj.getEntitiesWithinAABBExcludingEntity(
+            this,
+            this.boundingBox.expand(this.motionX, this.motionY, this.motionZ)
+                .expand(1.0, 1.0, 1.0));
 
         for (int i = 0; i < list.size(); i++) {
             Entity entity = list.get(i);
             if (entity.canBeCollidedWith() && !(entity instanceof IEvilMobs)) {
-                dealFireDamageToMob(entity,3);
+                dealFireDamageToMob(entity, 3);
                 entity.motionX = this.rand.nextFloat() * 0.7F;
                 entity.motionY = this.rand.nextFloat() * 0.4F;
                 entity.motionZ = this.rand.nextFloat() * 0.7F;
-                this.worldObj.playSoundAtEntity(this, "morecreeps:EvilLight", 0.2F, 1.0F / (super.rand.nextFloat() * 0.1F + 0.95F));
+                this.worldObj.playSoundAtEntity(
+                    this,
+                    "morecreeps:EvilLight",
+                    0.2F,
+                    1.0F / (super.rand.nextFloat() * 0.1F + 0.95F));
 
             }
 
@@ -59,10 +67,8 @@ public class EntityEvilLight extends BaseAgressiveCreep implements IEvilMobs{
     }
 
     // Method was protected for some reason, copypasta!
-    public void dealFireDamageToMob(Entity entity, float amount)
-    {
-        if (!entity.isImmuneToFire())
-        {
+    public void dealFireDamageToMob(Entity entity, float amount) {
+        if (!entity.isImmuneToFire()) {
             entity.attackEntityFrom(DamageSource.inFire, amount);
         }
     }
@@ -94,11 +100,11 @@ public class EntityEvilLight extends BaseAgressiveCreep implements IEvilMobs{
         return "morecreeps:EvilLight";
     }
 
-
     @Override
     protected void attackEntity(Entity entity, float f) {
         if (!(entity instanceof IEvilMobs)) {
-            if (f < 3.0 && entity.boundingBox.maxY > this.boundingBox.minY && entity.boundingBox.minY < this.boundingBox.maxY) {
+            if (f < 3.0 && entity.boundingBox.maxY > this.boundingBox.minY
+                && entity.boundingBox.minY < this.boundingBox.maxY) {
                 super.attackTime = 10;
                 attackEntityAsMob(entity);
             }
@@ -108,7 +114,7 @@ public class EntityEvilLight extends BaseAgressiveCreep implements IEvilMobs{
 
     @Override
     protected void fall(float par1) {
-        int var2 = (int)Math.ceil(par1 - 3.0F);
+        int var2 = (int) Math.ceil(par1 - 3.0F);
         super.fall(var2);
     }
 

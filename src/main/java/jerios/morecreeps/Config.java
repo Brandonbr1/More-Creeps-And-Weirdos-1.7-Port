@@ -25,13 +25,8 @@ public class Config {
             true,
             "Should the invisible man get more angry when you attack it?");
 
-        megaSpawn = configuration.getBoolean(
-            "Mega Spawn",
-            Configuration.CATEGORY_GENERAL,
-            false,
-            "Increase spawning rates?");
-
-
+        megaSpawn = configuration
+            .getBoolean("Mega Spawn", Configuration.CATEGORY_GENERAL, false, "Increase spawning rates?");
 
         if (configuration.hasChanged()) {
             configuration.save();

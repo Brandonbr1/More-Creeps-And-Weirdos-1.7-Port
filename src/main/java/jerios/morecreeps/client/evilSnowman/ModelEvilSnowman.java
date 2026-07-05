@@ -9,7 +9,8 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class ModelEvilSnowman extends ModelBase{
+public class ModelEvilSnowman extends ModelBase {
+
     public ModelRenderer body2;
     public ModelRenderer body1;
     public ModelRenderer head;

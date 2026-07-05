@@ -92,13 +92,13 @@ public class MoreCreeps {
     }
 
     private boolean loggedIn = false;
+
     @SubscribeEvent
     public void onJoinWorld(PlayerEvent.PlayerLoggedInEvent event) {
-            if (Config.greeting && !loggedIn) {
-                loggedIn = true;
-                event.player.worldObj.playSoundAtEntity(event.player, "morecreeps:WelcomePlayer", 1.0F, 1.0F);
-            }
-
+        if (Config.greeting && !loggedIn) {
+            loggedIn = true;
+            event.player.worldObj.playSoundAtEntity(event.player, "morecreeps:WelcomePlayer", 1.0F, 1.0F);
+        }
 
     }
 

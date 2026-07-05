@@ -78,5 +78,4 @@ public class ModelCastleCritter extends ModelBase {
         this.leg4.rotateAngleX = MathHelper.cos(f * 0.6662F) * 1.4F * f1;
     }
 
-
 }

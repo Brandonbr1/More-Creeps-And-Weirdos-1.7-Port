@@ -1,13 +1,5 @@
 package jerios.morecreeps;
 
-import jerios.morecreeps.client.castleCritter.RenderCastleCritter;
-import jerios.morecreeps.client.evilLight.RenderEvilLight;
-import jerios.morecreeps.client.evilSnowman.RenderEvilSnowman;
-import jerios.morecreeps.client.invisibleMan.RenderInvisbleMan;
-import jerios.morecreeps.client.trophy.RenderTrophy;
-import jerios.morecreeps.entity.agressive.*;
-import jerios.morecreeps.entity.netural.EntityInvisibleMan;
-import jerios.morecreeps.entity.nonLiving.EntityTrophy;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderSnowball;
@@ -18,9 +10,17 @@ import net.minecraft.world.World;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import jerios.morecreeps.client.GMob.RenderGMob;
+import jerios.morecreeps.client.castleCritter.RenderCastleCritter;
 import jerios.morecreeps.client.evilCreature.RenderEvilCreature;
+import jerios.morecreeps.client.evilLight.RenderEvilLight;
 import jerios.morecreeps.client.evilPig.RenderEvilPig;
+import jerios.morecreeps.client.evilSnowman.RenderEvilSnowman;
 import jerios.morecreeps.client.fx.ConfettiFX;
+import jerios.morecreeps.client.invisibleMan.RenderInvisbleMan;
+import jerios.morecreeps.client.trophy.RenderTrophy;
+import jerios.morecreeps.entity.agressive.*;
+import jerios.morecreeps.entity.netural.EntityInvisibleMan;
+import jerios.morecreeps.entity.nonLiving.EntityTrophy;
 
 public class ClientProxy extends CommonProxy {
 

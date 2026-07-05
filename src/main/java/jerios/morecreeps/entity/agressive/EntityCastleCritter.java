@@ -1,6 +1,5 @@
 package jerios.morecreeps.entity.agressive;
 
-import jerios.morecreeps.entity.base.BaseAgressiveCreep;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockStoneSlab;
 import net.minecraft.entity.Entity;
@@ -10,6 +9,8 @@ import net.minecraft.init.Items;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+
+import jerios.morecreeps.entity.base.BaseAgressiveCreep;
 
 public class EntityCastleCritter extends BaseAgressiveCreep {
 
@@ -67,7 +68,9 @@ public class EntityCastleCritter extends BaseAgressiveCreep {
             }
         }
 
-        if (f < 2.0 && entity.boundingBox.maxY > super.boundingBox.minY && entity.boundingBox.minY < super.boundingBox.maxY && super.rand.nextInt(10) == 0) {
+        if (f < 2.0 && entity.boundingBox.maxY > super.boundingBox.minY
+            && entity.boundingBox.minY < super.boundingBox.maxY
+            && super.rand.nextInt(10) == 0) {
             super.attackTime = 20;
             attackEntityAsMob(entity);
         }
@@ -85,11 +88,11 @@ public class EntityCastleCritter extends BaseAgressiveCreep {
         int k = MathHelper.floor_double(super.posZ);
         int l = super.worldObj.getFullBlockLightValue(i, j, k);
         Block m = super.worldObj.getBlock(i, j - 1, k);
-        return m != Blocks.cobblestone
-            && m != Blocks.log
+        return m != Blocks.cobblestone && m != Blocks.log
             && m != Blocks.log2
             && m != Blocks.wool
-            && super.worldObj.getCollidingBoundingBoxes(this, super.boundingBox).isEmpty()
+            && super.worldObj.getCollidingBoundingBoxes(this, super.boundingBox)
+                .isEmpty()
             && super.worldObj.checkNoEntityCollision(super.boundingBox);
     }
 
@@ -97,11 +100,13 @@ public class EntityCastleCritter extends BaseAgressiveCreep {
     public void playLivingSound() {
         String s = this.getLivingSound();
         if (s != null) {
-            this.worldObj
-                .playSoundAtEntity(this, s, this.getSoundVolume(), (super.rand.nextFloat() - super.rand.nextFloat()) * 0.2F + 1.0F + (1.6F - this.getModelSize()) * 2.0F);
+            this.worldObj.playSoundAtEntity(
+                this,
+                s,
+                this.getSoundVolume(),
+                (super.rand.nextFloat() - super.rand.nextFloat()) * 0.2F + 1.0F + (1.6F - this.getModelSize()) * 2.0F);
         }
     }
-
 
     @Override
     protected String getLivingSound() {
@@ -117,6 +122,7 @@ public class EntityCastleCritter extends BaseAgressiveCreep {
     protected String getDeathSound() {
         return "morecreeps:CastleCritterDeath";
     }
+
     @Override
     protected void dropFewItems(boolean recentHit, int lootLevel) {
         super.dropFewItems(recentHit, lootLevel);
@@ -129,12 +135,8 @@ public class EntityCastleCritter extends BaseAgressiveCreep {
 
     }
 
-
-
     @Override
     public float getBlockPathWeight(int i, int j, int k) {
-        return !(this.worldObj.getBlock(i, j - 1, k) instanceof BlockStoneSlab)
-            ? -j
-            : 10.0F;
+        return !(this.worldObj.getBlock(i, j - 1, k) instanceof BlockStoneSlab) ? -j : 10.0F;
     }
 }

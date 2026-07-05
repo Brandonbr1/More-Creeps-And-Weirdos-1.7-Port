@@ -1,8 +1,5 @@
 package jerios.morecreeps.entity.netural;
 
-import jerios.morecreeps.CREEPSConstants;
-import jerios.morecreeps.Config;
-import jerios.morecreeps.entity.base.BaseAgressiveCreep;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockStoneSlab;
 import net.minecraft.entity.Entity;
@@ -16,45 +13,20 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
+import jerios.morecreeps.CREEPSConstants;
+import jerios.morecreeps.Config;
+import jerios.morecreeps.entity.base.BaseAgressiveCreep;
+
 public class EntityInvisibleMan extends BaseAgressiveCreep {
 
     private static final ItemStack defaultHeldItem = new ItemStack(Items.stick, 1);
     private int anger = 0;
 
-    private static final Item[] dropItems = new Item[]{
-        Items.stick,
-        Items.stick,
-        Items.stick,
-        Items.stick,
-        Items.apple,
-        Items.bread,
-        Items.bread,
-        Items.cake,
-        Items.stick,
-        Items.cake,
-        Items.stick,
-        Items.stick,
-        Items.stick,
-        Items.stick,
-        Items.stick,
-        Items.stick,
-        Items.stick,
-        Items.stick,
-        Items.stick,
-        Items.stick,
-        Items.stick,
-        Items.stick,
-        Items.stick,
-        Items.stick,
-        Items.gold_ingot,
-        Items.stick,
-        Items.stick,
-        Items.stick,
-        Items.apple,
-        Items.apple,
-        Items.stick
-    };
-
+    private static final Item[] dropItems = new Item[] { Items.stick, Items.stick, Items.stick, Items.stick,
+        Items.apple, Items.bread, Items.bread, Items.cake, Items.stick, Items.cake, Items.stick, Items.stick,
+        Items.stick, Items.stick, Items.stick, Items.stick, Items.stick, Items.stick, Items.stick, Items.stick,
+        Items.stick, Items.stick, Items.stick, Items.stick, Items.gold_ingot, Items.stick, Items.stick, Items.stick,
+        Items.apple, Items.apple, Items.stick };
 
     public EntityInvisibleMan(World world) {
         super(world);
@@ -84,19 +56,23 @@ public class EntityInvisibleMan extends BaseAgressiveCreep {
     @Override
     protected void entityInit() {
         super.entityInit();
-        this.getDataWatcher().addObject(TEXTURE, "");
+        this.getDataWatcher()
+            .addObject(TEXTURE, "");
     }
 
     public String getTexture() {
-        return this.getDataWatcher().getWatchableObjectString(TEXTURE);
+        return this.getDataWatcher()
+            .getWatchableObjectString(TEXTURE);
     }
 
     public void setTexture(String texture) {
-        this.getDataWatcher().updateObject(TEXTURE, texture);
+        this.getDataWatcher()
+            .updateObject(TEXTURE, texture);
     }
 
     public static final String ANGER_NBT = CREEPSConstants.MOD_ID_DOT + "ANGERLEVELS";
     public static final String TEXTURE_NBT = CREEPSConstants.MOD_ID_DOT + "TEXTURE";
+
     @Override
     public void writeEntityToNBT(NBTTagCompound nbttagcompound) {
         super.writeEntityToNBT(nbttagcompound);
@@ -140,7 +116,11 @@ public class EntityInvisibleMan extends BaseAgressiveCreep {
         if (super.rand.nextInt(30) == 0 && this.anger > 0) {
             anger--;
             if (this.anger == 0) {
-                super.worldObj.playSoundAtEntity(this, "morecreeps:InvisibleManForgetIt", 1.0F, (super.rand.nextFloat() - super.rand.nextFloat()) * 0.2F + 1.0F);
+                super.worldObj.playSoundAtEntity(
+                    this,
+                    "morecreeps:InvisibleManForgetIt",
+                    1.0F,
+                    (super.rand.nextFloat() - super.rand.nextFloat()) * 0.2F + 1.0F);
                 super.entityToAttack = null;
                 setTexture("invisibleman");
             }
@@ -156,14 +136,15 @@ public class EntityInvisibleMan extends BaseAgressiveCreep {
             super.motionX = d / f2 * 0.2 * 0.8F + super.motionX * 0.2F;
             super.motionZ = d1 / f2 * 0.2 * 0.8F + super.motionZ * 0.2F;
             super.motionY = 0.20000000596246448;
-        } else if (f < 2.5 && entity.boundingBox.maxY > super.boundingBox.minY && entity.boundingBox.minY < super.boundingBox.maxY) {
-            super.attackTime = 20;
-            attackEntityAsMob(entity);
-            if (Config.invisibleManGetsAngryWhenPunched) {
-                anger = this.rand.nextInt(15) + 5;
-            }
+        } else if (f < 2.5 && entity.boundingBox.maxY > super.boundingBox.minY
+            && entity.boundingBox.minY < super.boundingBox.maxY) {
+                super.attackTime = 20;
+                attackEntityAsMob(entity);
+                if (Config.invisibleManGetsAngryWhenPunched) {
+                    anger = this.rand.nextInt(15) + 5;
+                }
 
-        }
+            }
     }
 
     @Override
@@ -179,11 +160,11 @@ public class EntityInvisibleMan extends BaseAgressiveCreep {
             chance = false;
         }
 
-        return m != Blocks.sand
-            && m != Blocks.cobblestone
+        return m != Blocks.sand && m != Blocks.cobblestone
             && m != Blocks.planks
             && !(m instanceof BlockStoneSlab)
-            && super.worldObj.getCollidingBoundingBoxes(this, this.boundingBox).isEmpty()
+            && super.worldObj.getCollidingBoundingBoxes(this, this.boundingBox)
+                .isEmpty()
             && super.worldObj.checkNoEntityCollision(this.boundingBox)
             && super.worldObj.canBlockSeeTheSky(i, j, k)
             && chance
@@ -200,22 +181,22 @@ public class EntityInvisibleMan extends BaseAgressiveCreep {
         return 1;
     }
 
-
     @Override
     public void playLivingSound() {
         String s = this.getLivingSound();
         if (s != null) {
-            super.worldObj
-                .playSoundAtEntity(this, s, this.getSoundVolume(), (super.rand.nextFloat() - super.rand.nextFloat()) * 0.2F + 1.0F + (1.0F - this.getModelSize()) * 2.0F);
+            super.worldObj.playSoundAtEntity(
+                this,
+                s,
+                this.getSoundVolume(),
+                (super.rand.nextFloat() - super.rand.nextFloat()) * 0.2F + 1.0F + (1.0F - this.getModelSize()) * 2.0F);
         }
     }
 
     @Override
-    protected Item getDropItem()
-    {
+    protected Item getDropItem() {
         return dropItems[this.rand.nextInt(dropItems.length)];
     }
-
 
     @Override
     protected String getLivingSound() {
@@ -231,6 +212,5 @@ public class EntityInvisibleMan extends BaseAgressiveCreep {
     protected String getDeathSound() {
         return "morecreeps:InvisibleManDeath";
     }
-
 
 }

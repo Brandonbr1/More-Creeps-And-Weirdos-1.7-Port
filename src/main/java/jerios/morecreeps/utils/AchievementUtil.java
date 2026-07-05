@@ -14,7 +14,8 @@ public class AchievementUtil {
 
         if (player instanceof EntityPlayerMP) {
             EntityPlayerMP playerMP = (EntityPlayerMP) player;
-            if (!playerMP.func_147099_x().hasAchievementUnlocked(achievement)) {
+            if (!playerMP.func_147099_x()
+                .hasAchievementUnlocked(achievement)) {
                 player.worldObj.playSoundAtEntity(
                     player,
                     "morecreeps:Achievement",
@@ -25,8 +26,6 @@ public class AchievementUtil {
             }
         }
     }
-
-
 
     public static void spawnTrophy(EntityPlayer entityplayer, World world) {
         double xHeading = -MathHelper.sin(entityplayer.rotationYaw * 3.141593F / 180.0F);
@@ -40,6 +39,5 @@ public class AchievementUtil {
             0.0F);
         world.spawnEntityInWorld(entityTrophy);
     }
-
 
 }

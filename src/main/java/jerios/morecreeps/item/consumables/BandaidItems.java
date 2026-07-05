@@ -1,9 +1,10 @@
 package jerios.morecreeps.item.consumables;
 
-import jerios.morecreeps.item.base.ItemsCREEPS;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import jerios.morecreeps.item.base.ItemsCREEPS;
 
 public class BandaidItems extends ItemsCREEPS {
 

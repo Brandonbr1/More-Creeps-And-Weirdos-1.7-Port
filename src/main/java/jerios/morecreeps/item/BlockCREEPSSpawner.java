@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 
 public class BlockCREEPSSpawner extends Block {
+
     public BlockCREEPSSpawner() {
         super(Material.ground);
         this.setBlockName("mobSpawner");

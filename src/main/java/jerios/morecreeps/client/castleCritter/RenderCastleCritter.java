@@ -1,12 +1,14 @@
 package jerios.morecreeps.client.castleCritter;
 
-import jerios.morecreeps.client.CREEPSBaseLivingRender;
-import jerios.morecreeps.entity.agressive.EntityCastleCritter;
-import jerios.morecreeps.utils.ResourceLocationUtils;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
+
 import org.lwjgl.opengl.GL11;
+
+import jerios.morecreeps.client.CREEPSBaseLivingRender;
+import jerios.morecreeps.entity.agressive.EntityCastleCritter;
+import jerios.morecreeps.utils.ResourceLocationUtils;
 
 public class RenderCastleCritter extends CREEPSBaseLivingRender {
 
@@ -21,23 +23,24 @@ public class RenderCastleCritter extends CREEPSBaseLivingRender {
     @Override
     protected void preRenderCallback(EntityLivingBase p_77041_1_, float p_77041_2_) {
         super.preRenderCallback(p_77041_1_, p_77041_2_);
-        preRenderCallback((EntityCastleCritter)p_77041_1_);
+        preRenderCallback((EntityCastleCritter) p_77041_1_);
     }
 
-  /**  protected int eyeGlow(CastleCritterEntity entitycastlecritter, int i, float f) {
-        if (i != 0) {
-            return -1;
-        }
-
-        this.bindTexture(ResourceLocationUtils.makeResourceLocationEntityHostile("castlecritterglow"));
-        float f1 = (1.0F - entitycastlecritter.getBrightness(1.0F)) * 0.5F;
-        GL11.glEnable(3042);
-        GL11.glDisable(3008);
-        GL11.glBlendFunc(770, 771);
-        GL11.glColor4f(1.0F, 1.0F, 1.0F, f1);
-        return 1;
-    }
-   **/
+    /**
+     * protected int eyeGlow(CastleCritterEntity entitycastlecritter, int i, float f) {
+     * if (i != 0) {
+     * return -1;
+     * }
+     * 
+     * this.bindTexture(ResourceLocationUtils.makeResourceLocationEntityHostile("castlecritterglow"));
+     * float f1 = (1.0F - entitycastlecritter.getBrightness(1.0F)) * 0.5F;
+     * GL11.glEnable(3042);
+     * GL11.glDisable(3008);
+     * GL11.glBlendFunc(770, 771);
+     * GL11.glColor4f(1.0F, 1.0F, 1.0F, f1);
+     * return 1;
+     * }
+     **/
 
     @Override
     protected ResourceLocation getEntityTexture(Entity p_110775_1_) {

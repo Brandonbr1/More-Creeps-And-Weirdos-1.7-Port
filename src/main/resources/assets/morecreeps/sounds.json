@@ -195,25 +195,25 @@
    "RockMonster":{
     "category": "neutral",
     "sounds":[
-      {"name":"RockMonster/living/RockMonster1", "stream":false},
-	    {"name":"RockMonster/living/RockMonster2", "stream":false},
-	    {"name":"RockMonster/living/RockMonster3", "stream":false},
-	    {"name":"RockMonster/living/RockMonster4", "stream":false}
+      {"name":"RockMonster/living/RockMonster_1", "stream":false},
+	    {"name":"RockMonster/living/RockMonster_2", "stream":false},
+	    {"name":"RockMonster/living/RockMonster_3", "stream":false},
+	    {"name":"RockMonster/living/RockMonster_4", "stream":false}
     ]
   },
   "RockMonsterHurt":{
     "category": "neutral",
     "sounds":[
-      {"name":"RockMonster/hurt/RockMonsterHurt1", "stream":false},
-	    {"name":"RockMonster/hurt/RockMonsterHurt2", "stream":false},
-	    {"name":"RockMonster/hurt/RockMonsterHurt3", "stream":false}
+      {"name":"RockMonster/hurt/RockMonsterHurt_1", "stream":false},
+	    {"name":"RockMonster/hurt/RockMonsterHurt_2", "stream":false},
+	    {"name":"RockMonster/hurt/RockMonsterHurt_3", "stream":false}
     ]
   },
   "RockMonsterDeath":{
     "category": "neutral",
     "sounds":[
-      {"name":"RockMonster/hurt/RockMonsterDeath1", "stream":false},
-	    {"name":"RockMonster/hurt/RockMonsterDeath2", "stream":false}
+      {"name":"RockMonster/hurt/RockMonsterDeath_1", "stream":false},
+	    {"name":"RockMonster/hurt/RockMonsterDeath_2", "stream":false}
     ]
   },
   "WelcomePlayer":{

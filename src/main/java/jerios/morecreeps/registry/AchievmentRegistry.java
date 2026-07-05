@@ -79,31 +79,16 @@ public class AchievmentRegistry {
             achieveram512).registerStat()
                 .setSpecial();
 
-        achievesnowtiny = new Achievement(
-            "achievement.achievesnowtiny",
-            "achievesnowtiny",
-            0,
-            3,
-            Items.snowball,
-            null).registerStat()
+        achievesnowtiny = new Achievement("achievement.achievesnowtiny", "achievesnowtiny", 0, 3, Items.snowball, null)
+            .registerStat()
             .setSpecial();
 
-        achievesnowtall = new Achievement(
-            "achievement.achievesnowtall",
-            "achievesnowtall",
-            1,
-            3,
-            Items.snowball,
-            null).registerStat()
+        achievesnowtall = new Achievement("achievement.achievesnowtall", "achievesnowtall", 1, 3, Items.snowball, null)
+            .registerStat()
             .setSpecial();
 
-        achievesnow = new Achievement(
-            "achievement.achievesnow",
-            "achievesnow",
-            2,
-            3,
-            Items.snowball,
-            null).registerStat()
+        achievesnow = new Achievement("achievement.achievesnow", "achievesnow", 2, 3, Items.snowball, null)
+            .registerStat()
             .setSpecial();
 
         achieverockmonster = new Achievement(
@@ -113,7 +98,7 @@ public class AchievmentRegistry {
             4,
             Item.getItemFromBlock(Blocks.cobblestone),
             null).registerStat()
-            .setSpecial();
+                .setSpecial();
 
         creepsPage = new AchievementPage(
             "More Creeps",

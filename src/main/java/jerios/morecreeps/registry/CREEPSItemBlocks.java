@@ -1,14 +1,14 @@
 package jerios.morecreeps.registry;
 
-import jerios.morecreeps.item.BlockCREEPSSpawner;
-import jerios.morecreeps.item.ItemMonsterSpawner;
-import jerios.morecreeps.item.consumables.BandaidItems;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 
 import cpw.mods.fml.common.registry.GameRegistry;
+import jerios.morecreeps.item.BlockCREEPSSpawner;
 import jerios.morecreeps.item.ItemCreepSpawnEgg;
+import jerios.morecreeps.item.ItemMonsterSpawner;
 import jerios.morecreeps.item.base.ItemsCREEPS;
+import jerios.morecreeps.item.consumables.BandaidItems;
 import jerios.morecreeps.item.gems.HealingGemItems;
 import jerios.morecreeps.item.misc.BatteryItems;
 import jerios.morecreeps.item.throwables.GooDonutItems;
@@ -53,7 +53,7 @@ public class CREEPSItemBlocks {
 
     private static void registerBlocks() {
 
-        spawner= new BlockCREEPSSpawner().setCreativeTab(TabsManager.SPAWN_EGG_TAB);
+        spawner = new BlockCREEPSSpawner().setCreativeTab(TabsManager.SPAWN_EGG_TAB);
 
         GameRegistry.registerBlock(spawner, ItemMonsterSpawner.class, "monsterSpawner");
     }
