@@ -113,6 +113,79 @@
       {"name":"Gems/healinggem", "stream":false}
     ]
   },
+  "CastleCritter":{
+    "category": "master",
+    "sounds":[
+      {"name":"CastleCritter/living/castlecritter1", "stream":false},
+      {"name":"CastleCritter/living/castlecritter2", "stream":false},
+      {"name":"CastleCritter/living/castlecritter3", "stream":false},
+      {"name":"CastleCritter/living/castlecritter4", "stream":false}
+    ]
+  },
+  "CastleCritterHurt":{
+    "category": "master",
+    "sounds":[
+      {"name":"CastleCritter/hurt/castlecritterhurt1", "stream":false},
+      {"name":"CastleCritter/hurt/castlecritterhurt2", "stream":false},
+      {"name":"CastleCritter/hurt/castlecritterhurt3", "stream":false}
+    ]
+  },
+  "CastleCritterDeath":{
+    "category": "master",
+    "sounds":[
+      {"name":"CastleCritter/death/castlecritterdeath", "stream":false}
+    ]
+  },
+  "InvisibleManForgetIt":{
+    "category": "master",
+    "sounds":[
+      {"name":"InvisibleMan/invisiblemanforgetit", "stream":false}
+    ]
+  },
+  "InvisibleMan":{
+    "category": "master",
+    "sounds":[
+      {"name":"InvisibleMan/living/invisibleman1", "stream":false},
+      {"name":"InvisibleMan/living/invisibleman2", "stream":false},
+      {"name":"InvisibleMan/living/invisibleman3", "stream":false},
+      {"name":"InvisibleMan/living/invisibleman4", "stream":false},
+      {"name":"InvisibleMan/living/invisibleman5", "stream":false}
+    ]
+  },
+  "InvisibleManAngry":{
+    "category": "master",
+    "sounds":[
+      {"name":"InvisibleMan/living/angry/invisiblemanangry1", "stream":false},
+      {"name":"InvisibleMan/living/angry/invisiblemanangry2", "stream":false},
+      {"name":"InvisibleMan/living/angry/invisiblemanangry3", "stream":false},
+      {"name":"InvisibleMan/living/angry/invisiblemanangry4", "stream":false},
+      {"name":"InvisibleMan/living/angry/invisiblemanangry5", "stream":false},
+      {"name":"InvisibleMan/living/angry/invisiblemanangry6", "stream":false},
+      {"name":"InvisibleMan/living/angry/invisiblemanangry7", "stream":false},
+      {"name":"InvisibleMan/living/angry/invisiblemanangry8", "stream":false},
+      {"name":"InvisibleMan/living/angry/invisiblemanangry9", "stream":false},
+      {"name":"InvisibleMan/living/angry/invisiblemanangry10", "stream":false},
+      {"name":"InvisibleMan/living/angry/invisiblemanangry11", "stream":false}
+    ]
+  },
+   "InvisibleManDeath":{
+    "category": "master",
+    "sounds":[
+      {"name":"InvisibleMan/death/invisiblemandeath1", "stream":false},
+	   {"name":"InvisibleMan/death/invisiblemandeath2", "stream":false}
+    ]
+  },
+   "InvisibleManHurt":{
+    "category": "master",
+    "sounds":[
+      {"name":"InvisibleMan/hurt/invisiblemanhurt1", "stream":false},
+	    {"name":"InvisibleMan/hurt/invisiblemanhurt2", "stream":false},
+	    {"name":"InvisibleMan/hurt/invisiblemanhurt3", "stream":false},
+	    {"name":"InvisibleMan/hurt/invisiblemanhurt4", "stream":false},
+	    {"name":"InvisibleMan/hurt/invisiblemanhurt5", "stream":false},
+	    {"name":"InvisibleMan/hurt/invisiblemanhurt6", "stream":false}
+    ]
+  },
   "WelcomePlayer":{
     "category": "master",
     "sounds":[

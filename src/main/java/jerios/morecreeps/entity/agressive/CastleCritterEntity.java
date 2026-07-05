@@ -106,17 +106,17 @@ public class CastleCritterEntity extends BaseAgressiveCreep {
 
     @Override
     protected String getLivingSound() {
-        return super.rand.nextInt(5) == 0 ? "morecreeps:castlecritter" : null;
+        return super.rand.nextInt(5) == 0 ? "morecreeps:CastleCritter" : null;
     }
 
     @Override
     protected String getHurtSound() {
-        return "morecreeps:castlecritterhurt";
+        return "morecreeps:CastleCritterHurt";
     }
 
     @Override
     protected String getDeathSound() {
-        return "morecreeps:castlecritterdeath";
+        return "morecreeps:CastleCritterDeath";
     }
     @Override
     protected void dropFewItems(boolean recentHit, int lootLevel) {

@@ -142,7 +142,7 @@ public class InvisibleManEntity extends BaseAgressiveCreep {
         if (super.rand.nextInt(30) == 0 && this.anger > 0) {
             anger--;
             if (this.anger == 0) {
-                super.worldObj.playSoundAtEntity(this, "creepsounds.invisiblemanforgetit", 1.0F, (super.rand.nextFloat() - super.rand.nextFloat()) * 0.2F + 1.0F);
+                super.worldObj.playSoundAtEntity(this, "morecreeps:InvisibleManForgetIt", 1.0F, (super.rand.nextFloat() - super.rand.nextFloat()) * 0.2F + 1.0F);
                 super.entityToAttack = null;
                 setTexture("invisibleman");
             }
@@ -221,17 +221,17 @@ public class InvisibleManEntity extends BaseAgressiveCreep {
 
     @Override
     protected String getLivingSound() {
-        return this.anger == 0 ? "morecreeps:invisibleman" : "morecreeps:invisiblemanangry";
+        return this.anger == 0 ? "morecreeps:InvisibleMan" : "morecreeps:InvisibleManAngry";
     }
 
     @Override
     protected String getHurtSound() {
-        return "morecreeps:invisiblemanhurt";
+        return "morecreeps:InvisibleManHurt";
     }
 
     @Override
     protected String getDeathSound() {
-        return "morecreeps:invisiblemandeath";
+        return "morecreeps:InvisibleManDeath";
     }
 
 
