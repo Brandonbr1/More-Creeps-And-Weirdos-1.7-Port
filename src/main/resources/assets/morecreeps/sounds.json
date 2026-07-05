@@ -136,6 +136,12 @@
       {"name":"CastleCritter/death/castlecritterdeath", "stream":false}
     ]
   },
+  "BandAid":{
+    "category": "master",
+    "sounds":[
+      {"name":"PlayerEvents/bandaid", "stream":false}
+    ]
+  },
   "InvisibleManForgetIt":{
     "category": "master",
     "sounds":[

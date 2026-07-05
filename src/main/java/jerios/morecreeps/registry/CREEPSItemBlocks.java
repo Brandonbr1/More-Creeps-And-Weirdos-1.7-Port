@@ -2,6 +2,7 @@ package jerios.morecreeps.registry;
 
 import jerios.morecreeps.item.BlockCREEPSSpawner;
 import jerios.morecreeps.item.ItemMonsterSpawner;
+import jerios.morecreeps.item.consumables.ItemBandaid;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 
@@ -21,6 +22,7 @@ public class CREEPSItemBlocks {
     public static Item battery;
     public static Item money;
     public static Item ram16k;
+    public static Item bandaid;
 
     public static void registerItems() {
         spawnEgg = new CreepSpawnEggItem().setCreativeTab(TabsManager.SPAWN_EGG_TAB);
@@ -40,6 +42,9 @@ public class CREEPSItemBlocks {
 
         ram16k = new CREEPSItem("ram16k").setMaxStackSize(64);
         registerItem(ram16k, "ram16k");
+
+        bandaid = new ItemBandaid();
+        registerItem(bandaid, "bandAid");
 
         registerBlocks();
     }
