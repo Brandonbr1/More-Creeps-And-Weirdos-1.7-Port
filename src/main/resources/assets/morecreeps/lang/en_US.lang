@@ -5,6 +5,7 @@ entity.morecreeps.EvilPig.name=Evil Pig
 entity.morecreeps.EvilLight.name=Evil Light
 entity.morecreeps.EvilSnowman.name=Evil Snowman
 entity.morecreeps.InvisibleMan.name=Invisible Man
+entity.morecreeps.CastleCritter.name=Castle Critter
 
 # Items
 item.healingGem.name=Healing Gem
