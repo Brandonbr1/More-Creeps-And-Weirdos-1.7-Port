@@ -11,6 +11,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityMobSpawner;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.Facing;
@@ -53,28 +54,35 @@ public class ItemMonsterSpawner extends ItemBlock {
 
     @Override
     public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int facing,
-        float unknown, float unkown2, float unkown3) {
+        float hitX, float hitY, float hitZ) {
 
         if (!world.isRemote) {
+
             x += Facing.offsetsXForSide[facing];
             y += Facing.offsetsYForSide[facing];
             z += Facing.offsetsZForSide[facing];
 
+
             world.setBlock(x, y, z, Blocks.mob_spawner, 0, 2);
+            TileEntity tileentitymobspawner = world.getTileEntity(x, y, z);
 
-            TileEntityMobSpawner tileentitymobspawner = (TileEntityMobSpawner) world.getTileEntity(x, y, z);
+                 if (tileentitymobspawner instanceof TileEntityMobSpawner) {
+                     TileEntityMobSpawner spawner = (TileEntityMobSpawner) tileentitymobspawner;
 
-            if (tileentitymobspawner != null) {
-                String name = ItemCreepSpawnEgg.STRING_ID_MAP.get(stack.getItemDamage());
-                if (name != null) {
-                    tileentitymobspawner.func_145881_a()
-                        .setEntityName(name);
-                }
-            }
+                     String name = ItemCreepSpawnEgg.STRING_ID_MAP.get(stack.getItemDamage());
+                     if (name != null) {
+                         spawner.func_145881_a()
+                             .setEntityName(name);
+                     }
+                 }
 
-            if (!player.capabilities.isCreativeMode) {
-                --stack.stackSize;
-            }
+
+                 if (!player.capabilities.isCreativeMode) {
+                     --stack.stackSize;
+                 }
+
+
+            return true;
 
         }
 
@@ -86,11 +94,15 @@ public class ItemMonsterSpawner extends ItemBlock {
 
         EntityLiving entity = ItemCreepSpawnEgg.createEntityByID(stack.getItemDamage(), player.worldObj);
 
-        if (entity instanceof IMob && getEntityNameOnly(stack) != null) {
-            list.add(EnumChatFormatting.RED + getEntityNameOnly(stack));
-        } else {
-            list.add(EnumChatFormatting.BLUE + getEntityNameOnly(stack));
+        if (getEntityNameOnly(stack) != null) {
+            if (entity instanceof IMob) {
+                list.add(EnumChatFormatting.DARK_RED + getEntityNameOnly(stack));
+            } else{
+                list.add(EnumChatFormatting.DARK_AQUA + getEntityNameOnly(stack));
+            }
+
         }
+
 
         super.addInformation(stack, player, list, p_77624_4_);
     }

@@ -34,8 +34,8 @@
   "EvilCreatureDeath":{
     "category": "hostile",
     "sounds":[
-      {"name":"EvilCreature/death/CvilCreatureDeath1", "stream":false},
-      {"name":"EvilCreature/death/CvilCreatureDeath2", "stream":false}
+      {"name":"EvilCreature/death/EvilCreatureDeath1", "stream":false},
+      {"name":"EvilCreature/death/EvilCreatureDeath2", "stream":false}
     ]
   },
   "EvilCreatureHurt":{
@@ -185,11 +185,11 @@
     "category": "neutral",
     "sounds":[
       {"name":"InvisibleMan/hurt/InvisibleManHurt1", "stream":false},
-	    {"name":"InvisibleMan/hurt/InvisibleManHurt2", "stream":false},
-	    {"name":"InvisibleMan/hurt/InvisibleManHurt3", "stream":false},
-	    {"name":"InvisibleMan/hurt/InvisibleManHurt4", "stream":false},
-	    {"name":"InvisibleMan/hurt/InvisibleManHurt5", "stream":false},
-	    {"name":"InvisibleMan/hurt/InvisibleManHurt6", "stream":false}
+      {"name":"InvisibleMan/hurt/InvisibleManHurt2", "stream":false},
+      {"name":"InvisibleMan/hurt/InvisibleManHurt3", "stream":false},
+	 {"name":"InvisibleMan/hurt/InvisibleManHurt4", "stream":false},
+	{"name":"InvisibleMan/hurt/InvisibleManHurt5", "stream":false},
+	{"name":"InvisibleMan/hurt/InvisibleManHurt6", "stream":false}
     ]
   },
    "RockMonster":{
@@ -205,15 +205,15 @@
     "category": "neutral",
     "sounds":[
       {"name":"RockMonster/hurt/RockMonsterHurt1", "stream":false},
-	    {"name":"RockMonster/hurt/RockMonsterHurt2", "stream":false},
-	    {"name":"RockMonster/hurt/RockMonsterHurt3", "stream":false}
+      {"name":"RockMonster/hurt/RockMonsterHurt2", "stream":false},
+      {"name":"RockMonster/hurt/RockMonsterHurt3", "stream":false}
     ]
   },
   "RockMonsterDeath":{
     "category": "neutral",
     "sounds":[
-      {"name":"RockMonster/hurt/RockMonsterDeath1", "stream":false},
-	    {"name":"RockMonster/hurt/RockMonsterDeath2", "stream":false}
+      {"name":"RockMonster/death/RockMonsterDeath1", "stream":false},
+      {"name":"RockMonster/death/RockMonsterDeath2", "stream":false}
     ]
   },
   "WelcomePlayer":{
