@@ -57,7 +57,7 @@ public class EntityInvisibleMan extends BaseAgressiveCreep {
     protected void entityInit() {
         super.entityInit();
         this.getDataWatcher()
-            .addObject(TEXTURE, "");
+            .addObject(TEXTURE, "invisibleman");
     }
 
     public String getTexture() {
@@ -70,7 +70,7 @@ public class EntityInvisibleMan extends BaseAgressiveCreep {
             .updateObject(TEXTURE, texture);
     }
 
-    public static final String ANGER_NBT = CREEPSConstants.MOD_ID_DOT + "ANGERLEVELS";
+    public static final String ANGER_NBT = CREEPSConstants.MOD_ID_DOT + "ANGER_LEVELS";
     public static final String TEXTURE_NBT = CREEPSConstants.MOD_ID_DOT + "TEXTURE";
 
     @Override

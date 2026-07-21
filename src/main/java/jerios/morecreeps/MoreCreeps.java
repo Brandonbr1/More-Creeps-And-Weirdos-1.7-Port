@@ -2,9 +2,15 @@ package jerios.morecreeps;
 
 import java.util.Random;
 
+import cpw.mods.fml.common.eventhandler.Event;
+import jerios.morecreeps.command.CommandCreepsSummon;
+import jerios.morecreeps.item.ItemCreepSpawnEgg;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.MobSpawnerBaseLogic;
+import net.minecraft.tileentity.TileEntityMobSpawner;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.IIcon;
 import net.minecraftforge.client.event.TextureStitchEvent;
@@ -27,6 +33,7 @@ import jerios.morecreeps.registry.CREEPSItemBlocks;
 import jerios.morecreeps.registry.RegistryHandler;
 import jerios.morecreeps.utils.AchievementUtil;
 import jerios.morecreeps.utils.CREEPSProps;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 
 @Mod(
     modid = MoreCreeps.MODID,
@@ -160,7 +167,43 @@ public class MoreCreeps {
             }
 
         }
+    }
 
+    @SubscribeEvent
+    public void onRightClickSpawner(PlayerInteractEvent event) {
+        if (event.action.equals(PlayerInteractEvent.Action.RIGHT_CLICK_BLOCK)) {
+            int x = event.x;
+            int y = event.y;
+            int z = event.z;
+
+           ItemStack currentStack = event.entityPlayer.inventory.getCurrentItem();
+            if (currentStack == null) return;
+           Item currentItem = currentStack.getItem();
+            if (currentItem == null) return;
+
+            TileEntityMobSpawner te = (TileEntityMobSpawner) event.world.getTileEntity(x,y,z);
+            if (te != null) {
+                MobSpawnerBaseLogic logic = te.func_145881_a();
+
+                if (logic != null) {
+
+                    if (currentItem instanceof ItemCreepSpawnEgg) {
+                        int meta = currentStack.getItemDamage();
+                        event.useItem = Event.Result.DENY;
+
+                       String name = ItemCreepSpawnEgg.INTEGER_STRING_MAP.get(meta);
+
+                       if (name != null) {
+                           logic.setEntityName(name);
+                           event.world.markBlockForUpdate(x,y,z);
+                       }
+                    }
+
+                }
+
+            }
+
+        }
     }
 
     @Mod.EventHandler
@@ -172,5 +215,7 @@ public class MoreCreeps {
     public void postInit(FMLPostInitializationEvent event) {}
 
     @Mod.EventHandler
-    public void serverStarting(FMLServerStartingEvent event) {}
+    public void serverStarting(FMLServerStartingEvent event) {
+        event.registerServerCommand(new CommandCreepsSummon());
+    }
 }

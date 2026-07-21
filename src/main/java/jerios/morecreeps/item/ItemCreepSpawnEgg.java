@@ -28,6 +28,8 @@ public class ItemCreepSpawnEgg extends ItemMonsterPlacer {
     public static final Map<Integer, EGGSpots> INTEGER_COLOR_MAP = new LinkedHashMap<>(32);
     public static final Map<String, Class<?>> STRING_CLASS_MAP = new HashMap<>(32);
     public static final Map<Integer, String> STRING_ID_MAP = new HashMap<>(32);
+    public static final Map<Class<?>, Integer> CLASS_INTEGER_MAP = new HashMap<>(32);
+    public static final Map<String, Integer> STRING_INTEGER_MAP = new HashMap<>(32);
 
     public static void addSpawnEgg(int id, Class<?> clazz, String s, int color1, int color2) {
         INTEGER_CLASS_MAP.put(id, clazz);
@@ -35,6 +37,8 @@ public class ItemCreepSpawnEgg extends ItemMonsterPlacer {
         INTEGER_COLOR_MAP.put(id, new EGGSpots(color1, color2, id));
         STRING_CLASS_MAP.put(s, clazz);
         STRING_ID_MAP.put(id, s);
+        CLASS_INTEGER_MAP.put(clazz, id);
+        STRING_INTEGER_MAP.put(s, id);
     }
 
     public ItemCreepSpawnEgg() {
@@ -61,6 +65,17 @@ public class ItemCreepSpawnEgg extends ItemMonsterPlacer {
     public int getColorFromItemStack(ItemStack p_82790_1_, int p_82790_2_) {
         EGGSpots entityegginfo = INTEGER_COLOR_MAP.get(p_82790_1_.getItemDamage());
         return entityegginfo != null ? (p_82790_2_ == 0 ? entityegginfo.spot1 : entityegginfo.spot2) : 16777215;
+    }
+
+    public static int getEntityID(Entity p_75619_0_)
+    {
+        Class<?> oclass = p_75619_0_.getClass();
+        return CLASS_INTEGER_MAP.containsKey(oclass) ? ((Integer)CLASS_INTEGER_MAP.get(oclass)).intValue() : 0;
+    }
+
+    public static Set<String> func_151515_b()
+    {
+        return Collections.unmodifiableSet(STRING_INTEGER_MAP.keySet());
     }
 
     @Override

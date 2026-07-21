@@ -63,7 +63,7 @@ public class ItemMonsterSpawner extends ItemBlock {
             z += Facing.offsetsZForSide[facing];
 
 
-            world.setBlock(x, y, z, Blocks.mob_spawner, 0, 2);
+            world.setBlock(x, y, z, Blocks.mob_spawner, 0, 3);
             TileEntity tileentitymobspawner = world.getTileEntity(x, y, z);
 
                  if (tileentitymobspawner instanceof TileEntityMobSpawner) {
@@ -100,9 +100,7 @@ public class ItemMonsterSpawner extends ItemBlock {
             } else{
                 list.add(EnumChatFormatting.DARK_AQUA + getEntityNameOnly(stack));
             }
-
         }
-
 
         super.addInformation(stack, player, list, p_77624_4_);
     }

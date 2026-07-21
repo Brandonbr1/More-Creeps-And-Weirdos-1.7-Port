@@ -1,9 +1,13 @@
 package jerios.morecreeps.entity.base;
 
+import jerios.morecreeps.item.ItemCreepSpawnEgg;
+import jerios.morecreeps.registry.CREEPSItemBlocks;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
 import jerios.morecreeps.CREEPSConstants;
@@ -77,6 +81,16 @@ public class BaseAgressiveCreep extends EntityMob {
     public void readEntityFromNBT(NBTTagCompound nbttagcompound) {
         super.readEntityFromNBT(nbttagcompound);
         this.setModelSize(nbttagcompound.getFloat(DW_STRING));
+    }
+
+    @Override
+    public ItemStack getPickedResult(MovingObjectPosition target)
+    {
+        int id2 = ItemCreepSpawnEgg.getEntityID(this);
+        if (id2 > 0 && ItemCreepSpawnEgg.INTEGER_COLOR_MAP.containsKey(id2)) {
+            return new ItemStack(CREEPSItemBlocks.spawnEgg, 1, id2);
+        }
+        return null;
     }
 
 }
